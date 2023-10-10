@@ -5,7 +5,7 @@ import './App.css'
 function App () {
     return (
         <>
-            <p>Lalalala lala lala s</p>
+
         </>
     )
 }
