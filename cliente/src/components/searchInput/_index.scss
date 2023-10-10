@@ -1,0 +1,13 @@
+.search-form {
+  background-color: red;
+  height: fit-content;
+  padding: 5px 10px;
+  border-radius: 20px;
+
+  .search-form__input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+
+}
