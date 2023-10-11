@@ -1,0 +1,13 @@
+.navbar-container {
+  width: fit-content;
+
+  .navbar__list {
+    display: flex;
+    gap: 15px;
+
+    .navbar__item {
+      color: black;
+    }
+
+  }
+}
