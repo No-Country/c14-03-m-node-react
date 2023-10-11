@@ -1,10 +1,8 @@
 import React from 'react'
 import { useRoutes, BrowserRouter } from 'react-router-dom'
-import { NavBar } from './components/navbar/NavBar'
-import { Footer } from './components/footer/Footer'
+import Header from './components/organisms/header'
+import Footer from './components/organisms/footer'
 import { GenericProvider } from './context'
-
-import './App.css'
 
 const AppRoutes = () => {
     const routes = useRoutes([
@@ -18,7 +16,7 @@ function App () {
         <>
             <GenericProvider>
                 <BrowserRouter>
-                    <NavBar />
+                    <Header />
                     {/* <Layout> */}
                     <AppRoutes />
                     {/* </Layout> */}
