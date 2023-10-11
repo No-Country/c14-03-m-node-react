@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { CgProfile } from 'react-icons/cg'
-import SessionPanel from '../SessionPanel'
+import SessionPanel from '../../molecules/SessionPanel'
 
 function ProfileIcon () {
     const [isHovered, setIsHovered] = useState(true)

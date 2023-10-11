@@ -1,7 +1,7 @@
 import React from 'react'
-import NavBar from '../navbar'
-import SearchInput from '../searchInput'
-import ProfileIcon from '../profileIcon'
+import NavBar from '../../molecules/navbar'
+import SearchInput from '../../atoms/searchInput'
+import ProfileIcon from '../../atoms/profileIcon'
 
 function Header () {
     return (

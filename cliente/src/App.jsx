@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRoutes, BrowserRouter } from 'react-router-dom'
-import Header from './components/header'
-import Footer from './components/footer'
+import Header from './components/organisms/header'
+import Footer from './components/organisms/footer'
 import { GenericProvider } from './context'
 
 const AppRoutes = () => {
