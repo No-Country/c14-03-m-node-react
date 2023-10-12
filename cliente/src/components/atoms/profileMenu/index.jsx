@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
-function SessionPanel () {
+/* El componente funciona pero falta revisar navegacion con teclado porque no redirecciona al hacer enter o espacio */
+function ProfileMenu ({ mouseHandler }) {
     const controls = [
         {
             name: 'Iniciar Sesión',
@@ -12,8 +13,13 @@ function SessionPanel () {
             link: '/Signup'
         }
     ]
+    const { mouseEnter, mouseLeave } = mouseHandler()
     return (
-        <nav className='session-panel'>
+        <nav
+            className='session-panel'
+            onMouseEnter={mouseEnter}
+            onMouseLeave={mouseLeave}
+        >
             <ul className='session-panel__list'>
                 {controls.map((control) => (
                     <li key={control.name} className='session-panel__item'>
@@ -29,4 +35,4 @@ function SessionPanel () {
     )
 }
 
-export default SessionPanel
+export default ProfileMenu
