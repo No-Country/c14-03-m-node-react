@@ -3,14 +3,15 @@ import { useRoutes, BrowserRouter } from 'react-router-dom'
 import Header from './components/organisms/header'
 import Footer from './components/organisms/footer'
 import { GenericProvider } from './context'
+import Main from './components/organisms/main'
 
-const AppRoutes = () => {
-    const routes = useRoutes([
-        // { path: '/ReactWithTailwind/', element: <Home /> },
+// const AppRoutes = () => {
+//     const routes = useRoutes([
+//         // { path: '/ReactWithTailwind/', element: <Home /> },
 
-    ])
-    return routes
-}
+//     ])
+//     return routes
+// }
 function App () {
     return (
         <>
@@ -18,7 +19,8 @@ function App () {
                 <BrowserRouter>
                     <Header />
                     {/* <Layout> */}
-                    <AppRoutes />
+                    {/* <AppRoutes /> */}
+                    <Main/>
                     {/* </Layout> */}
                     <Footer/>
                 </BrowserRouter>

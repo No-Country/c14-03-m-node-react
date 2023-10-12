@@ -1,7 +1,7 @@
 import React from 'react'
-export function Section ({ title, children }) {
+export default function Section ({ title, children }) {
     return (
-        <section id={`section-${title}`} >
+        <section className='section'id={`section-${title}`} >
             <span className='section-title__shadow'>
                 {title.split(' ')[0]}
             </span>

@@ -1,0 +1,50 @@
+.anime-card{
+    position:relative;
+    height: 250px;
+    width:200px;
+    overflow:hidden;
+    border-radius: 10px;
+    display: block;
+
+    &:hover &__title{
+        font-size: 2rem;
+    }
+    // &:hover &__image{
+    //    transform: scale(110%); //me da problemas con el gradient en el elemento padre
+    // }
+    &__gradient:hover &__image{
+            transform: scale(110%);
+    }
+    &__gradient::before{
+        content:'';
+        display: block;
+        position:absolute;
+        height: 100%;
+        width:100%;
+        background-image: linear-gradient(to top, rgba(black,.8),rgba(black,.4) ,transparent);
+        
+    }
+    &__image{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: transform .3s;
+        
+    }
+
+    &__rating{
+        position: absolute;
+        top:15px;
+        right: 15px;
+    }
+
+    &__title{
+        color:white;
+        font-size: 1.8rem;
+        position:absolute;
+        bottom:0px;
+        padding:10px;
+        overflow: hidden;
+        transition: .3s;
+    }
+}
