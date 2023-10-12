@@ -9,5 +9,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    .session-panel__item a{
+      color: white;
+    }
   }
 }
