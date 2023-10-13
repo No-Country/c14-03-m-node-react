@@ -1,0 +1,25 @@
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  width: clamp(300px, 50%, 600px);
+
+  &__title {
+    width: 80%;
+    text-wrap: wrap;
+    font-size: 7rem;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  &__synopsis {
+    // overflow: hidden;
+    width: clamp(300px, 90%, 600px);
+    // height: calc(4 * (1em * 1.15));
+  }
+  &__buttons{
+    display: flex;
+    width: clamp(300px, 60%, 500px);
+    justify-content: space-between;
+  }
+}

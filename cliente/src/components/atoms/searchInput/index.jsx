@@ -7,6 +7,7 @@ function SearchInput () {
 
     const handleSearch = (e) => {
         e.preventDefault()
+        if (searchText.trim() === '') { return }
         console.log(`Buscando: ${searchText}`)
     }
 

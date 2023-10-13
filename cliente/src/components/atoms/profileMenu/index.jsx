@@ -13,7 +13,7 @@ function ProfileMenu ({ mouseHandler }) {
             link: '/Signup'
         }
     ]
-    const { mouseEnter, mouseLeave } = mouseHandler()
+    const { mouseEnter, mouseLeave } = mouseHandler
     return (
         <nav
             className='session-panel'

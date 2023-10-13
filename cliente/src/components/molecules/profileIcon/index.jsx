@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CgProfile } from 'react-icons/cg'
+import { IoPersonOutline } from 'react-icons/io5'
 import ProfileMenu from '../../atoms/profileMenu'
 
 function ProfileIcon () {
@@ -12,7 +12,7 @@ function ProfileIcon () {
             setIsHovered(true)
         }
         const handleMouseLeave = () => {
-            closeMenuTimeOut = setTimeout(() => setIsHovered(false), 400)
+            closeMenuTimeOut = setTimeout(() => setIsHovered(false), 500)
         }
         return {
             mouseEnter: handleMouseEnter,
@@ -30,13 +30,14 @@ function ProfileIcon () {
     return (
         <button
             className='profile-icon-container'
+            onClick={mouseEnter}
             onMouseEnter={mouseEnter}
             onMouseLeave={mouseLeave}
             onKeyDown={handleKeyDown}
         >
-            <CgProfile className='profile-icon'/>
+            <IoPersonOutline className='profile-icon'/>
             {isHovered && (
-                <ProfileMenu mouseHandler={dualMouseHandler} />
+                <ProfileMenu mouseHandler={{ mouseEnter, mouseLeave }} />
             )}
         </button>
     )

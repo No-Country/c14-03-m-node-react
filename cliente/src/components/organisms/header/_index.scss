@@ -10,10 +10,13 @@
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   padding: 0 40px;
-  .header__title {
+
+  .header__title a {
+    color: white;
     font-size: 2rem;
     font-weight: bold;
   }
+
   .header__rigth {
     display: flex;
     align-items: center;
