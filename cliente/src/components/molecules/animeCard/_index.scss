@@ -7,29 +7,29 @@
     display: block;
 
     &:hover &__title{
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
-    // &:hover &__image{
-    //    transform: scale(110%); //me da problemas con el gradient en el elemento padre
-    // }
-    &__gradient:hover &__image{
-            transform: scale(110%);
+    &:hover &__image{
+       transform: scale(103%); //me da problemas con el gradient en el elemento padre
     }
-    &__gradient::before{
-        content:'';
-        display: block;
-        position:absolute;
+    &__link{
         height: 100%;
-        width:100%;
-        background-image: linear-gradient(to top, rgba(black,.8),rgba(black,.4) ,transparent);
-        
+        width: 100%;
     }
+
     &__image{
         height: 100%;
         width: 100%;
         object-fit: cover;
         transition: transform .3s;
-        
+    }
+    &__gradient{
+        background: linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.1));
+        position:absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
     }
 
     &__rating{

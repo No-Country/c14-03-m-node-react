@@ -5,9 +5,11 @@ export default function AnimeCard ({ item }) {
         <>
             <div className='anime-card'>
                 <a className='anime-card__link' href="#">
+                    <img className='anime-card__image' src={item.image} alt={`portada de ${item.title}`} />
                     <div className="anime-card__gradient">
-                        <img className='anime-card__image' src={item.img} alt={`portada de ${item.title}`} />
+
                     </div>
+
                     {
                         item.score && (
                             <div className='anime-card__rating'>

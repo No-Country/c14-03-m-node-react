@@ -1,5 +1,5 @@
 import React from 'react'
-export function Trailer ({ item }) {
+export function NoticiaCard ({ item }) {
     return (
         <></>
     )
