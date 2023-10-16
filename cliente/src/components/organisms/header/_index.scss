@@ -1,10 +1,12 @@
+@use '../../../Sass/variables' as *;
+
 .header-Container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100vw;
   height: 88px;
-  background-color: rgba(111, 105, 105, .5);
+  background-color: rgba($dark-blue, .3);
   position: fixed;
   top: 0;
   border-bottom-left-radius: 50px;
@@ -13,7 +15,7 @@
   z-index: 10;
 
   .header__title a {
-    color: white;
+    color: $white;
     font-size: 2rem;
     font-weight: bold;
   }

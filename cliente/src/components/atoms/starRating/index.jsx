@@ -1,19 +1,19 @@
 import React from 'react'
 import { BsStarFill } from 'react-icons/bs'
 
-function StarRating ({ item }) {
+function StarRating ({ itemScore }) {
     const rateScale = [
         {
             name: 'bad',
-            points: 3
+            points: 4
         },
         {
             name: 'average',
-            points: 5
+            points: 6
         },
         {
             name: 'good',
-            points: 8
+            points: 7
         },
         {
             name: 'very-good',
@@ -21,22 +21,20 @@ function StarRating ({ item }) {
         },
         {
             name: 'excelent',
-            points: 9.5
+            points: 10
         }
     ]
 
     const status = rateScale
-        .filter(p => {
-            return item >= p.points
+        .find(level => {
+            return level.points >= itemScore
         })
-        .slice(-1)[0]
-    console.log(status)
     return (
         // <div className="rating">
-        <div className={`rating rating--${status.name}`}>
+        <div className={`rating rating--${status?.name}`}>
             <BsStarFill/>
             <span className='rating__points'>
-                {item}
+                {itemScore}
             </span>
         </div>
         // </div>

@@ -17,7 +17,7 @@ function HeroHomePage () {
         }, 15000)
         return () => clearInterval(interval)
     }, [])
-    if (carouselItems) {
+    if (carouselItems.length > 0) {
         return (
             <section className='hero'>
                 <div className='hero__bottom'>

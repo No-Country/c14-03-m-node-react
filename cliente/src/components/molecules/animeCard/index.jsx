@@ -3,9 +3,9 @@ import StarRating from '../../atoms/starRating'
 export default function AnimeCard ({ item }) {
     return (
         <>
-            <div className='anime-card'>
+            <div className='anime-card card'>
                 <a className='anime-card__link' href="#">
-                    <img className='anime-card__image' src={item.image} alt={`portada de ${item.title}`} />
+                    <img className='anime-card__image' src={item.image} alt={`portada de ${item.title}`} loading='lazy' />
                     <div className="anime-card__gradient">
 
                     </div>
@@ -13,7 +13,7 @@ export default function AnimeCard ({ item }) {
                     {
                         item.score && (
                             <div className='anime-card__rating'>
-                                <StarRating item={item.score}/>
+                                <StarRating itemScore={item.score}/>
                             </div>
                         )
                     }

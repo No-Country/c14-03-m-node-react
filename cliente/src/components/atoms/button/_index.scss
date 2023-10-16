@@ -1,5 +1,7 @@
+@use '../../../Sass/variables' as *;
+
 .button {
-  color: #ffffff;
+  color: $white;
   padding: 8px 16px;
   border-radius: 8px;
   display: flex;
@@ -9,10 +11,10 @@
     cursor: pointer;
   }
   &.filled {
-    background-color: rgb(203, 51, 179);
+    background-color: $contrast-pink;
   }
   &.light {
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid $white;
   }
 }
