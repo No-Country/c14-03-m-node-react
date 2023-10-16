@@ -2,7 +2,6 @@ import React from 'react'
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 
 function CarouselArrow ({ direction, handler }) {
-    console.log(direction === 'left')
     return (
         <button
             className={`carousel__arrow arrow-${direction}`}

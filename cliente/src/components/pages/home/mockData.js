@@ -86,6 +86,45 @@ const trailer4 = {
     "https://imagenes.elpais.com/resizer/0alCgok56VuEcSE1s2BELjuqPUM=/1200x675/cloudfront-eu-central-1.images.arcpublishing.com/prisa/C7BFNTXVSVCLBGFZPKBJOV3WCY.jpg",
   title: "Lorem ipsum sit dolor amet",
 };
+const trailer5 = {
+  isMarked: true,
+  image:
+    "https://i.pinimg.com/736x/47/86/1f/47861f7751f9de3d707fbbfe9be2ee89.jpg",
+  title: "Your Name Lorem",
+};
+
+const trailer6 = {
+  isMarked: false,
+  image:
+    "https://i.vimeocdn.com/video/1202969703-1684f8af633728d1a328fc77cd61f80eadc703d4f02484022360b6dcf9eced7b-d_640x360.jpg",
+  title: "Un nombre mas largo para probar como queda simon",
+};
+const trailer7 = {
+  isMarked: true,
+  image:
+    "https://i.blogs.es/a76cc0/_media_demon_slayer_switch_840ad63e97/450_1000.jpeg",
+  title: "Ia tu sabe como esta",
+};
+
+const trailer8 = {
+  isMarked: false,
+  image:
+    "https://imagenes.elpais.com/resizer/0alCgok56VuEcSE1s2BELjuqPUM=/1200x675/cloudfront-eu-central-1.images.arcpublishing.com/prisa/C7BFNTXVSVCLBGFZPKBJOV3WCY.jpg",
+  title: "Lorem ipsum sit dolor amet asd",
+};
+const trailer9 = {
+  isMarked: true,
+  image:
+    "https://i.blogs.es/a76cc0/_media_demon_slayer_switch_840ad63e97/450_1000.jpeg",
+  title: "Ia tu sabe que si se",
+};
+
+const trailer10 = {
+  isMarked: false,
+  image:
+    "https://imagenes.elpais.com/resizer/0alCgok56VuEcSE1s2BELjuqPUM=/1200x675/cloudfront-eu-central-1.images.arcpublishing.com/prisa/C7BFNTXVSVCLBGFZPKBJOV3WCY.jpg",
+  title: "Lorem ipsum sit dolor amet oh si sugar",
+};
 
 export const cards = [
   prueba1,
@@ -99,4 +138,15 @@ export const cards = [
   prueba9,
   prueba10,
 ];
-export const trailers = [trailer1, trailer2, trailer3, trailer4];
+export const trailers = [
+  trailer1,
+  trailer2,
+  trailer3,
+  trailer4,
+  trailer5,
+  trailer6,
+  trailer7,
+  trailer8,
+  trailer9,
+  trailer10,
+];
