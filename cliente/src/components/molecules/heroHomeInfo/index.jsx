@@ -6,7 +6,7 @@ import { AiOutlinePlus, AiOutlinePlayCircle } from 'react-icons/ai'
 function HeroInfo () {
     const { indexItemSelected, carouselItems } = useContext(HomeContext)
     const itemSelected = carouselItems ? carouselItems[indexItemSelected] : false
-    console.log(itemSelected)
+    // console.log(itemSelected)
     if (itemSelected) {
         return (
             <article className='hero-info'>

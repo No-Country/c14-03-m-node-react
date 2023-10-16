@@ -4,11 +4,12 @@ import { HomeContext } from '../../../context/homecontext'
 import { mockData } from './mockData'
 
 function HeroHomePage () {
-    const { setCarouselItems, carouselItems, setIndexItemSelected } = useContext(HomeContext)
+    const { setCarouselItems, carouselItems, setIndexItemSelected, indexItemSelected } = useContext(HomeContext)
+    const itemSelected = carouselItems[indexItemSelected]
     useEffect(() => {
         const mockDataArray = []
         mockDataArray.push(...mockData)
-        setCarouselItems((prevState) => [...prevState, ...mockDataArray])
+        setCarouselItems(() => [...mockDataArray])
         const interval = setInterval(() => {
             setIndexItemSelected((prevIndex) =>
                 ((prevIndex + 1) % mockDataArray.length)
@@ -19,8 +20,15 @@ function HeroHomePage () {
     if (carouselItems) {
         return (
             <section className='hero'>
-                <HeroInfo/>
-
+                <div className='hero__bottom'>
+                    <HeroInfo/>
+                </div>
+                <picture className='hero__img-container'>
+                    <img
+                        className='hero__img'
+                        src={itemSelected.banner_img}
+                        alt={itemSelected.title} />
+                </picture>
             </section>
         )
     }

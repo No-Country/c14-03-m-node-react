@@ -4,7 +4,7 @@ import { HomeProvider } from '../../../context/homecontext'
 
 function Home () {
     return (
-        <main>
+        <main className='home-container'>
             <HomeProvider>
                 <HeroHomePage/>
             </HomeProvider>
