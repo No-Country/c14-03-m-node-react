@@ -1,12 +1,16 @@
 import React from 'react'
 export default function Section ({ title, children }) {
+    const firstWord = title?.split(' ')[0]
+    console.log(firstWord)
     return (
         <section className='section'id={`section-${title}`} >
-            <span className='section-title__shadow'>
-                {title.split(' ')[0]}
-            </span>
-            <h3 className='section-title'>{title}</h3>
-            <div>
+            <header className='section__header'>
+                <span className='section-title__shadow'>
+                    {firstWord}
+                </span>
+                <h3 className='section-title'>{title}</h3>
+            </header>
+            <div className='section__content-container'>
                 {children}
             </div>
         </section>

@@ -1,6 +1,8 @@
+@use '../../../Sass/variables' as *;
+
 .rating {
   padding:0.2rem;
-  background-color: white;
+  background-color: $white;
   border-radius: 5px;
   width:5rem;
   padding: 5px;
@@ -10,19 +12,19 @@
   align-items:center;
 
   &--bad{
-    color:red;
+    color:rgb(136, 13, 13);
   }
   &--average{
-    color:orange
+    color:rgb(184, 120, 0)
   } 
   &--good{
-    color:yellow
+    color:rgb(144, 144, 64)
   }
   &--very-good{
-    color:limegreen
+    color:rgb(96, 168, 20)
   }
   &--excelent{
-    color:green;
+    color:rgb(16, 213, 111);
   }
 
   &__points{

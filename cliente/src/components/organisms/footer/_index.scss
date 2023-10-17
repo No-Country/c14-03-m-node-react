@@ -1,5 +1,7 @@
+@use '../../../Sass/variables' as *;
+
 .footer {
-  position: fixed;
+  position: static;
   bottom: 0px;
   width: 100vw;
   height: 20rem;
@@ -16,11 +18,17 @@
     width: 100%;
     .footer__list {
       display: flex;
-      width: 90%;
+      width: clamp(300px, 90%, 1400px);
       justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 1rem;
       .footer__item > *{
-        color: white;
+        margin: 1rem;
+        color: $white;
       }
     }
+  }
+  .footer_note {
+    text-align: center;
   }
 }

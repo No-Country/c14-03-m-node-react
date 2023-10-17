@@ -1,0 +1,22 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: clamp(300px, 90%, 1400px);
+  height: fit-content;
+  overflow: hidden;
+  margin: 2rem 0;
+
+  &__content-container {
+    display: flex;
+    width: clamp(200px, 90%, 1300px);
+    gap: 1.5rem;
+    align-items: center;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    & .card {
+      scroll-snap-align: start;
+    }
+  }
+}
