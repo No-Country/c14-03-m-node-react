@@ -1,0 +1,16 @@
+@use '../../../Sass/variables' as *;
+
+.profile-icon-container {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  background-color: rgba($black, .5);
+  border-radius: 50%;
+
+  .profile-icon {
+    color: $contrast-pink;
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+}

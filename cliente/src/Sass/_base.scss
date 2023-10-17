@@ -1,9 +1,12 @@
+@use 'variables' as *;
 html {
   font-size: 62.5%;
 }
 
 body {
   font-size: 1.6rem;
+  background-color: $dark-blue;
+  color: $white;
 }
 
 * {
