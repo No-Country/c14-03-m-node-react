@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { HomeContext } from '../../../context/homecontext'
 import Button from '../../atoms/button'
+import StarRating from '../../atoms/starRating'
+
 import { AiOutlinePlus, AiOutlinePlayCircle } from 'react-icons/ai'
 
 function HeroInfo () {
@@ -11,8 +13,9 @@ function HeroInfo () {
         return (
             <article className='hero-info'>
                 <p className='hero-info__title'>{itemSelected.title.toUpperCase()}</p>
-                <div>
-                    <p>
+                <div className='hero-info__data'>
+                    <StarRating itemScore={itemSelected.score} />
+                    <p className='hero-info__genres'>
                         {itemSelected.genres.join(', ')}
                     </p>
                 </div>

@@ -161,6 +161,52 @@
   border-left: 1px solid rgb(203, 51, 179);
 }
 
+.carousel-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px;
+  height: 300px;
+  gap: 1rem;
+  z-index: 5;
+}
+.carousel-hero__image-container {
+  width: 100%;
+  height: 90%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.carousel-hero__image-container .carousel-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel-hero__sliders-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.carousel-hero__sliders-container .carousel-hero__slider {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transform: scale(0.8);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.375);
+}
+.carousel-hero__sliders-container .carousel-hero__slider.selected {
+  background-color: white;
+  box-shadow: 0px 0px 2px 2px rgba(203, 51, 179, 0.3);
+  transform: scale(1);
+}
+.carousel-hero__sliders-container .carousel-hero__slider:hover, .carousel-hero__sliders-container .carousel-hero__slider:focus {
+  outline-style: none;
+  box-shadow: 0px 0px 2px 2px rgba(203, 51, 179, 0.3);
+}
+
 .profile-icon-container {
   position: relative;
   width: 4rem;
@@ -193,8 +239,6 @@
   flex-direction: column;
   gap: 17px;
   width: clamp(300px, 50%, 600px);
-  margin-left: 4rem;
-  margin-bottom: 4rem;
 }
 .hero-info__title {
   width: 80%;
@@ -202,6 +246,11 @@
   font-size: 7rem;
   font-weight: 400;
   font-style: italic;
+}
+.hero-info__data {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 .hero-info__synopsis {
   overflow: hidden;
@@ -312,6 +361,21 @@
   min-width: 200px;
   height: max-content;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(21, 21, 29, 0.5) 100%);
+}
+.trailer__button-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.trailer__button-container .play-button {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.trailer__button-container:hover .play-button {
+  transform: scale(1.2);
 }
 .trailer__image-container {
   cursor: pointer;
@@ -518,8 +582,13 @@
   background-color: rgb(23, 21, 66);
 }
 .hero__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   position: relative;
   width: 100%;
+  height: 70%;
+  padding: 0 4rem 4rem 4rem;
   z-index: 3;
 }
 .hero__bottom::before {
