@@ -27,24 +27,23 @@ const arrManga = [
         image: 'https://www.ubuy.com.ph/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvODFzK2p4RTVLRUwuX0FDX1NMMTUwMF8uanBn.jpg'
     }
 ]
-const arrUsers = [
+// const arrUsers = [
 
-    {
-        id: 1,
-        user: 'juanito',
-        userImage: 'https://randomuser.me/api/portraits/men/79.jpg'
-    },
-    {
-        id: 2,
-        user: 'carlita',
-        userImage: 'https://randomuser.me/api/portraits/women/79.jpg'
-    }
-]
+//     {
+//         id: 1,
+//         user: 'juanito',
+//         userImage: 'https://randomuser.me/api/portraits/men/79.jpg'
+//     },
+//     {
+//         id: 2,
+//         user: 'carlita',
+//         userImage: 'https://randomuser.me/api/portraits/women/79.jpg'
+//     }
+// ]
 
 export default function ReviewCard ({ item }) {
-    const user = arrUsers.filter(u => u.id === item.idUser)[0]
+    // const user = arrUsers.filter(u => u.id === item.idUser)[0]
     const manga = arrManga.filter(u => u.id === item.idManga)[0]
-    console.log(manga)
     return (
         <>
             <div className='review-card'>
@@ -60,7 +59,7 @@ export default function ReviewCard ({ item }) {
                             </div>
                             {manga.score && (
                                 <div className='review-card__rating'>
-                                    <StarRating item={manga.score}/>
+                                    <StarRating itemScore={manga.score}/>
                                 </div>
                             )
                             }

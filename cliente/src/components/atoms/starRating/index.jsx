@@ -32,9 +32,9 @@ function StarRating ({ itemScore }) {
     return (
         // <div className="rating">
         <div className={`rating rating--${status?.name}`}>
-            <BsStarFill/>
+            <BsStarFill className='rating__star'/>
             <span className='rating__points'>
-                {itemScore}
+                {itemScore.toFixed(1)}
             </span>
         </div>
     )

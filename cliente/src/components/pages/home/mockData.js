@@ -126,6 +126,35 @@ const trailer10 = {
   title: "Lorem ipsum sit dolor amet oh si sugar",
 };
 
+const reseña1 = {
+  id: 1,
+  idManga: 2,
+  idUser: 2,
+  content: 'una masa, lo mejor que lei en mi vida',
+  date: '08-10-2023'
+}
+const reseña2 = {
+  id: 2,
+  idManga: 3,
+  idUser: 1,
+  content: 'una copia barata de friends',
+  date: '10-02-2023'
+}
+const reseña3 = {
+  id: 3,
+  idManga: 2,
+  idUser: 1,
+  content: 'lorem ipsum sit dolor amet y unas palabras de relleno mas para ver el comportamiento en el overflow',
+  date: '08-10-2023'
+}
+const reseña4 = {
+  id: 4,
+  idManga: 4,
+  idUser: 2,
+  content: '"romantica entonaba sus poemas mas brillantes susurrando al oido de mi representante: te amo, te odio, dame más"',
+  date: '08-10-2023'
+}
+
 export const cards = [
   prueba1,
   prueba2,
@@ -150,3 +179,9 @@ export const trailers = [
   trailer9,
   trailer10,
 ];
+export const reseñas = [
+  reseña1,
+  reseña2,
+  reseña3,
+  reseña4
+]
