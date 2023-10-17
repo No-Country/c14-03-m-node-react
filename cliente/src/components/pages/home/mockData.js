@@ -144,7 +144,7 @@ const reseña3 = {
   id: 3,
   idManga: 2,
   idUser: 1,
-  content: 'lorem ipsum sit dolor amet y unas palabras de relleno mas para ver el comportamiento en el overflow',
+  content: 'lorem ipsum sit dolor amet y unas palabras de relleno mas para ver el comportamiento en el overflow, y un poquito mas para ver como se comporta en bloques grandes de texto',
   date: '08-10-2023'
 }
 const reseña4 = {
@@ -154,7 +154,16 @@ const reseña4 = {
   content: '"romantica entonaba sus poemas mas brillantes susurrando al oido de mi representante: te amo, te odio, dame más"',
   date: '08-10-2023'
 }
-
+const user1 = {
+        id: 1,
+        userName: 'juanito',
+        userImage: 'https://randomuser.me/api/portraits/men/79.jpg'
+    }
+    const user2 = {
+        id: 2,
+        userName: 'carlita',
+        userImage: 'https://randomuser.me/api/portraits/women/79.jpg'
+    }
 export const cards = [
   prueba1,
   prueba2,
@@ -184,4 +193,8 @@ export const reseñas = [
   reseña2,
   reseña3,
   reseña4
+]
+export const users = [
+  user1,
+  user2
 ]

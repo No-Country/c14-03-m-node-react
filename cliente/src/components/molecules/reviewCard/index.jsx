@@ -54,8 +54,8 @@ export default function ReviewCard ({ item }) {
                     </div>
                     <div className="review-card__data">
                         <div className="review-card__title">
-                            <div>
-                                <p className='title'>{manga.title}</p>
+                            <div className='review-card__title--trunc'>
+                                {manga.title}
                             </div>
                             {manga.score && (
                                 <div className='review-card__rating'>
