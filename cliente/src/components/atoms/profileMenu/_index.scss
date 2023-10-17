@@ -1,16 +1,31 @@
-.session-panel{
+@use '../../../Sass/variables' as *;
+
+.session-panel {
   position: absolute;
-  right: 10px;
-  background-color: rgba(111, 105, 105, .5);
+  right: 0px;
+  top: 45px;
+  background-color: rgba($dark-blue, .7);
   padding: 10px;
   border-radius: 8px;
   width: max-content;
+
   .session-panel__list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    .session-panel__item a{
-      color: white;
+    gap: 6px;
+
+    .session-panel__item {
+      display: grid;
+      a {
+        padding: 7px 14px;
+        &:hover, &:focus {
+          background-color: rgba($contrast-pink, .3);
+          outline: 1px solid $contrast-pink;
+          border-radius: 8px;
+        }
+
+        color: $white;
+      }
     }
   }
 }

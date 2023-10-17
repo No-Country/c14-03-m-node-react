@@ -4,13 +4,13 @@ import MangaCover from '../../atoms/mangaCover'
 export default function AnimeCard ({ item }) {
     return (
         <>
-            <div className='anime-card'>
+            <div className='anime-card card'>
                 <a className='anime-card__link' href="#">
                     <MangaCover item={item}/>
                     {
                         item.score && (
                             <div className='anime-card__rating'>
-                                <StarRating item={item.score}/>
+                                <StarRating itemScore={item.score}/>
                             </div>
                         )
                     }

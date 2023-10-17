@@ -8,7 +8,7 @@ export default function TrailerCard ({ item }) {
     }
     return (
         <>
-            <div className="trailer">
+            <div className="trailer card">
                 <div className="trailer__image-container">
 
                     <img src={item.image} alt= {`Caratula trailer de ${item.title}`} className="trailer__image" />

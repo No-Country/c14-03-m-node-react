@@ -1,10 +1,13 @@
+@use '../../../Sass/variables' as *;
+
 .anime-card{
+    position:relative;
     position:relative;
     height: clamp(180px,30vw,250px);
     border-radius: 10px;
     display: block;
 
-    &:hover &__title{
+    &:hover &__title {
         font-size: 1.9rem;
     }
     
@@ -14,20 +17,20 @@
     }
 
 
-    &__rating{
+    &__rating {
         position: absolute;
-        top:15px;
+        top: 15px;
         right: 15px;
         background-color: white;
         border-radius: 5px;
     }
 
-    &__title{
-        color:white;
+    &__title {
+        color: $white;
         font-size: 1.8rem;
-        position:absolute;
-        bottom:0px;
-        padding:10px;
+        position: absolute;
+        bottom: 0px;
+        padding: 10px;
         overflow: hidden;
         transition: .3s;
     }
