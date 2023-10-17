@@ -1,0 +1,39 @@
+.review-card{
+    position:relative;
+    width: 400px;
+    height: max-content;
+    border: 1px solid purple;
+    border-radius: 10px;
+    display: block;
+    padding:10px;
+    &__cover{
+       height: 100px;
+    }
+    &__link{
+        height: 100%;
+        width:100%;
+        display:grid;
+        grid-template-columns: 2;
+        grid-template-rows: 3;
+    }
+    &__title{
+
+    }
+    &__rating{
+  
+    }
+    &__data{
+      
+    }
+    &__content{
+      
+    }
+    &__user-info{
+       
+    }
+}
+.title{
+  
+}
+
+
