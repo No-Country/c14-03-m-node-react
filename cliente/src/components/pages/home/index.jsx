@@ -5,6 +5,7 @@ import Carousel from '../../molecules/carousel'
 import AnimeCard from '../../molecules/animeCard'
 import TrailerCard from '../../molecules/trailerCard'
 import Section from '../../molecules/section'
+import HomeBottomBanner from '../../molecules/homeBottomBanner'
 
 import { cards, trailers } from './mockData'
 
@@ -28,6 +29,7 @@ function Home () {
                         }
                     </Carousel>
                 </Section>
+                <HomeBottomBanner />
             </HomeProvider>
         </main>
     )
