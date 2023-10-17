@@ -1,0 +1,42 @@
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 430px;
+    row-gap: 20px;
+
+    .form-title {
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
+    .form-description {
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    form {
+        display: flex;
+        flex-flow: column nowrap;
+        row-gap: 20px;
+    }
+
+    .button-form {
+        display: flex;
+        justify-content: center;
+        column-gap: 5px;
+        font-weight: 500;
+
+        a {
+            color: #fff;
+            font-weight: 300;
+        }
+    }
+}
+
+.form-login {
+    margin: 140px auto 0;
+}
+
+.form-signup {
+    margin: 50px auto 0;
+}

@@ -1,0 +1,22 @@
+#sign-up {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url('../assets/img/jujutsu-kaisen.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    max-width: 100vw;
+    min-height: 100vh;
+    color: #fff;
+
+    .sign-up_page {
+        background-color: #171542;
+        border-radius: 50px 0px 0px 50px;
+        width: 50vw;
+        height: 100vh;
+        padding-top: 72px;
+        margin: 0 0 0 auto;
+
+        .back-to-top {
+            padding-left: 56px;
+        }
+    }
+}

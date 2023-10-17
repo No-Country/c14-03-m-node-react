@@ -1,0 +1,16 @@
+.button-submit {
+    border-radius: 8px;
+    border: 1px solid #CB33B3;
+    background: linear-gradient(91deg, #CB33B3 0%, #1A1845 100%);
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 0;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+    transition: all .5s ease;
+
+    &:hover {
+        background: linear-gradient(91deg, #cb33b49c 0%, #1a1845a7 100%);
+    }
+}
