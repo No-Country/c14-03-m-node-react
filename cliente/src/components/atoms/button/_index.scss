@@ -1,0 +1,20 @@
+@use '../../../Sass/variables' as *;
+
+.button {
+  color: $white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+  &.filled {
+    background-color: $contrast-pink;
+  }
+  &.light {
+    background-color: transparent;
+    border: 1px solid $white;
+  }
+}
