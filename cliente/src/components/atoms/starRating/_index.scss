@@ -1,0 +1,37 @@
+@use '../../../Sass/variables' as *;
+
+.rating {
+
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  width:fit-content;
+  height:fit-content;
+  padding: 3px 6px;
+  color:purple;
+  gap: 1rem;
+
+  &--bad{
+    color:rgb(136, 13, 13);
+  }
+  &--average{
+    color:rgb(184, 120, 0)
+  } 
+  &--good{
+    color:rgb(144, 144, 64)
+  }
+  &--very-good{
+    color:rgb(96, 168, 20)
+  }
+  &--excelent{
+    color:rgb(16, 213, 111);
+  }
+
+  &__points{
+    font-size: 1.4rem;
+  }
+  &__star{
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
