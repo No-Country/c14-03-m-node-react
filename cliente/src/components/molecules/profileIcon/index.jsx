@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { IoPersonOutline } from 'react-icons/io5'
 import ProfileMenu from '../../atoms/profileMenu'
-
+/* La Ui debe adaptarse a si el usuario ya esta la sesion iniciada o no: */
+/* La imagen del icono debera cambiar por la imagen del perfil */
+/* Si ya esta iniciada el icono deberia llevar a la pagina de perfil o mostrar un menun de:  */
+/* Ver Perfil */
+/* Ver Listas */
 function ProfileIcon () {
     const [isHovered, setIsHovered] = useState(false)
 

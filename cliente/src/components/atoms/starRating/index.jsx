@@ -34,7 +34,7 @@ function StarRating ({ itemScore }) {
         <div className={`rating rating--${status?.name}`}>
             <BsStarFill className='rating__star'/>
             <span className='rating__points'>
-                {itemScore.toFixed(1)}
+                {Number(itemScore).toFixed(1)}
             </span>
         </div>
     )

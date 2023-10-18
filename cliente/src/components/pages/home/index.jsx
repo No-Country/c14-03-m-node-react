@@ -22,15 +22,6 @@ function Home () {
                         ))}
                     </Carousel>
                 </Section>
-                <Section title='Trailers populares'>
-                    <Carousel>
-                        {trailers.map((item) => (
-                            <TrailerCard key={item.title} item={item}></TrailerCard>
-                        ))
-                        }
-                    </Carousel>
-                </Section>
-                <HomeBottomBanner />
                 <Section title='Noticias de Anime & Manga'>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', width: 'clamp(260px, 80%, 1300px)' }}>
 
@@ -40,6 +31,14 @@ function Home () {
                         }
                     </div>
                 </Section>
+                <Section title='Trailers populares'>
+                    <Carousel>
+                        {trailers.map((item) => (
+                            <TrailerCard key={item.title} item={item}></TrailerCard>
+                        ))
+                        }
+                    </Carousel>
+                </Section>
                 <Section title='Reseñas recientes'>
                     <Carousel>
                         {reseñas.map((item) => (
@@ -48,6 +47,7 @@ function Home () {
                         }
                     </Carousel>
                 </Section>
+                <HomeBottomBanner />
             </HomeProvider>
         </main>
     )
