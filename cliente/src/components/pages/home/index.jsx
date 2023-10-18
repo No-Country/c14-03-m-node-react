@@ -6,7 +6,8 @@ import AnimeCard from '../../molecules/animeCard'
 import TrailerCard from '../../molecules/trailerCard'
 import Section from '../../molecules/section'
 import ReviewCard from '../../molecules/reviewCard'
-import { cards, trailers, reseñas } from './mockData'
+import NoticiaCard from '../../molecules/noticiaCard'
+import { cards, trailers, reseñas, noticias } from './mockData'
 
 function Home () {
     return (
@@ -28,10 +29,19 @@ function Home () {
                         }
                     </Carousel>
                 </Section>
+                <Section title='Noticias de Anime & Manga'>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr))', gap: '10px', width: 'clamp(260px, 80%, 1300px)' }}>
+
+                        {noticias.map((item) => (
+                            <NoticiaCard key={item.id} item={item}></NoticiaCard>
+                        ))
+                        }
+                    </div>
+                </Section>
                 <Section title='Reseñas recientes'>
                     <Carousel>
                         {reseñas.map((item) => (
-                            <ReviewCard key={item.title} item={item}></ReviewCard>
+                            <ReviewCard key={item.id} item={item}></ReviewCard>
                         ))
                         }
                     </Carousel>

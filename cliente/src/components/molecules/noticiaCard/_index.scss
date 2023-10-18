@@ -1,0 +1,40 @@
+@use '../../../Sass/variables' as *;
+
+.news{
+    min-width: 0;
+    position: relative;
+    padding:10px;
+    background-color: $white;
+    border-radius: 5px;
+    height:60px;
+    &__flex{
+        display: flex;
+        gap:10px;
+        height:100%;
+    }
+    &__image{
+        display: inline-block;
+        height: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    &__text{
+        color:$black;
+    }
+    &__title{
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient:vertical;
+        overflow: hidden;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+    &__content{
+        font-size: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient:vertical;
+      overflow: hidden;
+    }
+}
