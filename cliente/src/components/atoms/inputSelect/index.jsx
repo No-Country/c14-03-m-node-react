@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
-const InputSelect = (options) => {
+const InputSelect = ({ value, options }) => {
     return (
-        <select className={`input-select select-${options.value}`}>
-            <option>{options.value}</option>
+        <select className={`input-select select-${value}`}>
+            <option>{value}</option>
             {
-                options.options.map(option => {
+                options.map(option => {
                     return <option key={option}>{option}</option>
                 })
             }
