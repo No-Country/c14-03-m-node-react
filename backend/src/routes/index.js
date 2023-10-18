@@ -6,6 +6,10 @@ const routerComment = require('./comment.router');
 const routerPost = require('./post.router');
 const routerGenre = require('./genre.router');
 const routerAnime = require('./anime.router');
+const routerRol = require('./rol.router');
+const routerPermiso = require('./permiso.router');
+const routerNew = require('./new.router');
+const routerReview = require('./review.router');
 
 const router = express.Router();
 
@@ -16,6 +20,9 @@ router.use('/comments', routerComment)
 router.use('/posts', routerPost)
 router.use('/genres', routerGenre)
 router.use('/animes', routerAnime)
-
+router.use('/roles', routerRol)
+router.use('/Permisos', routerPermiso)
+router.use('/news', routerNew)
+router.use('/reviews', routerReview)
 
 module.exports = router;
