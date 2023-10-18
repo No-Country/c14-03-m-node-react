@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Form from '../../organisms/Form'
 import BackToTop from '../../atoms/BackToTop'
 
 const Login = () => {
+    const [user, setUser] = useState(null)
+    const [password, setPassword] = useState(null)
+
     const logIn = {
         type: 'login',
         title: 'Inicio de sesión',
@@ -11,12 +14,14 @@ const Login = () => {
             {
                 name: 'mail-or-user',
                 type: 'text',
-                value: 'Ingresar correo o nombre de usuario'
+                value: 'Ingresar correo o nombre de usuario',
+                onChange: setUser
             },
             {
                 name: 'password',
                 type: 'password',
-                value: 'Ingresar contraseña'
+                value: 'Ingresar contraseña',
+                onChange: setPassword
             }
         ],
         button: {
@@ -25,6 +30,19 @@ const Login = () => {
             link: 'Regístrate',
             path: '/signup'
         }
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        if ((user, password) != null) {
+            const info = {
+                user,
+                password
+            }
+            console.log(info)
+            window.location.replace('/')
+        } else alert('Ingrese los datos correctamente')
     }
 
     return (
@@ -37,6 +55,7 @@ const Login = () => {
                     description={logIn.description}
                     form={logIn.form}
                     button={logIn.button}
+                    onSubmit={onSubmit}
                     key={logIn.title}/>
             </div>
         </section>

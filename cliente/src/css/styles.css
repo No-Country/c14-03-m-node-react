@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,700&display=swap");
 .search-form {
   background-color: rgb(235, 227, 227);
@@ -77,6 +78,21 @@
   background: linear-gradient(91deg, rgba(203, 51, 180, 0.6117647059) 0%, rgba(26, 24, 69, 0.6549019608) 100%);
 }
 
+.input-select {
+  color: #CB33B3;
+  padding: 10px 10px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #CB33B3;
+  background: #171542;
+  box-shadow: 0px 0.33885px 5.1027px 0px rgba(227, 176, 234, 0.02), 0px 0.7699px 11.59373px 0px rgba(227, 176, 234, 0.02), 0px 1.33997px 20.17837px 0px rgba(227, 176, 234, 0.03), 0px 2.12866px 32.05517px 0px rgba(227, 176, 234, 0.04), 0px 3.28437px 49.45875px 0px rgba(227, 176, 234, 0.04), 0px 5.125px 77.17651px 0px rgba(227, 176, 234, 0.05), 0px 8.5083px 128.125px 0px rgba(227, 176, 234, 0.05), 0px 17px 256px 0px rgba(227, 176, 234, 0.07);
+}
+
+.select-Día {
+  width: 80%;
+}
+
 .session-panel {
   position: absolute;
   right: 10px;
@@ -102,6 +118,52 @@
   color: black;
 }
 
+.input-file {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 16px;
+}
+.input-file .input-file_preview {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background: linear-gradient(315deg, rgba(203, 51, 179, 0.34) 0%, #171542 100%);
+  border-radius: 50%;
+  border: 1px solid #CB33B3;
+}
+.input-file .input-file_button {
+  position: relative;
+  margin: 0 auto;
+}
+.input-file .input-file_button button {
+  border-radius: 8px;
+  background: #CB33B3;
+  border: none;
+  margin: 0 auto;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+.input-file .input-file_button button:hover {
+  background: #a1248e;
+}
+.input-file .input-file_button button svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding-right: 8px;
+}
+
+.input-birthdate p {
+  margin-bottom: 4px;
+}
+.input-birthdate .input-birthdate_options {
+  display: flex;
+  column-gap: 14px;
+}
+
 .header-Container {
   display: flex;
   align-items: center;
@@ -119,7 +181,7 @@
 .form {
   display: flex;
   flex-flow: column nowrap;
-  width: 430px;
+  width: 30vw;
   row-gap: 20px;
 }
 .form .form-title {
@@ -152,6 +214,10 @@
 
 .form-signup {
   margin: 50px auto 0;
+}
+
+.form-signup p {
+  font-size: 18px;
 }
 
 #login {
