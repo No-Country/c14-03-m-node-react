@@ -10,7 +10,8 @@ export const mockData = [
     banner_img:
       "https://elpalomitron.com/wp-content/uploads/2020/04/Fecha-de-estreno-y-tr%C3%A1iler-de-la-pel%C3%ADcula-de-Violet-Evergarden-destacada-key-visual-2-El-Palomitr%C3%B3n.jpg",
     poster_img:
-      "https://es.web.img2.acsta.net/pictures/18/01/31/16/42/4875178.jpg"
+      "https://es.web.img2.acsta.net/pictures/18/01/31/16/42/4875178.jpg",
+    logo_png: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Violet_Evergarden_logo.svg/2560px-Violet_Evergarden_logo.svg.png"
   },
   {
     title: "goblin slayer",
@@ -21,7 +22,8 @@ export const mockData = [
     banner_img:
       "https://pm1.aminoapps.com/7098/441bab6666ef6b873c1c8bc6ed09fa2694b005f8r1-1200-675v2_uhq.jpg",
     poster_img:
-      "https://cdn.myanimelist.net/images/manga/3/189065l.jpg?_gl=1*188jlrw*_ga*MTI0MDU2ODE3Ny4xNjYzNjgyMjgy*_ga_26FEP9527K*MTY5NzEzMjY5Ni42LjEuMTY5NzEzMjg3OC41NS4wLjA."
+      "https://cdn.myanimelist.net/images/manga/3/189065l.jpg?_gl=1*188jlrw*_ga*MTI0MDU2ODE3Ny4xNjYzNjgyMjgy*_ga_26FEP9527K*MTY5NzEzMjY5Ni42LjEuMTY5NzEzMjg3OC41NS4wLjA.",
+    logo_png: "https://i.pinimg.com/originals/b6/36/1b/b6361bd9e2859a5f8ac0f3985a613a2c.png"
   },
   {
     title: "konosuba",
@@ -32,6 +34,7 @@ export const mockData = [
     banner_img:
       "https://i0.wp.com/elpalomitron.com/wp-content/uploads/2021/07/KonoSuba-confirma-un-nuevo-anime-destacada-El-Palomitron.jpg?resize=1200%2C600&ssl=1",
     poster_img:
-      "https://cdn.myanhttps://cdn.myanimelist.net/images/anime/8/77831l.jpg?_gl=1*10e0ld2*_ga*MTI0MDU2ODE3Ny4xNjYzNjgyMjgy*_ga_26FEP9527K*MTY5NzEzMjY5Ni42LjEuMTY5NzEzMzIyMi41Ni4wLjA.imelist.net/images/manga/3/189065l.jpg?_gl=1*188jlrw*_ga*MTI0MDU2ODE3Ny4xNjYzNjgyMjgy*_ga_26FEP9527K*MTY5NzEzMjY5Ni42LjEuMTY5NzEzMjg3OC41NS4wLjA."
+      "https://m.media-amazon.com/images/I/51KAAQam20L._AC_UF894,1000_QL80_.jpg",
+    logo_png: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Kono_Subarashii_Sekai_ni_Shukufuku_o%21_logo.svg/1024px-Kono_Subarashii_Sekai_ni_Shukufuku_o%21_logo.svg.png"
   }
 ]

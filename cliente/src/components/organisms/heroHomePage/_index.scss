@@ -11,8 +11,13 @@
   background-color: $dark-blue;
 
   &__bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
     position: relative;
     width: 100%;
+    height: 70%;
+    padding: 0 4rem 4rem 4rem ;
     z-index: 3;
 
     &::before {
