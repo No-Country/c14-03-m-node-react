@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { GenericProvider } from './context/main.jsx'
+
 import Layout from './layout/index.jsx'
+
 import Login from './components/pages/logIn/index.jsx'
 import Home from './components/pages/home/index.jsx'
 import SignUp from './components/pages/signUp/index.jsx'
+import Profile from './components/pages/profile/index.jsx'
 
 import {
     createBrowserRouter,
@@ -19,11 +22,11 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />
-            }
-            /* {
+            },
+            {
                 path: '/profile',
                 element: <Profile />
-            } */
+            }
         ]
     },
     { path: '/login', element: <Login/> },
