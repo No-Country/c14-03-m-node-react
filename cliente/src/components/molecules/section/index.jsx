@@ -1,7 +1,6 @@
 import React from 'react'
 export default function Section ({ title, children }) {
     const firstWord = title?.split(' ')[0]
-    console.log(firstWord)
     return (
         <section className='section'id={`section-${title}`} >
             <header className='section__header'>
