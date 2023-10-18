@@ -2,14 +2,17 @@ import React from 'react'
 import { useRoutes, BrowserRouter } from 'react-router-dom'
 import Header from './components/organisms/header'
 import Footer from './components/organisms/footer'
-import { GenericProvider } from './context'
+import { GenericProvider } from './context/main'
 import Login from './components/pages/logIn'
 import SignUp from './components/pages/signUp'
+import Home from './components/pages/home'
 
 const AppRoutes = () => {
     const routes = useRoutes([
         { path: '/login', element: <Login/> },
-        { path: '/signup', element: <SignUp/> }
+        { path: '/signup', element: <SignUp/> },
+        { path: '/', element: <Home /> }
+    // import Main from './components/organisms/main'
     ])
     return routes
 }
@@ -20,7 +23,8 @@ function App () {
                 <BrowserRouter>
                     <Header />
                     {/* <Layout> */}
-                    <AppRoutes />
+                    {<AppRoutes />}
+                    {/* <Main/> */}
                     {/* </Layout> */}
                     <Footer/>
                 </BrowserRouter>
