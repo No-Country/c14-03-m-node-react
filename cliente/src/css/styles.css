@@ -82,14 +82,15 @@
 
 .rating {
   padding: 0.2rem;
-  background-color: #fff;
-  border-radius: 5px;
   width: 5rem;
   padding: 5px;
+  height: 1.8rem;
+  padding-top: 3px;
   text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: purple;
 }
 .rating--bad {
   color: rgb(136, 13, 13);
@@ -107,8 +108,11 @@
   color: rgb(16, 213, 111);
 }
 .rating__points {
-  margin-top: 2px;
-  font-size: 1.2rem;
+  margin-right: 2px;
+  font-size: 1rem;
+}
+.rating__star {
+  height: 1rem;
 }
 
 .play-button__container {
@@ -159,6 +163,63 @@
 }
 .carousel__arrow:hover.arrow-right, .carousel__arrow:focus.arrow-right {
   border-left: 1px solid rgb(203, 51, 179);
+}
+
+.cover {
+  position: relative;
+  height: inherit;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+  border-radius: 7px;
+  display: block;
+}
+.cover__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.cover__gradient {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cover:hover .cover__image {
+  transform: scale(103%);
+}
+
+.profile-pic {
+  display: flex;
+  justify-content: flex-start;
+  gap: 7px;
+  align-items: center;
+}
+.profile-pic__image {
+  border-radius: 50%;
+}
+.profile-pic__name {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.image--small {
+  height: 20px;
+  width: 20px;
+}
+.image--medium {
+  height: 50px;
+  width: 50px;
+}
+.image--big {
+  height: 80px;
+  width: 80px;
+}
+.image--bigger {
+  height: 120px;
+  width: 120px;
 }
 
 .profile-icon-container {
@@ -228,40 +289,24 @@
 
 .anime-card {
   position: relative;
-  height: 250px;
-  min-width: 160px;
-  overflow: hidden;
+  height: clamp(180px, 30vw, 250px);
   border-radius: 10px;
   display: block;
 }
 .anime-card:hover .anime-card__title {
   font-size: 1.9rem;
 }
-.anime-card:hover .anime-card__image {
-  transform: scale(103%);
-}
 .anime-card__link {
+  display: block;
   height: 100%;
   width: 100%;
-}
-.anime-card__image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  transition: transform 0.3s;
-}
-.anime-card__gradient {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 .anime-card__rating {
   position: absolute;
   top: 15px;
   right: 15px;
+  background-color: #fff;
+  border-radius: 5px;
 }
 .anime-card__title {
   color: #fff;
@@ -302,6 +347,45 @@
   place-items: center;
   width: 100%;
   height: fit-content;
+}
+
+.news {
+  min-width: 0;
+  position: relative;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  height: 60px;
+}
+.news__flex {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+}
+.news__image {
+  display: inline-block;
+  height: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.news__text {
+  color: rgb(21, 21, 29);
+}
+.news__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.news__content {
+  font-size: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .trailer {
@@ -384,6 +468,95 @@
 }
 .carousel__content-container .card {
   scroll-snap-align: start;
+}
+
+.review-card {
+  position: relative;
+  min-width: 320px;
+  max-width: 400px;
+  height: 130px;
+  border: 1px solid rgb(203, 51, 179);
+  border-radius: 10px;
+  padding: 8px;
+  overflow: hidden;
+}
+.review-card__cover {
+  height: 100%;
+}
+.review-card__cover:before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  box-shadow: 10px 10px 80px 5px rgba(255, 255, 255, 0.4);
+}
+.review-card__link {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.review-card__data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+  min-width: 0;
+  width: 100%;
+}
+.review-card__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  width: 100%;
+  font-size: 1.3rem;
+}
+.review-card__title--trunc {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.review-card__rating {
+  border: 1px solid rgb(203, 51, 179);
+  border-radius: 5px;
+  height: max-content;
+  display: block;
+  padding-top: 2px;
+  background-color: rgba(203, 51, 179, 0.1);
+  flex-basis: 20px;
+}
+.review-card__rating:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  top: -1px;
+  box-shadow: 20px 20px 60px 10px rgba(255, 255, 255, 0.4);
+}
+.review-card__content {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.review-card__user-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+}
+.review-card__user-info span {
+  color: #fff;
+  font-size: 1rem;
 }
 
 .header-Container {
