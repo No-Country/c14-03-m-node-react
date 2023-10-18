@@ -1,0 +1,42 @@
+.input-file {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 16px;
+
+    .input-file_preview {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        background: linear-gradient(315deg, rgba(203, 51, 179, 0.34) 0%, #171542 100%);
+        border-radius: 50%;
+        border: 1px solid #CB33B3;
+    }
+
+    .input-file_button {
+        position: relative;
+        margin: 0 auto;
+        
+        button {
+            border-radius: 8px;
+            background: #CB33B3;
+            border: none;
+            margin: 0 auto;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            cursor: pointer;
+            transition: .3s all ease;
+
+            &:hover {
+                background: #a1248e;
+            }
+
+            svg {
+                width: 2.5rem;
+                height: 2.5rem;
+                padding-right: 8px;
+            }
+        }
+    }
+}
