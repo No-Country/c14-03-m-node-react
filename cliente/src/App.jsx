@@ -29,6 +29,7 @@ function App () {
                         <Route path='/' element={<Home />} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/dignup' element={<SignUp />} />
+                        <Route path='/search' element={<Search/>}/>
                     </Routes>
                     {shouldRenderLayout && <Footer/>}
                 </Router>
