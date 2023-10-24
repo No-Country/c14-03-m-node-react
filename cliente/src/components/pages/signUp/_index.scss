@@ -8,11 +8,13 @@
     color: #fff;
 
     .sign-up_page {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
         background-color: #171542;
-        border-radius: 50px 0px 0px 50px;
         width: 50vw;
         height: 100vh;
-        padding-top: 72px;
         margin: 0 0 0 auto;
 
         .back-to-top {

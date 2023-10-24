@@ -1,0 +1,77 @@
+@use '../../../Sass/variables' as *;
+
+.profile-review {
+  display: flex;
+  height: clamp(200px, 100%, 250px);
+  width: 100%;
+  gap: 2rem;
+  padding: 1rem 0;
+  justify-content: space-between;
+  border-bottom: 1px solid $white;
+
+  &__cover-container {
+    height: 100%;
+    min-width: fit-content;
+    overflow: hidden;
+    aspect-ratio: 9/14;
+    border-radius: 8px;
+    background-color: tomato;
+
+    .profile-review__img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__data-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+    flex-basis: 600px;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    .profile-review__header {
+      display: flex;
+      justify-content: space-between;
+
+      .profile-review__info {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+
+        .profile-review__link {
+          color: $white;
+          width: 75%;
+
+          .profile-review__title {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: 2rem;
+          }
+        }
+      }
+
+      .profile-review__date {
+        opacity: 50%;
+      }
+    }
+
+    .profile-review__review-text {
+      height: 80%;
+      overflow-y: scroll;
+    }
+
+    .profile-review__footer {
+      display: flex;
+      justify-content: space-between;
+
+    }
+  }
+}

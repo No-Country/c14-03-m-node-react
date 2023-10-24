@@ -1,0 +1,8 @@
+@use '../../../Sass/variables' as *;
+
+.likes-counter {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: $contrast-pink;
+}
