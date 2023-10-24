@@ -5,42 +5,42 @@ import ReviewCard from '../../molecules/reviewCard'
 import { cards, reseñas } from '../home/mockData'
 import Section from '../../molecules/section'
 import Carousel from '../../molecules/carousel'
-import Form from '../../organisms/Form'
+// import Form from '../../organisms/Form'
 
 function Search () {
     const mangas = cards.map(c => <AnimeCard key={c.id}item ={c}/>)
     const rev = reseñas.map(r => <ReviewCard key={r.id}item={r}/>).slice(0, 4)
-    const search = {
-        type: 'search',
-        title: '',
-        description: '',
-        form: [
-            {
-                name: 'Buscar',
-                type: 'text',
-                value: 'Buscar en el catálogo',
-                onChange: null
-            },
-            {
-                name: 'Genero',
-                type: 'select',
-                options: ['option1', 'option2', 'option3'],
-                onChange: null
-            },
-            {
-                name: 'Año',
-                type: 'select',
-                options: ['2010', '2011', '1995'],
-                onChange: null
-            }
-        ],
-        button: {
-            submit: 'Buscar',
-            span: '',
-            link: '',
-            path: ''
-        }
-    }
+    // const search = {
+    //     type: 'search',
+    //     title: '',
+    //     description: '',
+    //     form: [
+    //         {
+    //             name: 'Buscar',
+    //             type: 'text',
+    //             value: 'Buscar en el catálogo',
+    //             onChange: null
+    //         },
+    //         {
+    //             name: 'Genero',
+    //             type: 'select',
+    //             options: ['option1', 'option2', 'option3'],
+    //             onChange: null
+    //         },
+    //         {
+    //             name: 'Año',
+    //             type: 'select',
+    //             options: ['2010', '2011', '1995'],
+    //             onChange: null
+    //         }
+    //     ],
+    //     button: {
+    //         submit: 'Buscar',
+    //         span: '',
+    //         link: '',
+    //         path: ''
+    //     }
+    // }
 
     return <>
         <div className="search-section">
@@ -58,7 +58,7 @@ function Search () {
 
                         <button>Submit</button>
                     </form> */}
-                    <Form type={search.type} title={search.title} description ={search.descripcion} form={search.form}button={search.button} onSubmit={null}></Form>
+                    {/* <Form type={search.type} title={search.title} description ={search.descripcion} form={search.form}button={search.button} onSubmit={null}></Form> */}
                 </div>
                 <div className="search-section__view">
                     <Section title="Titulo de Prueba">
