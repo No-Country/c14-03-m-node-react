@@ -2,7 +2,8 @@
 
 .anime-card{
     position:relative;
-    height: clamp(180px,30vw,250px);
+    height: 12em;
+    width: max-content;
     border-radius: 10px;
     display: block;
 

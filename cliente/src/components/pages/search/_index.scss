@@ -1,0 +1,45 @@
+.search-section {
+    display: grid; 
+    grid-template-columns: 1fr 300px;// Usa Flexbox para establecer un diseño de dos columnas
+  }
+  
+  .search-section__form {
+    // width: 30%; // Establece el ancho de la columna de búsqueda
+    padding: 20px;
+    display: flex; // Hace que los elementos internos se muestren en línea (horizontalmente)
+    flex-direction: row; // Alinea los elementos horizontalmente
+  
+    form {
+      display: flex; // Alinea los elementos del formulario en línea (horizontalmente)
+      gap: 10px; // Espacio entre los elementos del formulario
+    }
+  
+    label {
+      margin-right: 10px; // Espacio entre las etiquetas y los campos de entrada
+    }
+  
+    input {
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+  }
+  
+  .search-section__view {
+    width: 70%; // Establece el ancho de la columna de visualización
+    padding: 20px;
+  }
+  
+  .main {
+    // Aquí puedes agregar estilos adicionales para la columna principal si es necesario
+  }
+  
+  .aside-container {
+    width: 150px; // Ancho fijo de la columna Aside
+    padding: 20px;
+    border-left: 1px solid #ccc; // Línea divisoria entre las columnas
+  
+    // Estilos para los Aside, si es necesario
+    .aside {
+      margin-bottom: 20px; // Espacio entre los Aside
+    }
+  }

@@ -454,7 +454,8 @@
 
 .anime-card {
   position: relative;
-  height: clamp(180px, 30vw, 250px);
+  height: 12em;
+  width: max-content;
   border-radius: 10px;
   display: block;
 }
@@ -797,6 +798,20 @@
   font-size: 1rem;
 }
 
+.aside-container {
+  height: 50vh;
+  width: max-content;
+  overflow-y: auto; /* Agrega una barra de desplazamiento si es necesario */
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.element-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .header-Container {
   display: flex;
   align-items: center;
@@ -895,6 +910,11 @@
 
 .form-signup {
   margin: 50px auto 0;
+}
+
+.form-search form {
+  display: flex;
+  flex-direction: row;
 }
 
 .form-signup p {
@@ -1005,6 +1025,42 @@
 }
 #sign-up .sign-up_page .back-to-top {
   padding-left: 56px;
+}
+
+.search-section {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+}
+
+.search-section__form {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.search-section__form form {
+  display: flex;
+  gap: 10px;
+}
+.search-section__form label {
+  margin-right: 10px;
+}
+.search-section__form input {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-section__view {
+  width: 70%;
+  padding: 20px;
+}
+
+.aside-container {
+  width: 150px;
+  padding: 20px;
+  border-left: 1px solid #ccc;
+}
+.aside-container .aside {
+  margin-bottom: 20px;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

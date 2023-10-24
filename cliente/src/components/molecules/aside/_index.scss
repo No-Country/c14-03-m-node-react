@@ -1,0 +1,13 @@
+.aside-container {
+    height: 50vh;
+    width:max-content;
+    overflow-y: auto; /* Agrega una barra de desplazamiento si es necesario */
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .element-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }

@@ -6,12 +6,14 @@ import { GenericProvider } from './context/main'
 import Login from './components/pages/logIn'
 import SignUp from './components/pages/signUp'
 import Home from './components/pages/home'
+import Search from './components/pages/search'
 
 const AppRoutes = () => {
     const routes = useRoutes([
         { path: '/login', element: <Login/> },
         { path: '/signup', element: <SignUp/> },
-        { path: '/', element: <Home /> }
+        { path: '/', element: <Home /> },
+        { path: '/search', element: <Search/> }
     // import Main from './components/organisms/main'
     ])
     return routes
@@ -21,7 +23,7 @@ function App () {
         <>
             <GenericProvider>
                 <BrowserRouter>
-                    <Header />
+                    {/* <Header /> */}
                     {/* <Layout> */}
                     {<AppRoutes />}
                     {/* <Main/> */}
