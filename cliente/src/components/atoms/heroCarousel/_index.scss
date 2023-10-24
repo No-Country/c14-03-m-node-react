@@ -1,0 +1,55 @@
+@use '../../../Sass/variables' as *;
+
+.carousel-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px;
+  height: 300px;
+  gap: 1rem;
+  z-index: 5;
+
+  &__image-container {
+    width: 100%;
+    height: 90%;
+    border-radius: 8px;
+    overflow: hidden;
+
+    .carousel-hero__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__sliders-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .carousel-hero__slider {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background-color: rgba($white, .5);
+      cursor: pointer;
+      transform: scale(.8);
+      transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.375);
+
+      &.selected {
+        background-color: rgba($white, 1);
+        box-shadow: 0px 0px 2px 2px rgba($contrast-pink, .3);
+        transform: scale(1);
+      }
+
+
+      &:hover,
+      &:focus {
+        outline-style: none;
+        box-shadow: 0px 0px 2px 2px rgba($contrast-pink, .3);
+      }
+    }
+  }
+}

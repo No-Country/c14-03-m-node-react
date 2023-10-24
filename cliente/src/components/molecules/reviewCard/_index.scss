@@ -1,0 +1,92 @@
+@use '../../../Sass/variables' as *;
+
+.review-card{
+    position:relative;
+    min-width:320px;
+    max-width:400px;
+    height: 130px;
+    border: 1px solid $contrast-pink;
+    border-radius: 10px;
+    padding:8px;
+    overflow: hidden;
+
+    &__cover{
+        height: 100%;
+       &:before{
+        content:'';
+        position:absolute;
+        width:50px;
+        height:50px;
+        top:20px;
+        box-shadow: 10px 10px 80px 5px rgba(255,255,255,.4);
+       }
+    }
+    &__link{
+        height: 100%;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        gap:10px;
+    }
+    &__data{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap:15px;
+        min-width: 0;
+        width:100%
+    }
+    &__title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $white;
+        width:100%;
+        font-size: 1.3rem;
+        &--trunc{
+            flex: 1;
+            min-width: 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+    &__rating{
+        border: 1px solid $contrast-pink;
+        border-radius: 5px;
+        height: max-content;
+        display:block;
+        background-color: rgba($contrast-pink,.1);
+        flex-basis: 20px;
+        &:before{
+            content:'';
+            position:absolute;
+            width:20px;
+            height:1px;
+            top:-1px;
+            box-shadow: 20px 20px 60px 10px rgba(255,255,255,.4);
+           }
+    }
+    &__content{
+      color: rgba($white,.7);
+      font-size: 1.1rem;
+      flex:1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient:vertical;
+      overflow: hidden;
+    }
+    &__user-info{
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items:center;
+       margin-bottom: 3px;
+       & span{
+        color:$white;
+        font-size: 1rem;
+       }
+    }
+   
+}
+

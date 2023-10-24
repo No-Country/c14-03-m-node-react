@@ -1,3 +1,4 @@
+@use '../../../Sass/variables' as *;
 .navbar-container {
   width: fit-content;
 
@@ -6,8 +7,7 @@
     gap: 15px;
 
     .navbar__item {
-      color: black;
+      color: $white;
     }
-
   }
 }

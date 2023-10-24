@@ -1,0 +1,21 @@
+.play-button__container {
+    position: absolute;
+    color:white;
+    width:80px;
+    padding: 5px;
+    font-size: 2rem;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid white;
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(white,.15);
+    transition:.3s;
+    cursor: pointer;
+    &:hover{
+        background-color: transparent;
+        transform: scale(105%);
+    }
+}

@@ -1,17 +1,17 @@
 const express = require('express');
+
 const routerUser = require('./user.router');
-const routerGenre = require('./genre.router');
-const routerAnime = require('./anime.router');
 const routerListAnime = require('./listAnime.router');
 const routerComment = require('./comment.router');
 const routerPost = require('./post.router');
+const routerGenre = require('./genre.router');
+const routerAnime = require('./anime.router');
 const routerRol = require('./rol.router');
 const routerPermiso = require('./permiso.router');
 const routerNew = require('./new.router');
 const routerReview = require('./review.router');
 const routerImage = require('./image.router');
 const { verifyJwt } = require('../utils/verifyJwt');
-
 
 
 const router = express.Router();
@@ -28,7 +28,5 @@ router.use('/Permisos', verifyJwt, routerPermiso)
 router.use('/news', verifyJwt, routerNew)
 router.use('/reviews', verifyJwt, routerReview)
 router.use('/images', verifyJwt, routerImage)
-
-
 
 module.exports = router;
