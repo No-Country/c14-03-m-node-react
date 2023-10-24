@@ -1,0 +1,56 @@
+@use '../../../Sass/variables' as *;
+
+.profile-lists {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(140deg, rgba($white, .2) 0%, rgba($contrast-pink, .2) 100%);
+  padding: 2rem;
+  border-radius: 8px;
+  gap: 2rem;
+
+  &__navigation {
+    width: 100%;
+    border-bottom: 2px solid rgba($white, .5);
+
+    .profile-lists__lists-container {
+      display: flex;
+      gap: 2rem;
+      height: min-content;
+    }
+
+    .profile-lists__item {
+      list-style: none;
+
+      .profile-lists__button {
+        color: $white;
+        opacity: .7;
+        transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        outline-style: none;
+        padding: .5rem;
+        border-bottom: 2px solid rgba($white, .0);
+        border-left: 3px solid rgba($white, .0);
+
+        &:hover,
+        &:focus {
+          border-left: 3px solid rgba($white, .5);
+          transform: scale(1.1);
+        }
+
+        &.active {
+          transform: scale(1.2);
+          opacity: 1;
+          border-left: 2px solid rgba($white, 1);
+          border-bottom: 2px solid rgba($white, 1);
+        }
+      }
+    }
+  }
+  &__list {
+    height: 80%;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+}
