@@ -1126,11 +1126,12 @@
 .slider-community {
   position: relative;
   margin-top: 27px;
+  width: 98.75vw;
 }
 .slider-community .slider-community-infinite {
   position: relative;
   z-index: 2;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   background: linear-gradient(90deg, #8683A3 0%, rgba(203, 51, 179, 0.73) 100%);
 }
@@ -1189,6 +1190,34 @@
     -webkit-transform: translateX(-100%);
   }
 }
+.info-community {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8rem;
+}
+.info-community__data {
+  position: relative;
+  text-align: center;
+  padding: 0 8rem;
+}
+.info-community__data_total {
+  color: #CB33B3;
+  font-size: 5.5rem;
+  font-weight: 800;
+}
+.info-community__data_title {
+  font-size: 2rem;
+}
+.info-community .anime::after, .info-community .manga::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(203, 51, 179, 0) 0%, #CB33B3 53.65%, rgba(203, 51, 179, 0) 100%);
+  width: 2px;
+  height: 100%;
+}
+
 .header-Container {
   display: flex;
   align-items: center;
@@ -1349,6 +1378,10 @@
 
 .main {
   margin-top: 100px;
+}
+
+.community-hero {
+  margin-bottom: 100px;
 }
 
 .home-container {

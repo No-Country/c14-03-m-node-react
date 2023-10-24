@@ -1,11 +1,13 @@
 .slider-community {
     position: relative;
     margin-top: 27px;
+    width: 98.75vw;
+
 
     .slider-community-infinite {
         position: relative;
         z-index: 2;
-        width: 100vw;
+        width: 100%;
         overflow: hidden;
         background: linear-gradient(90deg, #8683A3 0%, rgba(203, 51, 179, 0.73) 100%);
 
