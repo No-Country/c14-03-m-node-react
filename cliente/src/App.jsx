@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRoutes, BrowserRouter } from 'react-router-dom'
+import { Route, Routes, BrowserRouter as Router, useLocation } from 'react-router-dom'
 import Header from './components/organisms/header'
 import Footer from './components/organisms/footer'
 import { GenericProvider } from './context/main'
@@ -8,28 +8,30 @@ import SignUp from './components/pages/signUp'
 import Home from './components/pages/home'
 import Search from './components/pages/search'
 
-const AppRoutes = () => {
+/* const AppRoutes = () => {
     const routes = useRoutes([
         { path: '/login', element: <Login/> },
         { path: '/signup', element: <SignUp/> },
-        { path: '/', element: <Home /> },
-        { path: '/search', element: <Search/> }
-    // import Main from './components/organisms/main'
+        { path: '/', element: <Home /> }
     ])
     return routes
-}
+} */
 function App () {
+    const location = useLocation()
+
+    const shouldRenderLayout = !['/login', '/signup'].includes(location.pathname)
     return (
         <>
             <GenericProvider>
-                <BrowserRouter>
-                    {/* <Header /> */}
-                    {/* <Layout> */}
-                    {<AppRoutes />}
-                    {/* <Main/> */}
-                    {/* </Layout> */}
-                    <Footer/>
-                </BrowserRouter>
+                <Router>
+                    {shouldRenderLayout && <Header />}
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/dignup' element={<SignUp />} />
+                    </Routes>
+                    {shouldRenderLayout && <Footer/>}
+                </Router>
             </GenericProvider>
 
         </>
