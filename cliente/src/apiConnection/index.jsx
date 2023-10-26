@@ -1,7 +1,13 @@
 import useFetch from '../Hooks/usefetch'
 
-const [data, setData] = useState([])
-const baseUrl = 'http://localhost:8080/api/v1'
+const baseUrl = 'https://myanime.onrender.com/'
+
+const [users,
+    getAllUser,
+    createNewUser,
+    deleteUserById,
+    updateUserById] = useFetch(baseUrl)
+
 /* const [users,
         getAllUser,
         createNewUser,
@@ -13,12 +19,6 @@ const baseUrl = 'http://localhost:8080/api/v1'
         getAllUser('/users')
         console.log(users)
     }, []) */
-const [users,
-    getAllUser,
-    createNewUser,
-    deleteUserById,
-    updateUserById] =
-  useFetch(baseUrl)
 
 /* useEffect(() => {
       getAllUser('/animes')
@@ -34,9 +34,9 @@ const [users,
       })
       getAllUser('/animes')
   }, []) */
-useEffect(() => {
+/* useEffect(() => {
     createNewUser('/comments', {
         content: 'esto es un comentario de prueba'
     })
     getAllUser('/comments')
-}, [])
+}, []) */
