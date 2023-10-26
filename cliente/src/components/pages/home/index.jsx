@@ -42,7 +42,10 @@ function Home () {
                 <Section title='Reseñas recientes'>
                     <Carousel>
                         {reseñas.map((item) => (
-                            <ReviewCard key={item.id} item={item}></ReviewCard>
+                            <div key={item.id} className='review-container'>
+
+                                <ReviewCard item={item}></ReviewCard>
+                            </div>
                         ))
                         }
                     </Carousel>

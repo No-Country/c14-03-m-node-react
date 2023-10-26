@@ -633,14 +633,14 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: clamp(300px, 90%, 1400px);
+  width: clamp(300px, 100%, 1400px);
   height: fit-content;
   overflow: hidden;
   margin: 2rem 0;
 }
 .carousel__content-container {
   display: flex;
-  width: clamp(200px, 90%, 1300px);
+  width: clamp(200px, 100%, 1400px);
   gap: 1.5rem;
   align-items: center;
   overflow-x: scroll;
@@ -712,13 +712,13 @@
 
 .review-card {
   position: relative;
-  min-width: 320px;
-  max-width: 400px;
+  min-width: 260px;
+  max-width: 280px;
   height: 130px;
-  border: 1px solid rgb(203, 51, 179);
   border-radius: 10px;
   padding: 8px;
   overflow: hidden;
+  margin-bottom: 5px;
 }
 .review-card__cover {
   height: 100%;
@@ -799,17 +799,68 @@
 }
 
 .aside-container {
-  height: 50vh;
-  width: max-content;
-  overflow-y: auto; /* Agrega una barra de desplazamiento si es necesario */
-  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+  border: 1px solid rgb(203, 51, 179);
+  margin: 0 10px 10px;
+  background: linear-gradient(-30deg, rgba(21, 21, 29, 0.3) 5%, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.1) 75%, rgba(21, 21, 29, 0.3) 95%);
+}
+.aside-container .aside__title {
   padding: 10px;
+  height: 4rem;
+  width: 100%;
+  background-color: rgba(203, 51, 179, 0.5);
+}
+.aside-container h2 {
+  font-size: 2rem;
 }
 
 .element-list {
+  width: max-content;
+  height: max-content;
+  overflow-y: auto;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 10px;
+}
+.element-list__item {
+  width: 260px;
+}
+
+.anime-card-variant {
+  position: relative;
+  height: 8em;
+  width: auto;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 5px;
+}
+.anime-card-variant__link {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.anime-card-variant__cover {
+  height: 100%;
+}
+.anime-card-variant__bookmark {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  color: rgb(203, 51, 179);
+  border-radius: 5px;
+}
+.anime-card-variant__title {
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+  min-width: 0;
+  width: 150px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .header-Container {
@@ -978,12 +1029,37 @@
   margin-top: 100px;
 }
 
+.form-wide {
+  width: 100%;
+}
+.form-wide form {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  column-gap: 20px;
+  justify-content: space-between;
+}
+.form-wide form input[type=text] {
+  position: relative;
+  width: clamp(300px, 30vw, 500px);
+}
+.form-wide form select {
+  min-width: 90px;
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.review-container {
+  border: 1px solid rgb(203, 51, 179);
+  border-radius: 10px;
 }
 
 #login {
@@ -1031,37 +1107,41 @@
 .search-section {
   display: grid;
   grid-template-columns: 1fr 300px;
+  margin-top: 100px;
+  border: 1px solid red;
 }
 
 .search-section__form {
   padding: 20px;
   display: flex;
   flex-direction: row;
+  border: 1px solid red;
 }
 .search-section__form form {
   display: flex;
+  min-width: 100%;
   gap: 10px;
+  border: 1px solid red;
 }
 .search-section__form label {
   margin-right: 10px;
+  border: 1px solid red;
 }
 .search-section__form input {
   padding: 5px;
   border: 1px solid #ccc;
+  border: 1px solid red;
 }
 
 .search-section__view {
-  width: 70%;
   padding: 20px;
+  border: 1px solid red;
 }
 
-.aside-container {
-  width: 150px;
-  padding: 20px;
-  border-left: 1px solid #ccc;
-}
-.aside-container .aside {
-  margin-bottom: 20px;
+.search__aside-container {
+  width: 300px;
+  height: 100%;
+  border: 1px solid red;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

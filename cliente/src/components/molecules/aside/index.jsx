@@ -3,10 +3,13 @@ function Aside ({ title, elements }) {
     return (
 
         <aside className="aside-container">
-            <h2>{title}</h2>
+            <div className="aside__title">
+
+                <h2>{title}</h2>
+            </div>
             <ul className="element-list">
                 {elements.map((element, index) => (
-                    <li key={index}>{element}</li>
+                    <li className='element-list__item'key={index}>{element}</li>
                 ))}
             </ul>
         </aside>

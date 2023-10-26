@@ -1,7 +1,14 @@
+@use '../../../Sass/variables' as *;
+
 .home-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+.review-container{
+  // box-shadow: 10px 10px 80px 5px rgba(255,255,255,.4);
+  border: 1px solid $contrast-pink;
+  border-radius: 10px;
 }

@@ -1,13 +1,34 @@
+@use '../../../Sass/variables' as *;
+
 .aside-container {
-    height: 50vh;
-    width:max-content;
-    overflow-y: auto; /* Agrega una barra de desplazamiento si es necesario */
-    border: 1px solid #ccc;
-    padding: 10px;
+    // height: clamp(30vh, 50%, 50vh);
+    // padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    overflow-y: auto; 
+   border: 1px solid $contrast-pink;
+    margin: 0 10px 10px;
+   background: linear-gradient(-30deg, rgba($black, .3 )5%, rgba($white, .1) 30%,rgba($white, .1) 75%, rgba($black, .3)95%);
+    .aside__title{
+      padding:10px;
+      height: 4rem;
+      width: 100%;
+      background-color: rgba($contrast-pink, .5) ;
+    }
+    h2{
+      font-size: 2rem;
+    }
   }
   
   .element-list {
+    width:max-content;
+    height: max-content;
+    overflow-y: auto; 
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 10px;
+    &__item{
+      width:260px;
+  
+    }
   }

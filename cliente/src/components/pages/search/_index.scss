@@ -1,6 +1,8 @@
 .search-section {
     display: grid; 
     grid-template-columns: 1fr 300px;
+    margin-top:100px;
+    border:1px solid red;
   }
   
   .search-section__form {
@@ -8,36 +10,46 @@
     padding: 20px;
     display: flex; 
     flex-direction: row; 
-  
+    // width:100vw;
+    border:1px solid red;
     form {
+      // width:100vw;
       display: flex; 
+      min-width:100%;
       gap: 10px; 
+      border:1px solid red;
     }
   
     label {
       margin-right: 10px; 
+      border:1px solid red;
     }
   
     input {
       padding: 5px;
       border: 1px solid #ccc;
+      border:1px solid red;
     }
   }
   
   .search-section__view {
-    width: 70%;
+    // width: 70%;
     padding: 20px;
+    border:1px solid red;
   }
   
 
   
-  .aside-container {
-    width: 150px; 
-    padding: 20px;
-    border-left: 1px solid #ccc; 
-  
+  .search__aside-container {
+    width: 300px; 
+    height: 100%;
+    // padding: 20px;
+    border:1px solid red;
    
-    .aside {
-      margin-bottom: 20px; 
-    }
+    // .aside {
+    //   margin-bottom: 20px; 
+    //   border:1px solid red;
+    // }
   }
+
+  

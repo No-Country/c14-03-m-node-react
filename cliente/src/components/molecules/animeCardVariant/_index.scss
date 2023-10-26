@@ -1,0 +1,47 @@
+@use '../../../Sass/variables' as *;
+
+.anime-card-variant{
+    position:relative;
+    height: 8em;
+    width:auto;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 5px;
+
+    &:hover &__title {
+        // font-size: 1.8rem;
+        
+    }
+    
+    &__link{
+        display:flex;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__cover{
+        height:100%
+    }
+    &__bookmark {
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        // background-color: $white;
+        color: $contrast-pink;
+        border-radius: 5px;
+    }
+
+    &__title {
+        color: $white;
+        font-size: 1.5rem;
+        // position: absolute;
+        // top: 0px;
+        padding: 10px;
+        overflow: hidden;
+        transition: .3s;
+        min-width:0;
+        width:150px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
