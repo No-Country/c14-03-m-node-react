@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { GenericProvider } from './context/main.jsx'
+import { GeneralProvider } from './context/main.jsx'
+import { UserSignUpProvider } from './context/UseSignUpContext.jsx'
 
 import Layout from './layout/index.jsx'
 
@@ -35,12 +36,13 @@ const router = createBrowserRouter([
         ]
     },
     { path: '/login', element: <Login/> },
-    { path: '/signup', element: <SignUp/> }
+    { path: '/signup', element: <UserSignUpProvider><SignUp/></UserSignUpProvider> }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <GenericProvider>
+        <GeneralProvider>
+            <UserSignUpProvider></UserSignUpProvider>
             <RouterProvider router={router} />
-        </GenericProvider>
+        </GeneralProvider>
     </React.StrictMode>
 )
