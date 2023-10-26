@@ -1,0 +1,21 @@
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+
+  &__title {
+    width: 40%;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+  &__data {
+    width: 55%;
+    font-weight: lighter;
+    text-align: start;
+  }
+  &__data--item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}

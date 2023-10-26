@@ -8,6 +8,7 @@ import Login from './components/pages/logIn/index.jsx'
 import Home from './components/pages/home/index.jsx'
 import SignUp from './components/pages/signUp/index.jsx'
 import Profile from './components/pages/profile/index.jsx'
+import DetailView from './components/pages/detailView'
 
 import {
     createBrowserRouter,
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: '/profile',
                 element: <Profile />
+            },
+            {
+                path: '/anime/:id',
+                element: <DetailView />
             }
         ]
     },
