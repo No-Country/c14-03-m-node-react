@@ -1,15 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import BackToTop from '../../atoms/BackToTop'
 import Form from '../../organisms/Form'
 import FormNextSignUp from '../../organisms/formNextSignUp'
+import { UserSignUpContext } from '../../../context/UseSignUpContext'
+import { GeneralContext } from '../../../context/main'
 
 const SignUp = () => {
-    const [name, setName] = useState(null)
-    const [mail, setMail] = useState(null)
-    const [password, setPassword] = useState(null)
+    const {
+        name,
+        setName,
+        mail,
+        setMail,
+        password,
+        setPassword,
+        nickname,
+        setNickname,
+        birthday,
+        profileImg
+    } = useContext(UserSignUpContext)
+    const { createNewUser } = useContext(GeneralContext)
+    console.log(createNewUser)
     const [confirmPassword, setConfirmPassword] = useState(null)
-    const [nickname, setNickname] = useState(null)
-
     const [next, setNext] = useState(false)
 
     const signup = {
@@ -25,7 +36,7 @@ const SignUp = () => {
             },
             {
                 name: 'mail-signup',
-                type: 'text',
+                type: 'email',
                 value: 'Ingresar mail',
                 onChange: setMail
             },
@@ -66,14 +77,15 @@ const SignUp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const info = {
+        const dataCollected = {
             name,
-            mail,
+            email: mail,
             password,
-            nickname
+            profilePicture: profileImg
         }
-        console.log(info)
-        alert('Registrado :)')
+        createNewUser('/users', dataCollected)
+        console.log(dataCollected)
+        console.log('Registrado :)')
     }
 
     return (

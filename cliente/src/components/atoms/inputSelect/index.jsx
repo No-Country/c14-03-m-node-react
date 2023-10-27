@@ -1,9 +1,19 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
-const InputSelect = ({ value, options }) => {
+const InputSelect = ({ value, options, status, keyName }) => {
+    const [selectedValue, setSelectedValue, setGeneralStatus] = status
+    const handleSelectChange = (e) => {
+        setSelectedValue(e.target.value)
+        setGeneralStatus((prev) => ({ ...prev, [keyName]: e.target.value }))
+        // console.log(selectedValue)
+    }
     return (
-        <select className={`input-select select-${value}`}>
+        <select
+            value={selectedValue}
+            onChange={handleSelectChange}
+            className={`input-select select-${value}`}
+        >
             <option>{value}</option>
             {
                 options.map(option => {

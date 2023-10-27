@@ -21,7 +21,7 @@ const useFetch = (baseUrl) => {
         const url = `${baseUrl}${path}/`
         axios.post(url, data)
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 setInfoApi([...infoApi, res.data])
             })
             .catch(err => console.log(err))

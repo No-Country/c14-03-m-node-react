@@ -1,20 +1,34 @@
-import React, { createContext, useEffect, useMemo, useState } from 'react'
+import React, { createContext, useMemo, useState } from 'react'
+import useFetch from '../Hooks/usefetch'
 
-export const GenericContext = createContext({})
+export const GeneralContext = createContext({})
 
 // eslint-disable-next-line react/prop-types
-export function GenericProvider ({ children }) {
+export function GeneralProvider ({ children }) {
     //   const [cartProducts, setCartProducts] = useState([] as Product[]);
+    const baseUrl = 'https://myanime.onrender.com/'
+
+    const [users,
+        getAllUser,
+        createNewUser,
+        deleteUserById,
+        updateUserById] = useFetch(baseUrl)
 
     const values = useMemo(() => ({
         // cartProducts,
+        users,
+        getAllUser,
+        createNewUser,
+        deleteUserById,
+        updateUserById
     }), [
+        users
         // cartProducts,
         // isDetailOpen,
     ])
     return (
-        <GenericContext.Provider value={values}>
+        <GeneralContext.Provider value={values}>
             {children}
-        </GenericContext.Provider>
+        </GeneralContext.Provider>
     )
 }

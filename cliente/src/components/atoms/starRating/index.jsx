@@ -24,7 +24,6 @@ function StarRating ({ itemScore }) {
             points: 10
         }
     ]
-    console.log(itemScore)
 
     const status = rateScale
         .find(level => {
