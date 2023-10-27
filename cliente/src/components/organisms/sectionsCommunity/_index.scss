@@ -1,0 +1,115 @@
+.community-general{
+    padding: 4.69rem 0;
+
+    &__presentation {
+        text-align: center;
+        margin-bottom: 9.19rem;
+
+        &_title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.12rem;
+        }
+
+        &_description {
+            font-size: 1.8rem;
+            font-weight: 300;
+        }
+    }
+    
+    .community-general-container {
+        display: flex;
+        column-gap: 16px;
+    }
+        
+    &__main {
+        width: 60%;
+        margin: 0 auto;       
+        
+        .noticias-list-community {
+            position: relative;
+            padding-right: 16px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 6px;
+                height: 100%;
+                border-radius: 0.5rem;
+                background: linear-gradient(180deg, #CB33B3, transparent);
+                z-index: 1;
+            }
+        }
+
+        .all-animes {
+            width: 100%;;
+            margin: 3.5rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .button-all-animes {
+                color: #CB33B3;
+                border-radius: 4px;
+                width: 5rem;
+                height: 5rem;
+                transition: all .3s ease;
+    
+                svg {
+                    cursor: pointer;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+    
+                &:hover {
+                    background-color: #0f1023;
+                    border: 1px solid #CB33B3;
+                }
+            }
+        }
+    }
+    
+    &__aside {
+        width: 40%;
+
+        &_reviews {
+            width: 100%;
+
+            &_list {
+                display: flex;
+                flex-direction: column;
+                row-gap: 19px;
+
+                .review-card {
+                    max-width: none;
+                }
+            }
+        }
+
+        &_animes,
+        &_mangas {
+            width: 100%;
+
+            &_list {
+                display: flex;
+                column-gap: 14px;
+            }
+        }
+    }
+
+    &__main,
+    &__aside_reviews,
+    &__aside_animes,
+    &__aside_mangas {
+        margin-bottom: 1.75rem;
+
+        &_title {
+            margin-bottom: 1.75rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+    }
+
+}
