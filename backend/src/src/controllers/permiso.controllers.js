@@ -1,37 +1,33 @@
 const catchError = require('../utils/catchError');
-const Review = require('../models/Review');
+const Permiso = require('../models/Permiso');
 
 const getAll = catchError(async (req, res) => {
-    const results = await Review.findAll();
+    const results = await Permiso.findAll();
     return res.json(results);
 });
 
 const create = catchError(async (req, res) => {
-    const userId = req.user.id
-    const { animeId } = req.params;
-    const { rating, content } = req.body;
-    const body = { rating, content, animeId, userId }
-    const result = await Review.create(body);
+    const result = await Permiso.create(req.body);
     return res.status(201).json(result);
 });
 
 const getOne = catchError(async (req, res) => {
     const { id } = req.params;
-    const result = await Review.findByPk(id);
+    const result = await Permiso.findByPk(id);
     if (!result) return res.sendStatus(404);
     return res.json(result);
 });
 
 const remove = catchError(async (req, res) => {
     const { id } = req.params;
-    const result = await Review.destroy({ where: { id } });
+    const result = await Permiso.destroy({ where: { id } });
     if (!result) return res.sendStatus(404);
     return res.sendStatus(204);
 });
 
 const update = catchError(async (req, res) => {
     const { id } = req.params;
-    const result = await Review.update(
+    const result = await Permiso.update(
         req.body,
         { where: { id }, returning: true }
     );

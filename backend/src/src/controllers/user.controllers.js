@@ -28,7 +28,41 @@ const getAll = catchError(async (req, res) => {
     return res.json(results);
 });
 
+// const create = catchError(async (req, res) => {
+//     const { name, email, password, profilePicture } = req.body;
+//     //const rol = await Rol.findOne({ where: { title: 'usuario normal' } });
 
+//     // if (!rol) {
+//     //     return res.status(400).json({ message: 'El rol no se encontró' });
+//     // }
+
+//     // Crea el usuario y asigna el rol automáticamente
+//     const hashPassword = await bcrypt.hash(password, 10);
+//     const usuario = await User.create({
+//         name: name,
+//         email: email,
+//         password: hashPassword,
+//         profilePicture: profilePicture,
+//         //rolId: rol.id
+//     });
+
+//     // Obtén los permisos correspondientes al tipo de usuario
+//     // const permisosUsuarioNormal = await Permiso.findAll({ where: { title: ['Agregar lista', 'Crear lista', 'Crear post', 'Crear comment'] } });
+
+//     // // Asigna los permisos al usuario
+//     // await usuario.setPermisos(permisosUsuarioNormal);
+
+//     // const response = {
+//     //     id: usuario.id,
+//     //     name: usuario.name,
+//     //     email: usuario.email,
+//     //     profilePicture: usuario.profilePicture,
+//     //     rol: rol.title,
+//     //     permisos: permisosUsuarioNormal.map(permiso => permiso.title)
+//     // };
+
+//     return res.status(201).json(usuario);
+// });
 
 const create = catchError(async (req, res) => {
     const { name, email, password } = req.body; // Datos del usuario
@@ -64,7 +98,72 @@ const getOne = catchError(async (req, res) => {
     return res.json(result);
 });
 
+// Rutas
 
+
+// Controlador
+// const remove = catchError(async (req, res) => {
+//     const { id } = req.params;
+
+//     // Busca al usuario por su ID
+//     const user = await User.findByPk(id);
+
+//     if (!user) {
+//         return res.sendStatus(404); // Si no se encuentra el usuario, devuelve 404
+//     }
+
+//     // Si el usuario tiene una imagen de perfil, obtén su ID
+//     const imageId = user.profilePicture ? user.profilePicture.id : null;
+
+//     // Elimina al usuario
+//     await user.destroy();
+
+//     if (imageId) {
+//         // Si se encontró una imagen de perfil, elimina la imagen
+//         const image = await Image.findByPk(imageId);
+//         if (image) {
+//             // Si se encuentra la imagen, elimínala
+//             await image.destroy();
+//         }
+//     }
+
+//     return res.sendStatus(204); // Devuelve un código 204 (No Content) si todo se elimina con éxito
+// });
+
+// const remove = catchError(async (req, res) => {
+//     const userId = req.params.id;
+
+
+//     // Busca al usuario por su ID
+//     const user = await User.findByPk(userId);
+
+//     if (!user) {
+//         return res.sendStatus(404); // Si no se encuentra el usuario, devuelve 404
+//     }
+
+//     // Si el usuario tiene una imagen de perfil, obtén su ID y el nombre del archivo
+//     const imageId = user.profilePicture ? user.profilePicture.userId : null;
+//     const filename = user.profilePicture ? user.profilePicture.filename : null;
+
+//     // Elimina al usuario
+//     await user.destroy();
+
+//     if (imageId) {
+//         // Si se encontró una imagen de perfil, elimina la imagen de la base de datos
+//         const image = await Image.findByPk(imageId);
+//         if (image) {
+//             await image.destroy();
+
+//             // Si se encontró la imagen, elimina el archivo físico de la carpeta de "images"
+//             if (filename) {
+//                 const filePath = path.join(__dirname, '..', 'public', 'images', filename);
+//                 fs.unlinkSync(filePath);
+//             }
+//         }
+//     }
+
+//     return res.sendStatus(204); // Devuelve un código 204 (No Content) si todo se elimina con éxito
+// });
 
 const remove = catchError(async (req, res) => {
     const { id } = req.params;
