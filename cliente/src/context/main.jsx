@@ -6,7 +6,7 @@ export const GeneralContext = createContext({})
 // eslint-disable-next-line react/prop-types
 export function GeneralProvider ({ children }) {
     //   const [cartProducts, setCartProducts] = useState([] as Product[]);
-    const baseUrl = 'https://myanime.onrender.com/'
+    const baseUrl = 'https://myanime.onrender.com'
 
     const [users,
         getAllUser,
@@ -14,15 +14,27 @@ export function GeneralProvider ({ children }) {
         deleteUserById,
         updateUserById] = useFetch(baseUrl)
 
+    const [animes,
+        getAllAnimes,
+        createNewAnime,
+        deleteAnimeById,
+        updateAnimeById] = useFetch(baseUrl)
+
     const values = useMemo(() => ({
         // cartProducts,
         users,
         getAllUser,
         createNewUser,
         deleteUserById,
-        updateUserById
+        updateUserById,
+        animes,
+        getAllAnimes,
+        createNewAnime,
+        deleteAnimeById,
+        updateAnimeById
     }), [
-        users
+        users,
+        animes
         // cartProducts,
         // isDetailOpen,
     ])

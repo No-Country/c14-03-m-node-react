@@ -36,11 +36,14 @@ const Login = () => {
         e.preventDefault()
 
         if ((user, password) != null) {
-            const info = {
-                user,
-                password
-            }
-            console.log(info)
+            const formData = new FormData()
+            formData.append('user', user)
+            formData.append('password', password)
+
+            console.log(Object.fromEntries(formData))
+
+            // Peticion post a /login con las credenciales, espera la respuesta con el token de acceso
+
             window.location.replace('/')
         } else alert('Ingrese los datos correctamente')
     }

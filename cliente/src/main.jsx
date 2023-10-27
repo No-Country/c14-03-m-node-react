@@ -10,6 +10,7 @@ import Home from './components/pages/home/index.jsx'
 import SignUp from './components/pages/signUp/index.jsx'
 import Profile from './components/pages/profile/index.jsx'
 import DetailView from './components/pages/detailView'
+import Creator from './components/pages/creator/index.jsx'
 
 import {
     createBrowserRouter,
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: '/anime/:id',
                 element: <DetailView />
+            },
+            {
+                path: '/creator',
+                element: <Creator />
             }
         ]
     },
