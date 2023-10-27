@@ -1,19 +1,15 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/connection');
 
-const Post = sequelize.define('post', {
+const ListAnime = sequelize.define('listanime', {
     title: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    image: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    content: {
+    description: {
         type: DataTypes.STRING,
         allowNull: false
     },
 });
 
-module.exports = Post;
+module.exports = ListAnime;

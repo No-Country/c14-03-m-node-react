@@ -1,37 +1,36 @@
 const catchError = require('../utils/catchError');
-const Review = require('../models/Review');
+const Rol = require('../models/Rol');
 
 const getAll = catchError(async (req, res) => {
-    const results = await Review.findAll();
+    const results = await Rol.findAll();
     return res.json(results);
 });
 
 const create = catchError(async (req, res) => {
-    const userId = req.user.id
-    const { animeId } = req.params;
-    const { rating, content } = req.body;
-    const body = { rating, content, animeId, userId }
-    const result = await Review.create(body);
+    const { id } = req.user
+    const { title } = req.body
+    const body = { userId: id, title }
+    const result = await Rol.create(body);
     return res.status(201).json(result);
 });
 
 const getOne = catchError(async (req, res) => {
     const { id } = req.params;
-    const result = await Review.findByPk(id);
+    const result = await Rol.findByPk(id);
     if (!result) return res.sendStatus(404);
     return res.json(result);
 });
 
 const remove = catchError(async (req, res) => {
     const { id } = req.params;
-    const result = await Review.destroy({ where: { id } });
+    const result = await Rol.destroy({ where: { id } });
     if (!result) return res.sendStatus(404);
     return res.sendStatus(204);
 });
 
 const update = catchError(async (req, res) => {
     const { id } = req.params;
-    const result = await Review.update(
+    const result = await Rol.update(
         req.body,
         { where: { id }, returning: true }
     );
