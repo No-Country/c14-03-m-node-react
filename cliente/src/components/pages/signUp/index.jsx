@@ -19,7 +19,7 @@ const SignUp = () => {
         profileImg
     } = useContext(UserSignUpContext)
     const { createNewUser } = useContext(GeneralContext)
-    console.log(createNewUser)
+
     const [confirmPassword, setConfirmPassword] = useState(null)
     const [next, setNext] = useState(false)
 
@@ -77,15 +77,32 @@ const SignUp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const dataCollected = {
+        const dataColected = {
             name,
             email: mail,
             password,
-            profilePicture: profileImg
+            profilePicture: profileImg,
+            nickname,
+            birthday
         }
-        createNewUser('/users', dataCollected)
-        console.log(dataCollected)
+        console.log(`Data colected from signup form: ${dataColected}`)
+        const formData = new FormData()
+        formData.append('name', name)
+        formData.append('email', mail)
+        formData.append('password', password)
+        formData.append('profilePicture', profileImg)
+
+        for (const pair of formData.entries()) {
+            console.log(pair[0], pair[1])
+        }
         console.log('Registrado :)')
+        /* const config = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+        createNewUser('/users', formData, config) */
+        window.location.replace('/')
     }
 
     return (

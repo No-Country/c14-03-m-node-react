@@ -17,9 +17,13 @@ const useFetch = (baseUrl) => {
     }
 
     // CREATE
-    const createNewRegister = (path, data) => {
+    const createNewRegister = (path, data, config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }) => {
         const url = `${baseUrl}${path}/`
-        axios.post(url, data)
+        axios.post(url, data, config)
             .then(res => {
                 console.log(res.data)
                 setInfoApi([...infoApi, res.data])
