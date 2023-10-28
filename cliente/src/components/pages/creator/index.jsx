@@ -1,12 +1,8 @@
 import React, { useContext } from 'react'
 import { BsFillPlusSquareFill } from 'react-icons/bs'
-import { GeneralContext } from '../../../context/main'
 
 function Creator () {
-    const {
-        animes,
-        createNewAnime
-    } = useContext(GeneralContext)
+   
     const getFormValues = (form) => {
         const formData = new FormData(form)
 
@@ -17,12 +13,15 @@ function Creator () {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
+
         // const token = localStorage.getItem('token')
+
         const { isEmpty, data, formData } = getFormValues(e.currentTarget)
         if (isEmpty) {
             console.log('please provide all values')
             return
         }
+
         console.log(data)
 
         // ---POST REQUEST-------

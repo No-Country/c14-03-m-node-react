@@ -23,6 +23,7 @@ const SignUp = () => {
 
     const [signupResponse, signupStatus, signupFetch] = SignUpAPI()
 
+
     const [confirmPassword, setConfirmPassword] = useState(null)
     const [next, setNext] = useState(false)
 

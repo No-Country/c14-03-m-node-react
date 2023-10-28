@@ -41,22 +41,11 @@ const Login = () => {
             path: '/signup'
         }
     }
-    const loginUser = (url, data, config) => {
-        axios
-            .post(url, data, config)
-            .then((res) => {
-                console.log(res.data.token)
-                console.log(res.data.user)
-                localStorage.setItem('token', res.data.token)
-                localStorage.setItem('user', JSON.stringify(res.data.user))
-                setIsUserLogged(true)
-            })
-            .catch((err) => console.error(err))
-    }
     const onSubmit = (e) => {
         e.preventDefault()
 
         if ((user, password) != null) {
+
             const JSONData = JSON.stringify({
                 email: user,
                 password
@@ -69,20 +58,6 @@ const Login = () => {
 
             loginFetch('', JSONData, configJson)
 
-            // -----REQUEST WITH JSON------
-
-            /* const dataToJSON = {
-                email: user,
-                password
-            }
-            const JSONData = JSON.stringify(dataToJSON)
-            console.log(JSONData)
-            const configJson = {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
-            loginUser('http://localhost:8080/api/v1/users/login', JSONData, configJson) */
         } else alert('Ingrese los datos correctamente')
     }
     useEffect(() => {
