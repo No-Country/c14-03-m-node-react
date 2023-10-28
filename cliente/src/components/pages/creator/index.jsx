@@ -1,12 +1,8 @@
 import React, { useContext } from 'react'
 import { BsFillPlusSquareFill } from 'react-icons/bs'
-import { GeneralContext } from '../../../context/main'
 
 function Creator () {
-    const {
-        animes,
-        createNewAnime,
-    } = useContext(GeneralContext)
+   
     const getFormValues = (form) => {
         const formData = new FormData(form)
 
@@ -17,16 +13,24 @@ function Creator () {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        // const token = localStorage.getItem('token')
+
         const { isEmpty, data, formData } = getFormValues(e.currentTarget)
         if (isEmpty) {
             console.log('please provide all values')
             return
         }
-        const myHeaders = new Headers()
-        myHeaders.append('Content-Type', 'multipart/form-data')
-        createNewAnime('/animes', formData, myHeaders)
+
         console.log(data)
-        console.log(animes)
+
+        // ---POST REQUEST-------
+
+        /*  const myHeaders = new Headers()
+        myHeaders.append('Content-Type', 'multipart/form-data')
+        myHeaders.append('authorization', `Bearer ${token}`)
+        createNewAnime('/animes', formData, myHeaders)
+        console.log(animes) */
 
         // clear inputs
         // e.currentTarget.reset()
@@ -52,14 +56,14 @@ function Creator () {
             <div>
                 <form className='creator__form' onSubmit={handleSubmit}>
                     <label className='creator__label'>
-                      Nombre
-                        <input type="text" name='name'/>
+                        Nombre
+                        <input type="text" name='title'/>
                     </label>
                     <label className='creator__label'>
-                      Sinopsis
+                        Sinopsis
                         <textarea
                             className='creator__textArea'
-                            name='sinopsis'
+                            name='description'
                             rows='5'
                             cols='20'
                         />
@@ -86,18 +90,18 @@ function Creator () {
                         </div>
                     </fieldset>
                     <label className='creator__label'>
-                      Starting Date
-                        <input type="date" name="start" />
+                        Starting Date
+                        <input type="date" name="releaseDate" />
                     </label>
                     <label className='creator__label'>
-                      End Date
-                        <input type="date" name="end" />
+                        End Date
+                        <input type="date" name="lastepisode" />
                     </label>
                     <label className='creator__label' >
-                      Cover image
-                        <input type="file" accept='image/*' name='coverImage'/>
+                        Cover image
+                        <input type="file" accept='image/*' name='image'/>
                     </label>
-                    <fieldset>
+                    {/* <fieldset>
                         <legend className='creator__legend'>Select type</legend>
                         <div className='creator__radio-container'>
                             <label className='creator__label-radio'>
@@ -125,10 +129,10 @@ function Creator () {
                                 />
                             </label>
                         </div>
-                    </fieldset>
+                    </fieldset> */}
                     <label className='creator__label'>
-                      Episodes
-                        <input type="number" name='episodes'/>
+                        Episodes
+                        <input type="number" name='episode'/>
                     </label>
                     <button type="submit">Submit</button>
                 </form>

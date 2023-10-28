@@ -108,33 +108,6 @@
   width: 80%;
 }
 
-.session-panel {
-  position: absolute;
-  right: 0px;
-  top: 45px;
-  background-color: rgba(23, 21, 66, 0.7);
-  padding: 10px;
-  border-radius: 8px;
-  width: max-content;
-}
-.session-panel .session-panel__list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.session-panel .session-panel__list .session-panel__item {
-  display: grid;
-}
-.session-panel .session-panel__list .session-panel__item a {
-  padding: 7px 14px;
-  color: #fff;
-}
-.session-panel .session-panel__list .session-panel__item a:hover, .session-panel .session-panel__list .session-panel__item a:focus {
-  background-color: rgba(203, 51, 179, 0.3);
-  outline: 1px solid rgb(203, 51, 179);
-  border-radius: 8px;
-}
-
 .button {
   color: #fff;
   padding: 8px 16px;
@@ -189,6 +162,35 @@
 .rating__star {
   height: 1.5rem;
   width: 1.5rem;
+}
+
+.session-panel {
+  position: absolute;
+  right: 0px;
+  top: 45px;
+  background-color: rgba(23, 21, 66, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+  width: max-content;
+}
+.session-panel .session-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.session-panel .session-panel__list .session-panel__item {
+  display: grid;
+  text-align: center;
+}
+.session-panel .session-panel__list .session-panel__item a, .session-panel .session-panel__list .session-panel__item button {
+  padding: 7px 14px;
+  color: #fff;
+  cursor: pointer;
+}
+.session-panel .session-panel__list .session-panel__item:hover, .session-panel .session-panel__list .session-panel__item:focus {
+  background-color: rgba(203, 51, 179, 0.3);
+  outline: 1px solid rgb(203, 51, 179);
+  border-radius: 8px;
 }
 
 .play-button__container {
@@ -542,8 +544,11 @@
   gap: 1rem;
 }
 
-.profile-icon-container {
+.profileMenu {
   position: relative;
+}
+
+.profile-icon-container {
   width: 4rem;
   height: 4rem;
   cursor: pointer;

@@ -1,7 +1,10 @@
 @use '../../../Sass/variables' as *;
 
-.profile-icon-container {
+.profileMenu {
   position: relative;
+}
+
+.profile-icon-container {
   width: 4rem;
   height: 4rem;
   cursor: pointer;

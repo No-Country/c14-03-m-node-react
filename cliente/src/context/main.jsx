@@ -1,43 +1,18 @@
-import React, { createContext, useMemo, useState } from 'react'
-import useFetch from '../Hooks/usefetch'
-
+import React, { createContext, useState } from 'react'
 export const GeneralContext = createContext({})
 
 // eslint-disable-next-line react/prop-types
 export function GeneralProvider ({ children }) {
-    //   const [cartProducts, setCartProducts] = useState([] as Product[]);
-    const baseUrl = 'https://myanime.onrender.com'
 
-    const [users,
-        getAllUser,
-        createNewUser,
-        deleteUserById,
-        updateUserById] = useFetch(baseUrl)
+    const [isUserLogged, setIsUserLogged] = useState(false)
+    // const baseUrl = 'https://myanime.onrender.com/api/v1'
+    const baseUrl = 'http://localhost:8080/api/v1'
 
-    const [animes,
-        getAllAnimes,
-        createNewAnime,
-        deleteAnimeById,
-        updateAnimeById] = useFetch(baseUrl)
-
-    const values = useMemo(() => ({
-        // cartProducts,
-        users,
-        getAllUser,
-        createNewUser,
-        deleteUserById,
-        updateUserById,
-        animes,
-        getAllAnimes,
-        createNewAnime,
-        deleteAnimeById,
-        updateAnimeById
-    }), [
-        users,
-        animes
-        // cartProducts,
-        // isDetailOpen,
-    ])
+    const values = {
+        baseUrl,
+        isUserLogged,
+        setIsUserLogged
+    }
     return (
         <GeneralContext.Provider value={values}>
             {children}

@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react'
+import { Navigate } from 'react-router-dom'
+
 import BackToTop from '../../atoms/BackToTop'
 import Form from '../../organisms/Form'
 import FormNextSignUp from '../../organisms/formNextSignUp'
 import { UserSignUpContext } from '../../../context/UseSignUpContext'
-import { GeneralContext } from '../../../context/main'
+import { SignUpAPI } from '../../../apiConnection'
 
 const SignUp = () => {
     const {
@@ -18,12 +20,14 @@ const SignUp = () => {
         birthday,
         profileImg
     } = useContext(UserSignUpContext)
-    const { createNewUser } = useContext(GeneralContext)
+
+    const [signupResponse, signupStatus, signupFetch] = SignUpAPI()
+
 
     const [confirmPassword, setConfirmPassword] = useState(null)
     const [next, setNext] = useState(false)
 
-    const signup = {
+    const signupForm = {
         type: 'signup',
         title: 'Crea una cuenta',
         description: 'Descubre anime y manga, sigue tu progreso, obtén recomendaciones y lee las reseñas.',
@@ -65,12 +69,6 @@ const SignUp = () => {
         e.preventDefault()
 
         if ((password === confirmPassword) && (name, mail, password) != null) {
-            const info = {
-                name,
-                mail,
-                password
-            }
-            console.log(info)
             setNext(true)
         } else alert('Los datos ingresados no son correctos')
     }
@@ -85,40 +83,39 @@ const SignUp = () => {
             nickname,
             birthday
         }
-        console.log(`Data colected from signup form: ${dataColected}`)
+        console.log('Data colected from signup form:', dataColected)
+
         const formData = new FormData()
         formData.append('name', name)
         formData.append('email', mail)
         formData.append('password', password)
         formData.append('profilePicture', profileImg)
 
-        for (const pair of formData.entries()) {
-            console.log(pair[0], pair[1])
-        }
+        const headers = new Headers()
+        headers.append('Content-Type', 'multipart/form-data')
+
+        signupFetch('/', formData, headers)
+        console.log(signupStatus, signupResponse)
         console.log('Registrado :)')
-        /* const config = {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        }
-        createNewUser('/users', formData, config) */
-        window.location.replace('/')
     }
 
     return (
         <section id='sign-up'>
             <div className='sign-up_page'>
+                {signupStatus.success && (
+                    <Navigate to='/Login'/>
+                )}
                 <BackToTop/>
                 {
                     !next
                         ? <Form
-                            type={signup.type}
-                            title={signup.title}
-                            description={signup.description}
-                            form={signup.form}
-                            button={signup.button}
+                            type={signupForm.type}
+                            title={signupForm.title}
+                            description={signupForm.description}
+                            form={signupForm.form}
+                            button={signupForm.button}
                             onSubmit={handleNext}
-                            key={signup.title}/>
+                            key={signupForm.title}/>
                         : <FormNextSignUp setNickname={setNickname} handleSubmit={handleSubmit}/>
                 }
             </div>

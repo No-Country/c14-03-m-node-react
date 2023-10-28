@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../../molecules/navbar'
 import SearchInput from '../../atoms/searchInput'
-import ProfileIcon from '../../molecules/profileIcon'
+import ProfileMenu from '../../molecules/profileMenu'
 import { NavLink } from 'react-router-dom'
 
 function Header () {
@@ -13,7 +13,7 @@ function Header () {
             <NavBar/>
             <div className='header__rigth'>
                 <SearchInput/>
-                <ProfileIcon/>
+                <ProfileMenu/>
             </div>
         </header>
     )
