@@ -1,10 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import Form from '../../organisms/Form'
 import BackToTop from '../../atoms/BackToTop'
+import { GeneralContext } from '../../../context/main'
+import axios from 'axios'
+import { LoginAPI } from '../../../apiConnection'
 
 const Login = () => {
+    const {
+        isUserLogged,
+        setIsUserLogged
+    } = useContext(GeneralContext)
+
     const [user, setUser] = useState(null)
     const [password, setPassword] = useState(null)
+    const [loginResponse, loginStatus, loginFetch] = LoginAPI()
 
     const logIn = {
         type: 'login',
@@ -31,25 +41,65 @@ const Login = () => {
             path: '/signup'
         }
     }
-
+    const loginUser = (url, data, config) => {
+        axios
+            .post(url, data, config)
+            .then((res) => {
+                console.log(res.data.token)
+                console.log(res.data.user)
+                localStorage.setItem('token', res.data.token)
+                localStorage.setItem('user', JSON.stringify(res.data.user))
+                setIsUserLogged(true)
+            })
+            .catch((err) => console.error(err))
+    }
     const onSubmit = (e) => {
         e.preventDefault()
 
         if ((user, password) != null) {
-            const formData = new FormData()
-            formData.append('user', user)
-            formData.append('password', password)
+            const JSONData = JSON.stringify({
+                email: user,
+                password
+            })
+            const configJson = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
 
-            console.log(Object.fromEntries(formData))
+            loginFetch('', JSONData, configJson)
 
-            // Peticion post a /login con las credenciales, espera la respuesta con el token de acceso
+            // -----REQUEST WITH JSON------
 
-            window.location.replace('/')
+            /* const dataToJSON = {
+                email: user,
+                password
+            }
+            const JSONData = JSON.stringify(dataToJSON)
+            console.log(JSONData)
+            const configJson = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+            loginUser('http://localhost:8080/api/v1/users/login', JSONData, configJson) */
         } else alert('Ingrese los datos correctamente')
     }
+    useEffect(() => {
+        if (loginStatus.success) {
+            console.log(loginResponse.token)
+            console.log(loginResponse.user)
+            localStorage.setItem('token', loginResponse.token)
+            localStorage.setItem('user', JSON.stringify(loginResponse.user))
+            setIsUserLogged(true)
+        }
+    }, [loginStatus])
 
     return (
         <section id='login'>
+            {isUserLogged && (
+                <Navigate to='/' replace={true}/>
+            )}
             <div className='login-page'>
                 <BackToTop/>
                 <Form

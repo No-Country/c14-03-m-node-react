@@ -1,69 +1,37 @@
 import axios from 'axios'
 import { useState } from 'react'
 
-const useFetch = (baseUrl) => {
+const useFetch = (baseUrl, method) => {
     const [infoApi, setInfoApi] = useState()
+    const [fetchStatus, setFetchStatus] = useState({ loading: false, success: false, error: null })
 
-    // READ
-    const getApi = (path) => {
-        const url = `${baseUrl}${path}/`
-        axios.get(url)
-            .then(res => {
-                console.log(res)
-                console.log(res.data)
-                setInfoApi(res.data)
-            })
-            .catch(err => console.log(err))
+    const handleSuccess = (data) => {
+        setFetchStatus({ loading: false, success: true, error: null })
+        setInfoApi(data)
     }
 
-    // CREATE
-    const createNewRegister = (path, data, config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }) => {
-        const url = `${baseUrl}${path}/`
-        axios.post(url, data, config)
-            .then(res => {
-                console.log(res.data)
-                setInfoApi([...infoApi, res.data])
-            })
-            .catch(err => console.log(err))
+    const handleError = (error) => {
+        setFetchStatus({ loading: false, success: false, error })
     }
 
-    // DELETE
-    const deleteRegister = (path, id) => {
-        const url = `${baseUrl}${path}/${id}/`
-        axios.delete(url)
+    const fetchData = (path, data, config = {}) => {
+        setFetchStatus({ loading: true, success: false, error: null })
+
+        axios({
+            method,
+            url: `${baseUrl}${path}`,
+            data,
+            ...config
+        })
             .then(res => {
-                console.log(res.data)
-                const infoApiFilter = infoApi.filter(Element => Element.id !== id)
-                setInfoApi(infoApiFilter)
+                handleSuccess(res.data)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                handleError(err)
+            })
     }
 
-    // UPDATE
-    const updateRegister = (path, id, data) => {
-        const url = `${baseUrl}${path}/${id}/`
-        axios.put(url, data)
-            .then(res => {
-                console.log(res.data)
-                const infoApiUpdate = infoApi.map(element => {
-                    if (id === element.id) {
-                        /* const oldData = element
-                        return ({ ...oldData, ...data }) */
-                        return data
-                    } else {
-                        return element
-                    }
-                })
-                setInfoApi(infoApiUpdate)
-            })
-            .catch(err => console.log(err))
-    }
-
-    return [infoApi, getApi, createNewRegister, deleteRegister, updateRegister]
+    return [infoApi, fetchStatus, fetchData]
 }
 
 export default useFetch
