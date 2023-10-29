@@ -9,6 +9,32 @@ function ProfileMenu () {
     const { isUserLogged, setIsUserLogged } = useContext(GeneralContext)
     const navigate = useNavigate()
 
+    const isProfiliImgAvailable = () => {
+        const userJSON = localStorage.getItem('user')
+        if (userJSON) {
+            const user = JSON.parse(userJSON)
+            if (user.profilePicture) {
+                return (
+                    <img
+                        className='profile__img'
+                        src={user.profilePicture}
+                        alt='profile picture'
+                    />
+                )
+            } else {
+                return (
+                    <img
+                        className='profile__img'
+                        src='/cliente/public/defaultProfileImg.png'
+                        alt='default profile picture'
+                    />
+                )
+            }
+        }
+        return (
+            <IoPersonOutline className='profile-icon' />
+        )
+    }
     const dualMouseHandler = () => {
         let closeMenuTimeOut
         const handleMouseEnter = () => {
@@ -50,6 +76,7 @@ function ProfileMenu () {
             name: 'Cerrar Sesion',
             action: () => {
                 localStorage.removeItem('token')
+                localStorage.removeItem('user')
                 setIsUserLogged(false)
                 navigate('/')
             }
@@ -62,13 +89,14 @@ function ProfileMenu () {
     return (
         <div className='profileMenu'>
             <button
+                aria-label='profile button'
                 className='profile-icon-container'
                 onClick={mouseEnter}
                 onMouseEnter={mouseEnter}
                 onMouseLeave={mouseLeave}
                 onKeyDown={handleKeyDown}
             >
-                <IoPersonOutline className='profile-icon'/>
+                {isProfiliImgAvailable()}
             </button>
             {isHovered && (
                 <ProfileOptions
