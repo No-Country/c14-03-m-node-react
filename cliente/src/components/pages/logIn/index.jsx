@@ -45,7 +45,6 @@ const Login = () => {
         e.preventDefault()
 
         if ((user, password) != null) {
-
             const JSONData = JSON.stringify({
                 email: user,
                 password
@@ -57,7 +56,6 @@ const Login = () => {
             }
 
             loginFetch('', JSONData, configJson)
-
         } else alert('Ingrese los datos correctamente')
     }
     useEffect(() => {

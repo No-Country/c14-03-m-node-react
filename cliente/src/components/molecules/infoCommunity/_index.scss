@@ -1,0 +1,31 @@
+.info-community {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8rem;
+    
+    &__data {
+        position: relative;
+        text-align: center;
+        padding: 0 8rem;
+
+        &_total {
+            color: #CB33B3;
+            font-size: 5.5rem;
+            font-weight: 800;
+        }
+
+        &_title {
+            font-size: 2rem
+        }
+    }
+
+    .anime::after, .manga::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: linear-gradient(180deg, rgba(203, 51, 179, 0.00) 0%, #CB33B3 53.65%, rgba(203, 51, 179, 0.00) 100%);
+        width: 2px;
+        height: 100%;
+    }
+}
