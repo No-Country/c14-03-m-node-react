@@ -2,8 +2,6 @@ import React from 'react'
 import NoticiaItemCommunity from '../../atoms/noticiaItemCommunity'
 
 const NoticiaListCommunity = ({ noticias }) => {
-    console.log(noticias)
-
     return (
         <div className='noticias-list-community'>
             {

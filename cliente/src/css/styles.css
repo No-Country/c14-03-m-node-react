@@ -530,6 +530,7 @@
   border-radius: 12px;
   background: #0F1023;
   overflow: hidden;
+  cursor: pointer;
 }
 .noticia-item-community .noticia-item-img {
   height: 100%;
@@ -593,6 +594,30 @@
 .poster-community:hover .poster-community_description {
   opacity: 1;
   z-index: 1;
+}
+
+.all-animes {
+  width: 100%;
+  margin: 3.5rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.all-animes .button-all-animes {
+  color: #CB33B3;
+  border-radius: 4px;
+  width: 5rem;
+  height: 5rem;
+  transition: all 0.3s ease;
+}
+.all-animes .button-all-animes svg {
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.all-animes .button-all-animes:hover {
+  background-color: #0f1023;
+  border: 1px solid #CB33B3;
 }
 
 .profile-icon-container {
@@ -1332,6 +1357,15 @@
 .noticias-list-community .noticia-item-community:nth-child(6n+6) {
   grid-column: 1/2;
 }
+.noticias-list-community .noticia-item-community:nth-child(6n+1):hover .noticia-item-img,
+.noticias-list-community .noticia-item-community:nth-child(6n+4):hover .noticia-item-img {
+  overflow: hidden;
+}
+.noticias-list-community .noticia-item-community:nth-child(6n+1):hover .noticia-item-img img,
+.noticias-list-community .noticia-item-community:nth-child(6n+4):hover .noticia-item-img img {
+  transition: 0.3s all ease;
+  transform: scale(1.05);
+}
 .noticias-list-community .noticia-item-community:nth-child(6n+2),
 .noticias-list-community .noticia-item-community:nth-child(6n+3),
 .noticias-list-community .noticia-item-community:nth-child(6n+5),
@@ -1354,9 +1388,121 @@
   display: flex;
   opacity: 1;
   padding: 2rem 1.5rem;
-  background: linear-gradient(90deg, #8683A3 0%, rgba(203, 51, 179, 0.73) 100%);
+  background: linear-gradient(90deg, rgba(203, 51, 180, 0.7) 0%, rgba(19, 20, 45, 0.7) 49%);
   border-radius: 12px;
   height: 100%;
+  row-gap: 15px;
+}
+.noticias-list-community .noticia-item-community:nth-child(6n+2):hover .noticia-item-description__title,
+.noticias-list-community .noticia-item-community:nth-child(6n+3):hover .noticia-item-description__title,
+.noticias-list-community .noticia-item-community:nth-child(6n+5):hover .noticia-item-description__title,
+.noticias-list-community .noticia-item-community:nth-child(6n+6):hover .noticia-item-description__title {
+  font-size: 1.5rem;
+}
+
+.review-card-community {
+  width: 80%;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  column-gap: 2rem;
+  border-radius: 12px;
+  border-bottom: 1px solid #CB33B3;
+  overflow: hidden;
+}
+.review-card-community__poster {
+  width: 20%;
+  height: 100%;
+}
+.review-card-community__poster img {
+  width: 100%;
+  height: 100%;
+}
+.review-card-community__info {
+  padding: 2rem 0 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.review-card-community__info_score {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+}
+.review-card-community__info_review {
+  height: 70%;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+.review-card-community__info_titleAnime {
+  font-size: 2rem;
+  font-weight: 600;
+  padding-bottom: 1.31rem;
+}
+.review-card-community__info_descriptionReview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.5rem;
+}
+.review-card-community__info_data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.review-card-community__info_user {
+  display: flex;
+  align-items: center;
+  column-gap: 3rem;
+  font-size: 1.5rem;
+  color: #acacac;
+}
+.review-card-community__info_user_profile {
+  display: flex;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+.review-card-community__info_user_profile p {
+  font-style: italic;
+}
+.review-card-community__info_user_profile img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 0.5px solid #CB33B3;
+}
+.review-card-community__info_user_profile a {
+  font-style: normal;
+  color: #fff;
+}
+.review-card-community__info_more-info {
+  display: flex;
+  align-items: center;
+  column-gap: 1.6rem;
+  color: #CB33B3;
+}
+.review-card-community__info_likes {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  font-size: 1.4rem;
+}
+.review-card-community__info_button svg {
+  cursor: pointer;
+  color: #CB33B3;
+  width: 2rem;
+  height: 2rem;
+}
+.review-card-community__info_button .more-options {
+  font-weight: 300;
+  padding: 4px 8px;
+  position: absolute;
+  bottom: 20%;
+  right: 0;
+  background-color: #CB33B3;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 .header-Container {
@@ -1578,6 +1724,49 @@
   margin-bottom: 1.75rem;
 }
 
+.reviews-community {
+  padding: 3.44rem 0;
+}
+.reviews-community__presentation {
+  text-align: center;
+  margin-bottom: 9.19rem;
+}
+.reviews-community__presentation_title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.12rem;
+}
+.reviews-community__presentation_description {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+.reviews-community__container {
+  display: flex;
+  column-gap: 16px;
+}
+.reviews-community__container_last-reviews {
+  width: 100%;
+}
+.reviews-community__container_more-opinions {
+  width: 15%;
+}
+.reviews-community__container_more-opinions_list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  row-gap: 16px;
+}
+.reviews-community__container_more-opinions_list .poster-community {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.reviews-community__container_last-reviews_title, .reviews-community__container_more-opinions_title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+}
+
 .community-general {
   padding: 4.69rem 0;
 }
@@ -1616,29 +1805,6 @@
   border-radius: 0.5rem;
   background: linear-gradient(180deg, #CB33B3, transparent);
   z-index: 1;
-}
-.community-general__main .all-animes {
-  width: 100%;
-  margin: 3.5rem auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.community-general__main .all-animes .button-all-animes {
-  color: #CB33B3;
-  border-radius: 4px;
-  width: 5rem;
-  height: 5rem;
-  transition: all 0.3s ease;
-}
-.community-general__main .all-animes .button-all-animes svg {
-  cursor: pointer;
-  width: 2.5rem;
-  height: 2.5rem;
-}
-.community-general__main .all-animes .button-all-animes:hover {
-  background-color: #0f1023;
-  border: 1px solid #CB33B3;
 }
 .community-general__aside {
   width: 40%;

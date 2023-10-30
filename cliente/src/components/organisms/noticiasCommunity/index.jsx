@@ -1,6 +1,7 @@
 import React from 'react'
 import NoticiaListCommunity from '../../molecules/noticiaListCommunity'
 import NoticiaItemCommunity from '../../atoms/noticiaItemCommunity'
+import { noticias } from '../../pages/community/mockData'
 
 const NoticiasCommunity = () => {
     return (
@@ -13,14 +14,16 @@ const NoticiasCommunity = () => {
                 <div className='noticias-community__container_main'>
                     <p className='noticias-community__container_main_title'>Principales</p>
                     <div className='noticias-community__container_main_list'>
-                        <NoticiaItemCommunity/>
-                        <NoticiaItemCommunity/>
-                        <NoticiaItemCommunity/>
+                        {
+                            noticias.map(item => {
+                                return <NoticiaItemCommunity key={item.id} item={item}/>
+                            })
+                        }
                     </div>
                 </div>
                 <div className='noticias-community__container_last-news'>
                     <p className='noticias-community__container_last-news_title'>Últimas noticias</p>
-                    <NoticiaListCommunity />
+                    <NoticiaListCommunity noticias={noticias}/>
                 </div>
             </div>
         </div>
