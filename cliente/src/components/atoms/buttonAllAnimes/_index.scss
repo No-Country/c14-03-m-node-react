@@ -1,0 +1,26 @@
+.all-animes {
+    width: 100%;;
+    margin: 3.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .button-all-animes {
+        color: #CB33B3;
+        border-radius: 4px;
+        width: 5rem;
+        height: 5rem;
+        transition: all .3s ease;
+
+        svg {
+            cursor: pointer;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        &:hover {
+            background-color: #0f1023;
+            border: 1px solid #CB33B3;
+        }
+    }
+}
