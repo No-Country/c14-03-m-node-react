@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BsBoxArrowUp, BsCheck2 } from 'react-icons/bs'
 
-const InputFile = () => {
-    const [image, setImage] = useState(null)
+const InputFile = ({ status }) => {
+    const [image, setImage] = status
 
-    const inputFileClick = () => {
+    const inputFileClick = (e) => {
+        e.preventDefault()
         document.querySelector('#input-file').click()
     }
 
@@ -17,12 +18,17 @@ const InputFile = () => {
             <p>Ingresa una foto de perfil</p>
             {
                 image
-                    ? <img src={URL.createObjectURL(image)} className='input-file_preview'/>
+                    ? <img src={URL.createObjectURL(image)} className='input-file_preview' alt='profile image selected'/>
                     : <div className='input-file_preview no-image'></div>
             }
             <div className='input-file_button'>
-                <button onClick={inputFileClick}>{!image ? <BsBoxArrowUp/> : <BsCheck2/>}<p>{!image ? 'Seleccionar una imagen' : 'Imagen seleccionada'}</p></button>
-                <input onChange={({ target: { files } }) => handleInput(files)} type='file' id='input-file' accept='image/*' hidden/>
+                <button type='button' onClick={inputFileClick}>{!image ? <BsBoxArrowUp/> : <BsCheck2/>}<p>{!image ? 'Seleccionar una imagen' : 'Imagen seleccionada'}</p></button>
+                <input
+                    onChange={({ target: { files } }) => handleInput(files)}
+                    type='file'
+                    id='input-file'
+                    accept='image/*'
+                    hidden/>
             </div>
         </div>
     )

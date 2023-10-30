@@ -2,7 +2,13 @@
 import React from 'react'
 
 const ButtonSubmit = ({ value }) => {
-    return <input type="submit" value={value} className='button-submit' />
+    return (
+        <button
+            type="submit"
+            className='button-submit' >
+            {value}
+        </button>
+    )
 }
 
 export default ButtonSubmit

@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import React, { useContext } from 'react'
 import FormInput from '../../atoms/formInput'
 import ButtonSubmit from '../../atoms/buttonSubmit'
 import InputFile from '../../molecules/inputFile'
 import InputBirthDate from '../../molecules/inputBirthDate'
+import { UserSignUpContext } from '../../../context/UseSignUpContext'
 
 const FormNextSignUp = ({ setNickname, handleSubmit }) => {
+    const { profileImg, setProfileImg } = useContext(UserSignUpContext)
     const nextStep = {
         type: 'signup_next-step',
         title: 'Paso 2',
@@ -28,7 +30,7 @@ const FormNextSignUp = ({ setNickname, handleSubmit }) => {
             <form onSubmit={handleSubmit}>
                 <FormInput name={nextStep.form.name} type={nextStep.form.type} value={nextStep.form.value} onChange={nextStep.form.onChange}/>
                 <InputBirthDate/>
-                <InputFile/>
+                <InputFile status={[profileImg, setProfileImg]}/>
                 <ButtonSubmit value={nextStep.button.submit}/>
             </form>
         </div>

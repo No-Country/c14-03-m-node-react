@@ -1,0 +1,56 @@
+@use '../../../Sass/variables' as *;
+
+.detail-view {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 9rem;
+  padding: 0 4rem;
+  gap: 4rem;
+
+  &__body-container {
+    width: clamp(1000px, 70%, 1400px);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__reviews {
+    width: clamp(650px, 65%, 1000px);
+  }
+
+  &__reviews-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .reviews-header__title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    background: linear-gradient(90deg, rgba($contrast-pink, 1) 0%, rgba($white, .0) 100%);
+  }
+
+  &__add-review-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    align-self: flex-end;
+    color: $contrast-pink;
+    cursor: pointer;
+  }
+
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: clamp(1000px, 70%, 1400px);
+    &-title {
+      align-self: flex-start;
+    }
+  }
+}

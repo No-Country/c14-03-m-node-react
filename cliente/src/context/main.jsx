@@ -1,20 +1,21 @@
-import React, { createContext, useEffect, useMemo, useState } from 'react'
-
-export const GenericContext = createContext({})
+import React, { createContext, useState } from 'react'
+export const GeneralContext = createContext({})
 
 // eslint-disable-next-line react/prop-types
-export function GenericProvider ({ children }) {
-    //   const [cartProducts, setCartProducts] = useState([] as Product[]);
+export function GeneralProvider ({ children }) {
 
-    const values = useMemo(() => ({
-        // cartProducts,
-    }), [
-        // cartProducts,
-        // isDetailOpen,
-    ])
+    const [isUserLogged, setIsUserLogged] = useState(false)
+    // const baseUrl = 'https://myanime.onrender.com/api/v1'
+    const baseUrl = 'http://localhost:8080/api/v1'
+
+    const values = {
+        baseUrl,
+        isUserLogged,
+        setIsUserLogged
+    }
     return (
-        <GenericContext.Provider value={values}>
+        <GeneralContext.Provider value={values}>
             {children}
-        </GenericContext.Provider>
+        </GeneralContext.Provider>
     )
 }
