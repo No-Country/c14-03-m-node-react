@@ -3,7 +3,6 @@ import { Navigate } from 'react-router-dom'
 import Form from '../../organisms/Form'
 import BackToTop from '../../atoms/BackToTop'
 import { GeneralContext } from '../../../context/main'
-import axios from 'axios'
 import { LoginAPI } from '../../../apiConnection'
 
 const Login = () => {
@@ -45,7 +44,6 @@ const Login = () => {
         e.preventDefault()
 
         if ((user, password) != null) {
-
             const JSONData = JSON.stringify({
                 email: user,
                 password
@@ -57,12 +55,10 @@ const Login = () => {
             }
 
             loginFetch('', JSONData, configJson)
-
         } else alert('Ingrese los datos correctamente')
     }
     useEffect(() => {
         if (loginStatus.success) {
-            console.log(loginResponse.token)
             console.log(loginResponse.user)
             localStorage.setItem('token', loginResponse.token)
             localStorage.setItem('user', JSON.stringify(loginResponse.user))

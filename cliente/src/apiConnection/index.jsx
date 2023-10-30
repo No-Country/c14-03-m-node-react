@@ -9,3 +9,7 @@ export function LoginAPI () {
     const loginApi = useFetch(`${baseUrl}/users/login`, 'POST')
     return (loginApi)
 }
+export function UpdateUserDataAPI (idUser) {
+    const updateUserDataApi = useFetch(`${baseUrl}/users/${idUser}`, 'PUT')
+    return (updateUserDataApi)
+}

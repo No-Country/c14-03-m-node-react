@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { IoPersonOutline } from 'react-icons/io5'
 import ProfileOptions from '../../atoms/profileOptions'
@@ -6,8 +6,17 @@ import { GeneralContext } from '../../../context/main'
 
 function ProfileMenu () {
     const [isHovered, setIsHovered] = useState(false)
+    const [userInfo, setUserInfo] = useState(false)
     const { isUserLogged, setIsUserLogged } = useContext(GeneralContext)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (isUserLogged) {
+            const userJSON = localStorage.getItem('user')
+            const user = JSON.parse(userJSON)
+            setUserInfo(user)
+        }
+    }, [isUserLogged])
 
     const isProfiliImgAvailable = () => {
         const userJSON = localStorage.getItem('user')
@@ -25,7 +34,7 @@ function ProfileMenu () {
                 return (
                     <img
                         className='profile__img'
-                        src='/cliente/public/defaultProfileImg.png'
+                        src='../../../../public/defaultProfileImg.png'
                         alt='default profile picture'
                     />
                 )
@@ -70,7 +79,7 @@ function ProfileMenu () {
     const loggedControls = [
         {
             name: 'Perfil',
-            link: '/profile'
+            link: `/profile/${userInfo.id}`
         },
         {
             name: 'Cerrar Sesion',

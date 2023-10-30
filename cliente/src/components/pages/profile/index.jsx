@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ProfileStatusListThumbnail from '../../atoms/profileStatusListThumbnail'
 import ProfileCard from '../../atoms/profileCard'
 import ProfileList from '../../molecules/profileList'
+
 import { userData } from './mockData'
 
 function Profile () {
+    const [editModalOpen, setEditModalOpen] = useState(false)
     return (
         <main className='profile'>
             <ProfileCard userData={userData} />
