@@ -15,42 +15,45 @@ function Home () {
         <main className='home-container'>
             <HomeProvider>
                 <HeroHomePage/>
-                <Section title='Tendencias de Anime & Manga'>
-                    <Carousel>
-                        {cards.map((item) => (
-                            <AnimeCard key={item.title} item={item}/>
-                        ))}
-                    </Carousel>
-                </Section>
-                <Section title='Noticias de Anime & Manga'>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', width: 'clamp(260px, 80%, 1300px)' }}>
+                <main>
 
-                        {noticias.map((item) => (
-                            <NoticiaCard key={item.id} item={item}></NoticiaCard>
-                        ))
-                        }
-                    </div>
-                </Section>
-                <Section title='Trailers populares'>
-                    <Carousel>
-                        {trailers.map((item) => (
-                            <TrailerCard key={item.title} item={item}></TrailerCard>
-                        ))
-                        }
-                    </Carousel>
-                </Section>
-                <Section title='Reseñas recientes'>
-                    <Carousel>
-                        {reseñas.map((item) => (
-                            <div key={item.id} className='review-container'>
+                    <Section title='Tendencias de Anime & Manga'>
+                        <Carousel>
+                            {cards.map((item) => (
+                                <AnimeCard key={item.title} item={item}/>
+                            ))}
+                        </Carousel>
+                    </Section>
+                    <Section title='Noticias de Anime & Manga'>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', width: 'clamp(260px, 80%, 1300px)' }}>
 
-                                <ReviewCard item={item}></ReviewCard>
-                            </div>
-                        ))
-                        }
-                    </Carousel>
-                </Section>
-                <HomeBottomBanner />
+                            {noticias.map((item) => (
+                                <NoticiaCard key={item.id} item={item}></NoticiaCard>
+                            ))
+                            }
+                        </div>
+                    </Section>
+                    <Section title='Trailers populares'>
+                        <Carousel>
+                            {trailers.map((item) => (
+                                <TrailerCard key={item.title} item={item}></TrailerCard>
+                            ))
+                            }
+                        </Carousel>
+                    </Section>
+                    <Section title='Reseñas recientes'>
+                        <Carousel>
+                            {reseñas.map((item) => (
+                                <div key={item.id} className='review-container'>
+
+                                    <ReviewCard item={item}></ReviewCard>
+                                </div>
+                            ))
+                            }
+                        </Carousel>
+                    </Section>
+                    <HomeBottomBanner />
+                </main>
             </HomeProvider>
         </main>
     )

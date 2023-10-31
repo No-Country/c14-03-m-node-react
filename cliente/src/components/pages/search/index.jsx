@@ -40,37 +40,40 @@ function Search () {
     }
 
     return <>
-        <div className="search-section">
-            <main >
 
-                <div className="search-section__form">
+        <main >
+            <div className="search-section">
+                <div>
 
-                    <FormWide type={search.type} title={search.title} description ={search.descripcion} form={search.form} onSubmit={null}/>
+                    <div className="search-section__form">
+
+                        <FormWide type={search.type} title={search.title} description ={search.descripcion} form={search.form} onSubmit={null}/>
+                    </div>
+                    <div className="search-section__view">
+                        <Section title="Titulo de Prueba">
+                            <Carousel>
+                                {mangas}
+                            </Carousel>
+                        </Section>
+                        <Section title="Titulo de Prueba">
+                            <Carousel>
+                                {mangas}
+                            </Carousel>
+                        </Section>
+                        <Section title="Titulo de Prueba">
+                            <Carousel>
+                                {mangas}
+                            </Carousel>
+                        </Section>
+                    </div>
                 </div>
-                <div className="search-section__view">
-                    <Section title="Titulo de Prueba">
-                        <Carousel>
-                            {mangas}
-                        </Carousel>
-                    </Section>
-                    <Section title="Titulo de Prueba">
-                        <Carousel>
-                            {mangas}
-                        </Carousel>
-                    </Section>
-                    <Section title="Titulo de Prueba">
-                        <Carousel>
-                            {mangas}
-                        </Carousel>
-                    </Section>
-                </div>
-            </main>
-            <div className="search__aside-container">
+                <div className="search__aside-container">
 
-                <Aside title='Top Manga' elements={variant.slice(0, 4)}></Aside>
-                <Aside title='Ultimas Reviews' elements={rev}></Aside>
+                    <Aside title='Top Manga' elements={variant.slice(0, 4)}></Aside>
+                    <Aside title='Ultimas Reviews' elements={rev}></Aside>
+                </div>
             </div>
-        </div>
+        </main>
     </>
 }
 
