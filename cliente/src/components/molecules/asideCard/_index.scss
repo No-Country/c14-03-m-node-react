@@ -1,0 +1,19 @@
+.aside-card {
+    border-radius: 8px;
+    border: 1px solid #CB33B3;
+    background: linear-gradient(161deg, rgba(144, 144, 144, 0.00) 0%, #13142D 100%);
+    overflow: hidden;
+
+    &_title {
+        background-color: #cb33b4bd;
+        font-size: 1.5rem;
+        padding: 8px 16px;
+    }
+
+    &_container {
+        display: flex;
+        flex-flow: column nowrap;
+        row-gap: 16px;
+        padding: 16px 16px;
+    }
+}

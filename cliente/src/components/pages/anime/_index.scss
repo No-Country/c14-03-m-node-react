@@ -1,0 +1,17 @@
+#anime-section {
+    width: 95%;
+    margin: 120px auto 0;
+    display: flex;
+
+    .anime-section__container {
+        width: 75%;
+    }
+
+    .anime-section__aside {
+        width: 28%;
+        
+        aside {
+            margin-bottom: 60px;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.top-item {
+    display: flex;
+    justify-content: space-between;
+
+    &_index {
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+
+    img {
+        max-width: 85px;
+        border-radius: 4px;
+    }
+
+    &_info {
+        &_more {
+            padding-top: 12px;
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+    }
+
+    &_button-save {
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 5px;
+        color: #cb33b3;
+        cursor: pointer;
+    }
+}
