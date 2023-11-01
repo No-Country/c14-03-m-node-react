@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Navigate } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast'
 
 import BackToTop from '../../atoms/BackToTop'
 import Form from '../../organisms/Form'
@@ -90,10 +91,13 @@ const SignUp = () => {
         formData.append('password', password)
         formData.append('profilePicture', profileImg)
 
-        const headers = new Headers()
-        headers.append('Content-Type', 'multipart/form-data')
+        const config = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
 
-        signupFetch('/', formData, headers)
+        signupFetch('/', formData, config)
         console.log(signupStatus, signupResponse)
         console.log('Registrado :)')
     }
@@ -104,6 +108,10 @@ const SignUp = () => {
                 {signupStatus.success && (
                     <Navigate to='/Login'/>
                 )}
+                {signupStatus.error && (
+                    toast.error('No logramos registrarte')
+                )}
+                <Toaster />
                 <BackToTop/>
                 {
                     !next

@@ -10,12 +10,11 @@ const useFetch = (baseUrl, method) => {
         setInfoApi(data)
     }
 
-
-   const handleError = (error) => {
+    const handleError = (error) => {
         setFetchStatus({ loading: false, success: false, error })
     }
 
-    const fetchData = (path, data, config = {}) => {
+    const fetchData = (path = '', data = {}, config = {}) => {
         setFetchStatus({ loading: true, success: false, error: null })
 
         axios({

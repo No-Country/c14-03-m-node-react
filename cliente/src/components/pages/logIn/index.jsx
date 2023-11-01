@@ -3,7 +3,6 @@ import { Navigate } from 'react-router-dom'
 import Form from '../../organisms/Form'
 import BackToTop from '../../atoms/BackToTop'
 import { GeneralContext } from '../../../context/main'
-import axios from 'axios'
 import { LoginAPI } from '../../../apiConnection'
 
 const Login = () => {
@@ -60,10 +59,11 @@ const Login = () => {
     }
     useEffect(() => {
         if (loginStatus.success) {
-            console.log(loginResponse.token)
-            console.log(loginResponse.user)
+            console.log(loginResponse)
+            const userToLocal = { ...loginResponse.user, loginDate: Date.now() }
+            console.log('userToLocal', userToLocal)
             localStorage.setItem('token', loginResponse.token)
-            localStorage.setItem('user', JSON.stringify(loginResponse.user))
+            localStorage.setItem('user', JSON.stringify(userToLocal))
             setIsUserLogged(true)
         }
     }, [loginStatus])

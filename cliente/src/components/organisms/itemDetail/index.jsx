@@ -1,13 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlinePlus, AiOutlinePlayCircle } from 'react-icons/ai'
+
 import MangaCover from '../../atoms/mangaCover'
 import StarRating from '../../atoms/starRating'
 import Button from '../../atoms/button'
 import ItemStatusSelector from '../../molecules/itemStatusSelector'
+import Modal from '../../atoms/modal'
+import AddToListForm from './addToListForm'
+
+import { GetAllListsApi } from '../../../apiConnection'
 
 function ItemDetail ({ anime }) {
+    const token = localStorage.getItem('token')
+    const [addToListModalOpen, setAddToListModalOpen] = useState(false)
+    const [userLists, setUserLists] = useState([])
+
+    const [getAllListsResponse, getAllListsStatus, getAllListsFetch] = GetAllListsApi()
+
+    const addToListHandler = () => {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+        getAllListsFetch('', {}, config)
+        setAddToListModalOpen(true)
+    }
+    useEffect(() => {
+        if (getAllListsStatus.success) {
+            console.log(getAllListsResponse)
+
+            setUserLists(getAllListsResponse)
+        }
+    }, [getAllListsResponse])
     return (
         <main className='item-detail'>
+            {addToListModalOpen && (
+                <Modal>
+                    <AddToListForm
+                        userLists={userLists}
+                        toCloseModal={setAddToListModalOpen}
+                    />
+                </Modal>
+            )}
             <MangaCover item={{ image: anime.image, title: anime.title }}/>
             <section className='item-detail__rigth-section'>
                 <div className='item-detail__upper'>
@@ -21,7 +56,11 @@ function ItemDetail ({ anime }) {
                         </div>
                         <div className='item-detail__buttons' >
                             <ItemStatusSelector></ItemStatusSelector>
-                            <Button type='filled' text='Agregar a lista'>
+                            <Button
+                                type='filled'
+                                text='Agregar a lista'
+                                clickHandler={addToListHandler}
+                            >
                                 <AiOutlinePlus />
                             </Button>
                         </div>
@@ -34,7 +73,7 @@ function ItemDetail ({ anime }) {
                     </picture>
                 </div>
                 <section className='item-detail__synopsis'>
-                    {anime.synopsis.map((paragraph) => (
+                    {anime.description.map((paragraph) => (
                         <p key={paragraph.length} className='item-detail__text'>
                             {paragraph}
                         </p>

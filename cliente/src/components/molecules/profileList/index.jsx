@@ -1,16 +1,71 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { BsPlusCircle } from 'react-icons/bs'
+import toast, { Toaster } from 'react-hot-toast'
+
+import { CreateListApi, GetAllListsApi } from '../../../apiConnection'
+
+import Modal from '../../atoms/modal'
+import Button from '../../atoms/button'
 import ProfileListsItem from '../../atoms/profileListsItem'
 import ProfileReviewItem from '../profileReviewItem'
+import CreateListForm from './createListForm'
 
 function ProfileList ({ userData }) {
+    const token = localStorage.getItem('token')
+    const [localUserData, setLocalUserData] = useState(JSON.parse(localStorage.getItem('user')))
+
     const defaultSelected = 'lists'
+
     const [listSelected, setListSelected] = useState(defaultSelected)
+    const [reviews, setReviews] = useState(userData.reviews)
+    const [lists, setLists] = useState(userData.lists)
+    const [createListModalOpen, setCreateListModalOpen] = useState(false)
+
+    const [listNameValue, setListNameValue] = useState('')
+    const [textAreaValue, setTextAreaValue] = useState('')
+
     const listsButton = useRef(null)
     const reviewsButton = useRef(null)
 
+    const [createListResponse, createListStatus, createListFetch] = CreateListApi()
+    const [getAllListsResponse, getAllListsStatus, getAllListsFetch] = GetAllListsApi()
+
+    console.log(lists);
     useEffect(() => {
         listsButton.current.classList.add('active')// pone por default el active a la lista lists
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+        getAllListsFetch('', '', config)
+        // obtener todas la reviews
     }, [])
+
+    useEffect(() => {
+        if (getAllListsStatus.success) {
+            console.log(getAllListsResponse)
+            setLists(getAllListsResponse)
+        }
+    }, [getAllListsStatus])
+
+    useEffect(() => {
+        if (createListStatus.success) {
+            console.log(createListResponse)
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+
+            getAllListsFetch('', '', config)
+            toast.success('Lista Creada')
+
+            // Aqui debriamos actualizar el array de Listas para que se refleje en la UI
+        }
+    }, [createListStatus])
 
     const clickHandler = (e) => {
         e.preventDefault()
@@ -27,9 +82,80 @@ function ProfileList ({ userData }) {
             setListSelected(selected)
         }
     }
+    const createListHandler = () => {
+        console.log(listNameValue)
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        }
+        const dataToSend = {
+            title: listNameValue,
+            description: textAreaValue,
+            userId: localUserData.id
+        }
+        createListFetch('', JSON.stringify(dataToSend), config)
+        console.log(createListResponse)
+        console.log(createListStatus)
+        setCreateListModalOpen(false)
+    }
+
+    const renderLists = () => {
+        if (lists.length > 0) {
+            return (lists.map((item) => (
+                <ProfileListsItem key={item.title} list={item} />
+            )))
+        }
+        return (
+            <div className='empty-lists'>
+                <h3>No tienes listas creadas</h3>
+                <Button
+                    className='empty-lists__button'
+                    type='filled'
+                    clickHandler={() => setCreateListModalOpen(true)}
+                >
+                    <BsPlusCircle />
+                    <span>Crea Tu primera lista</span>
+                </Button>
+            </div>
+        )
+    }
+    const renderReviews = () => {
+        if (reviews.length > 0) {
+            return (reviews.map((item) => (
+                <ProfileReviewItem
+                    key={item.id}
+                    review={item}
+                    userData={
+                        { userName: userData.userName, userImage: userData.userImage }
+                    }
+                />
+            )))
+        }
+        return (
+            <div className='empty-reviews'>
+                <h3>No tienes reseñas creadas</h3>
+                <div className='empty-reviews__link-container'>
+                    <NavLink to='/' className='empty-reviews__link' >
+                        Ir al Catalogo
+                    </NavLink>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <section className='profile-lists'>
+            {createListModalOpen && (
+                <Modal toClose={setCreateListModalOpen}>
+                    <CreateListForm
+                        statusInput={[listNameValue, setListNameValue]}
+                        statusTextArea={[textAreaValue, setTextAreaValue]}
+                        createListHandler ={createListHandler} />
+                </Modal>
+            )}
+            <Toaster />
             <nav className='profile-lists__navigation'>
                 <ul className='profile-lists__lists-container'>
                     <li className='profile-lists__item'>
@@ -51,22 +177,19 @@ function ProfileList ({ userData }) {
                         </button>
                     </li>
                 </ul>
-
+                {listSelected === 'lists' && lists.length > 0 && (
+                    <Button
+                        text={'Crear nueva lista'}
+                        type='filled'
+                        clickHandler={() => setCreateListModalOpen(true)}>
+                        <BsPlusCircle />
+                    </Button>
+                )}
             </nav>
             <ul className='profile-lists__list'>
                 {listSelected === 'lists'
-                    ? (userData.lists.map((item) => (
-                        <ProfileListsItem key={item.name} list={item} />
-                    )))
-                    : (userData.reviews.map((item) => (
-                        <ProfileReviewItem
-                            key={item.id}
-                            review={item}
-                            userData={
-                                { userName: userData.userName, userImage: userData.userImage }
-                            }
-                        />
-                    )))
+                    ? (renderLists())
+                    : (renderReviews())
                 }
             </ul>
         </section>
