@@ -1,0 +1,18 @@
+.sections-community__buttons {
+    display: flex;
+
+    button {
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid #CB33B3;
+        color: #CB33B3;
+        font-size: 2.5rem;
+        padding: 5px 0;
+        transition: all .3s ease-in;
+
+        &:hover {
+            background-color: #CB33B3;
+            color: #fff;
+        }
+    }
+}

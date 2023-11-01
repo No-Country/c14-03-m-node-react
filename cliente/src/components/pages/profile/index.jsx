@@ -2,6 +2,7 @@ import React from 'react'
 import ProfileStatusListThumbnail from '../../atoms/profileStatusListThumbnail'
 import ProfileCard from '../../atoms/profileCard'
 import ProfileList from '../../molecules/profileList'
+
 import { userData } from './mockData'
 
 function Profile () {

@@ -30,8 +30,9 @@ export const userData = {
   ],
   lists: [
     {
-      name: "Comedia",
-      items: [
+      title: "Comedia",
+      description: 'Para mearse de la risa',
+      animes: [
         { name: "Konosuba", id: 1 },
         { name: "Saiki", id: 2 },
         { name: "Asobi Asobase", id: 3 },
@@ -41,8 +42,9 @@ export const userData = {
       id: 1,
     },
     {
-      name: "Para llorar",
-      items: [
+      title: "Dramas",
+      description: 'Para comerse las uñas',
+      animes: [
         { name: "Violet Evergarden", id: 7 },
         { name: "FullMetal Alchemist", id: 8 },
         { name: "Shigatsu wa kimi no uso", id: 10 },
@@ -50,8 +52,9 @@ export const userData = {
       id: 2,
     },
     {
-      name: "Para sufrir",
-      items: [
+      title: "Accion",
+      description: 'Para ver puros putazos',
+      animes: [
         { name: "Re: Zero", id: 11 },
         { name: "Angel Beats", id: 12 },
         { name: "Code GEass", id: 13 },
@@ -60,8 +63,9 @@ export const userData = {
       id: 3,
     },
     {
-      name: "Pinches romances",
-      items: [
+      title: "Romances",
+      description: 'Para que me de diabetes de tanta dulzura',
+      animes: [
         { name: "Love is War", id: 15 },
         { name: "Kimi no na wa", id: 16 },
         { name: "Gambare Douki-chan", id: 17 },

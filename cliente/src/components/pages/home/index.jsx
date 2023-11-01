@@ -24,7 +24,6 @@ function Home () {
                 </Section>
                 <Section title='Noticias de Anime & Manga'>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', width: 'clamp(260px, 80%, 1300px)' }}>
-
                         {noticias.map((item) => (
                             <NoticiaCard key={item.id} item={item}></NoticiaCard>
                         ))

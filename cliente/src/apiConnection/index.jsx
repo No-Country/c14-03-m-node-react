@@ -1,42 +1,52 @@
 import useFetch from '../Hooks/usefetch'
+const baseUrl = 'http://localhost:8080/api/v1' // Define tu URL base
 
-const baseUrl = 'https://myanime.onrender.com/'
+// -----USER
+export function SignUpAPI () {
+    const signupApi = useFetch(`${baseUrl}/users`, 'POST')
+    return (signupApi)
+}
+export function LoginAPI () {
+    const loginApi = useFetch(`${baseUrl}/users/login`, 'POST')
+    return (loginApi)
+}
+export function UpdateUserDataAPI (idUser) {
+    const updateUserDataApi = useFetch(`${baseUrl}/users/${idUser}`, 'PUT')
+    return (updateUserDataApi)
+}
 
-const [users,
-    getAllUser,
-    createNewUser,
-    deleteUserById,
-    updateUserById] = useFetch(baseUrl)
+// ----LIST
+export function CreateListApi () {
+    const createListApi = useFetch(`${baseUrl}/listAnimes`, 'POST')
+    return (createListApi)
+}
+export function GetAllListsApi () {
+    const getAllListsApi = useFetch(`${baseUrl}/listAnimes`, 'GET')
+    return (getAllListsApi)
+}
 
-/* const [users,
-        getAllUser,
-        createNewUser,
-        deleteUserById,
-        updateUserById] =
-    useFetch(baseUrl)
+// ----- ANIME
+export function CreateItemApi () {
+    const createItemApi = useFetch(`${baseUrl}/animes`, 'POST')
+    return (createItemApi)
+}
 
-    useEffect(() => {
-        getAllUser('/users')
-        console.log(users)
-    }, []) */
+// ----- GENRE
+export function CreateGenreApi () {
+    const createGenreApi = useFetch(`${baseUrl}/genres`, 'POST')
+    return (createGenreApi)
+}
+export function GetAllGenresApi () {
+    const getAllGenresApi = useFetch(`${baseUrl}/genres`, 'GET')
+    return (getAllGenresApi)
+}
 
-/* useEffect(() => {
-      getAllUser('/animes')
-      console.log(users)
-  }, []) */
-/* useEffect(() => {
-      createNewUser('/animes', {
-          title: 'konosuba',
-          description: 'best anime ever',
-          trailer: 'https://youtube.com ',
-          image: 'https://4.bp.blogspot.com/-yrZmlUVr_FY/XJe7vxNj7mI/AAAAAAAALMI/4s55GoqCNBsiYlU7nHAR5KPfHhVvKWTywCLcBGAs/s1600/konosuba-anime-pelicula.jpg',
-          ReleaseDate: '2015-02'
-      })
-      getAllUser('/animes')
-  }, []) */
-/* useEffect(() => {
-    createNewUser('/comments', {
-        content: 'esto es un comentario de prueba'
-    })
-    getAllUser('/comments')
-}, []) */
+export function AddGenreToItemApi (idItem) {
+    const addGenreToItemApi = useFetch(`${baseUrl}/animes/${idItem}/listanime`, 'POST')
+    return (addGenreToItemApi)
+}
+
+export function AddItemToListApi (idItem) {
+    const addItemToListApi = useFetch(`${baseUrl}/animes/${idItem}/genres`, 'POST')
+    return (addItemToListApi)
+}

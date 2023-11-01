@@ -16,15 +16,19 @@
 
     .session-panel__item {
       display: grid;
-      a {
-        padding: 7px 14px;
-        &:hover, &:focus {
-          background-color: rgba($contrast-pink, .3);
-          outline: 1px solid $contrast-pink;
-          border-radius: 8px;
-        }
+      text-align: center;
 
+      a, button {
+        padding: 7px 14px;
         color: $white;
+        cursor: pointer;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: rgba($contrast-pink, .3);
+        outline: 1px solid $contrast-pink;
+        border-radius: 8px;
       }
     }
   }

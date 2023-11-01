@@ -9,12 +9,16 @@ import Login from './components/pages/logIn/index.jsx'
 import Home from './components/pages/home/index.jsx'
 import SignUp from './components/pages/signUp/index.jsx'
 import Profile from './components/pages/profile/index.jsx'
+import Community from './components/pages/community/index.jsx'
 import DetailView from './components/pages/detailView'
+import Creator from './components/pages/creator/index.jsx'
 
 import {
     createBrowserRouter,
     RouterProvider
 } from 'react-router-dom'
+import Anime from './components/pages/anime/index.jsx'
+import Manga from './components/pages/manga/index.jsx'
 
 const router = createBrowserRouter([
     {
@@ -26,12 +30,28 @@ const router = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: '/profile',
+                path: '/profile/:id',
                 element: <Profile />
+            },
+            {
+                path: '/comunidad',
+                element: <Community />
             },
             {
                 path: '/anime/:id',
                 element: <DetailView />
+            },
+            {
+                path: '/creator',
+                element: <Creator />
+            },
+            {
+                path: '/anime',
+                element: <Anime />
+            },
+            {
+                path: '/manga',
+                element: <Manga />
             }
         ]
     },
