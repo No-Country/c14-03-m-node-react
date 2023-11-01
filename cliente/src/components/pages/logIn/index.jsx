@@ -59,9 +59,11 @@ const Login = () => {
     }
     useEffect(() => {
         if (loginStatus.success) {
-            console.log(loginResponse.user)
+            console.log(loginResponse)
+            const userToLocal = { ...loginResponse.user, loginDate: Date.now() }
+            console.log('userToLocal', userToLocal)
             localStorage.setItem('token', loginResponse.token)
-            localStorage.setItem('user', JSON.stringify(loginResponse.user))
+            localStorage.setItem('user', JSON.stringify(userToLocal))
             setIsUserLogged(true)
         }
     }, [loginStatus])

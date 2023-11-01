@@ -1230,6 +1230,15 @@
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
+.profile-lists__list .empty-lists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.profile-lists__list .empty-lists h3 {
+  text-align: center;
+}
 
 .create-list-form {
   display: flex;
@@ -2294,7 +2303,7 @@
 .creator {
   margin-top: 9rem;
   padding: 1rem 4rem;
-  width: 100%;
+  width: clamp(1000px, 100%, 1200px);
   display: flex;
   justify-content: space-around;
 }
@@ -2311,9 +2320,15 @@
   border-radius: 8px;
   border: 1px solid #fff;
   color: #fff;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.creator__nav-list .creator__button:focus, .creator__nav-list .creator__button:hover, .creator__nav-list .creator__button.selected {
-  background-color: rgba(255, 255, 255, 0.2);
+.creator__nav-list .creator__button:focus, .creator__nav-list .creator__button:hover, .creator__nav-list .creator__button.active {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(203, 51, 179);
+  color: rgb(37, 19, 60);
+}
+.creator__nav-list .creator__button.active {
+  transform: scale(1.1);
 }
 .creator__form {
   display: flex;
@@ -2340,6 +2355,16 @@
   resize: none;
   width: 100%;
   height: clamp(100px, 10%, 150px);
+}
+.creator__form .creator__submit-button {
+  color: #fff;
+  padding: 1rem 2rem;
+  background-color: rgb(203, 51, 179);
+  border-radius: 8px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.creator__form .creator__submit-button:focus, .creator__form .creator__submit-button:hover {
+  transform: scale(1.1);
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

@@ -3,7 +3,7 @@
 .creator {
   margin-top: 9rem;
   padding: 1rem 4rem;
-  width: 100%;
+  width: clamp(1000px, 100%, 1200px);
   display: flex;
   justify-content: space-around;
 
@@ -20,11 +20,17 @@
       border-radius: 8px;
       border: 1px solid $white;
       color: $white;
+      transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
       &:focus,
       &:hover,
-      &.selected {
-        background-color: rgba($white, .2);
+      &.active {
+        background-color: rgba($white, .5);
+        border: 1px solid $contrast-pink;
+        color: $dark-purple;
+      }
+      &.active{
+        transform: scale(1.1);
       }
     }
   }
@@ -45,6 +51,7 @@
     .creator__radio-container {
       display: flex;
       flex-direction: column;
+
       .creator__label-radio {
         display: flex;
         gap: 1rem;
@@ -56,6 +63,19 @@
       resize: none;
       width: 100%;
       height: clamp(100px, 10%, 150px);
+    }
+
+    .creator__submit-button {
+      color: $white;
+      padding: 1rem 2rem;
+      background-color: $contrast-pink;
+      border-radius: 8px;
+      transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      &:focus,
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }

@@ -6,31 +6,33 @@ import { TbEdit } from 'react-icons/tb'
 import { UpdateUserDataAPI } from '../../../apiConnection'
 import InputFile from '../../molecules/inputFile'
 
+// import axios from 'axios'
+
 function ProfileCard ({ userData }) {
     const token = localStorage.getItem('token')
     const [localUserData, setLocalUserData] = useState(JSON.parse(localStorage.getItem('user')))
+
     const [editing, setEditing] = useState(false)
     const [newImage, setNewImage] = useState(localUserData.profilePicture)
     const [nameInputValue, setNameInputValue] = useState(localUserData.name)
-    const [textAreaValue, setTextAreaValue] = useState('')
+    const [textAreaValue, setTextAreaValue] = useState(localUserData.biografy)
+
     const [updateUsereResponse, updateUserStatus, updateUserFetch] = UpdateUserDataAPI(localUserData.id)
     const editForm = useRef(null)
-    const { id } = useParams()
 
     useEffect(() => {
         setLocalUserData(JSON.parse(localStorage.getItem('user')))
-        console.log('el id del perfil visitado es: ', id)
-        console.log(localUserData)
-        console.log(token)
     }, [])
 
     const handleUpdateSubmit = (e) => {
         e.preventDefault()
-        const intialFormData = new FormData(e.currentTarget)
-        console.log('initialFormData: ', [...intialFormData.entries()])
+        /* const intialFormData = new FormData(e.currentTarget)
+        console.log('initialFormData: ', [...intialFormData.entries()]) */
+
         const formData = new FormData()
         if (newImage !== localUserData.profilePicture && newImage) {
             formData.append('profilePicture', newImage)
+            console.log(newImage)
         }
         if (nameInputValue !== localUserData.name && nameInputValue) {
             formData.append('name', nameInputValue)
@@ -48,12 +50,19 @@ function ProfileCard ({ userData }) {
         }
 
         updateUserFetch('', formData, config)
+
         editForm.current.reset()
-        console.log(updateUsereResponse)
-        console.log(updateUserStatus)
+        console.log('fetch status: ', updateUserStatus)
 
         setEditing(false)
     }
+    useEffect(() => {
+        if (updateUserStatus.success) {
+            const userToLocal = { ...updateUsereResponse, loginDate: Date.now() }
+            localStorage.setItem('user', JSON.stringify(userToLocal))
+            setLocalUserData(JSON.parse(localStorage.getItem('user')))
+        }
+    }, [updateUserStatus])
 
     const formUpdate = () => {
         return (
@@ -113,7 +122,7 @@ function ProfileCard ({ userData }) {
                             {/* user.name */}
                             <h2 className='profile-card__nickname'>{localUserData.name}</h2>
                             {/* aun no existe pero de existir que sea user.biography */}
-                            <p className='profile-card__biography'>{userData.biography}</p>
+                            <p className='profile-card__biography'>{localUserData.biografy}</p>
                         </div>
                     </>
                 )}
