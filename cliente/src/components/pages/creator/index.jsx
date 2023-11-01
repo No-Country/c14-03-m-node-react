@@ -1,20 +1,52 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsFillPlusSquareFill } from 'react-icons/bs'
+import { CreateItemApi, CreateGenreApi } from '../../../apiConnection'
+import CreateAnimeForm from './createAnimeForm'
+import toast, { Toaster } from 'react-hot-toast'
 
 function Creator () {
-   
+    const token = localStorage.getItem('token')
+    const [formSelected, setFormSelected] = useState('anime')
+
+    const [genreTitle, setGenreTitle] = useState('')
+
+    const [createItemResponse, createItemStatus, createItemFetch] = CreateItemApi()
+    const [createGenreResponse, createGenreStatus, createGenreFetch] = CreateGenreApi()
+
+    useEffect(() => {
+        if (createItemStatus.success) {
+            toast.success('Anime Creado Exitosamente')
+        }
+        if (createGenreStatus.success) {
+            toast.success('Genero Creado Exitosamente')
+        }
+    }, [createItemStatus, createGenreStatus])
+
+    const handleCreateGenre = (e) => {
+        e.preventDefault()
+        // ---POST REQUEST-------
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        }
+        createGenreFetch('', JSON.stringify({ title: genreTitle }), config)
+
+        // clear inputs
+        setGenreTitle('')
+    }
     const getFormValues = (form) => {
         const formData = new FormData(form)
-
         const values = [...formData.values()]
         const isEmpty = values.includes('')
         const data = Object.fromEntries(formData)
+
         return { isEmpty, data, formData }
     }
+
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        // const token = localStorage.getItem('token')
 
         const { isEmpty, data, formData } = getFormValues(e.currentTarget)
         if (isEmpty) {
@@ -25,28 +57,35 @@ function Creator () {
         console.log(data)
 
         // ---POST REQUEST-------
-
-        /*  const myHeaders = new Headers()
-        myHeaders.append('Content-Type', 'multipart/form-data')
-        myHeaders.append('authorization', `Bearer ${token}`)
-        createNewAnime('/animes', formData, myHeaders)
-        console.log(animes) */
+        const config = {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                Authorization: `Bearer ${token}`
+            }
+        }
+        createItemFetch('/', formData, config)
 
         // clear inputs
-        // e.currentTarget.reset()
+        e.currentTarget.reset()
     }
     return (
         <main className='creator'>
             <nav className='creator__nav'>
                 <ul className='creator__nav-list'>
                     <li className='creator__nav-item'>
-                        <button className='creator__button'>
+                        <button
+                            onClick={() => setFormSelected('genero')}
+                            className={`creator__button ${formSelected === 'genero' && 'active'}`}
+                        >
                             <BsFillPlusSquareFill/>
                         Crear genero
                         </button>
                     </li>
                     <li className='creator__nav-item'>
-                        <button className='creator__button'>
+                        <button
+                            onClick={() => setFormSelected('anime')}
+                            className={`creator__button ${formSelected === 'anime' && 'active'}`}
+                        >
                             <BsFillPlusSquareFill/>
                         Crear Anime
                         </button>
@@ -54,88 +93,31 @@ function Creator () {
                 </ul>
             </nav>
             <div>
-                <form className='creator__form' onSubmit={handleSubmit}>
-                    <label className='creator__label'>
-                        Nombre
-                        <input type="text" name='title'/>
-                    </label>
-                    <label className='creator__label'>
-                        Sinopsis
-                        <textarea
-                            className='creator__textArea'
-                            name='description'
-                            rows='5'
-                            cols='20'
-                        />
-                    </label>
-                    <fieldset>
-                        <legend className='creator__legend'>Select status</legend>
-                        <div className='creator__radio-container'>
-                            <label className='creator__label-radio'>
-                            Finished Airing
-                                <input
-                                    type="radio"
-                                    name='status'
-                                    value='Finished Airing'
-                                />
-                            </label>
-                            <label className='creator__label-radio'>
-                            Airing
-                                <input
-                                    type="radio"
-                                    name='status'
-                                    value='Airing'
-                                />
-                            </label>
-                        </div>
-                    </fieldset>
-                    <label className='creator__label'>
-                        Starting Date
-                        <input type="date" name="releaseDate" />
-                    </label>
-                    <label className='creator__label'>
-                        End Date
-                        <input type="date" name="lastepisode" />
-                    </label>
-                    <label className='creator__label' >
-                        Cover image
-                        <input type="file" accept='image/*' name='image'/>
-                    </label>
-                    {/* <fieldset>
-                        <legend className='creator__legend'>Select type</legend>
-                        <div className='creator__radio-container'>
-                            <label className='creator__label-radio'>
-                            Serie
-                                <input
-                                    type="radio"
-                                    name='type'
-                                    value='Serie'
-                                />
-                            </label>
-                            <label className='creator__label-radio'>
-                            Book
-                                <input
-                                    type="radio"
-                                    name='type'
-                                    value='Book'
-                                />
-                            </label>
-                            <label className='creator__label-radio'>
-                            Movie
-                                <input
-                                    type="radio"
-                                    name='type'
-                                    value='Movie'
-                                />
-                            </label>
-                        </div>
-                    </fieldset> */}
-                    <label className='creator__label'>
-                        Episodes
-                        <input type="number" name='episode'/>
-                    </label>
-                    <button type="submit">Submit</button>
-                </form>
+                <Toaster />
+                {
+                    formSelected === 'anime'
+                        ? (<CreateAnimeForm handleSubmit={handleSubmit}/>)
+                        : (
+                            <form className='creator__form' onSubmit={handleCreateGenre}>
+                                <label className='creator__label'>
+                                    <span>Titulo del genero</span>
+                                    <input
+                                        type="text"
+                                        name='title'
+                                        value={genreTitle}
+                                        onChange={(e) => setGenreTitle(e.target.value)}
+                                    />
+                                </label>
+                                <button
+                                    className='creator__submit-button'
+                                    type="submit"
+                                >
+                        Crear Genero
+                                </button>
+                            </form>
+                        )
+                }
+
             </div>
         </main>
     )

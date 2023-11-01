@@ -10,8 +10,7 @@ const useFetch = (baseUrl, method) => {
         setInfoApi(data)
     }
 
-
-   const handleError = (error) => {
+    const handleError = (error) => {
         setFetchStatus({ loading: false, success: false, error })
     }
 

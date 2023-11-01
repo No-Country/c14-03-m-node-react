@@ -18,12 +18,15 @@ const InputFile = ({ status }) => {
             <p>Ingresa una foto de perfil</p>
             {
                 image
-                    ? <img src={URL.createObjectURL(image)} className='input-file_preview' alt='profile image selected'/>
+                    ? typeof image === 'string'
+                        ? <img src={image} className='input-file_preview' alt='profile image selected'/>
+                        : <img src={URL.createObjectURL(image)} className='input-file_preview'alt='profile image selected'/>
                     : <div className='input-file_preview no-image'></div>
             }
             <div className='input-file_button'>
                 <button type='button' onClick={inputFileClick}>{!image ? <BsBoxArrowUp/> : <BsCheck2/>}<p>{!image ? 'Seleccionar una imagen' : 'Imagen seleccionada'}</p></button>
                 <input
+                    name='profilePicture'
                     onChange={({ target: { files } }) => handleInput(files)}
                     type='file'
                     id='input-file'
