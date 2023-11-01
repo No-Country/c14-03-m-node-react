@@ -8,7 +8,7 @@ const LastReviewItem = ({ item }) => {
             <div className="last-review-item_rating">
                 <StarRating itemScore={item.score}/>
             </div>
-            <img className='last-review-item_poster' src={item.img}/>
+            <img className='last-review-item_poster' src={item.image}/>
             <div className="last-review-item_info">
                 <div className='last-review-item_info_review'>
                     <p className="last-review-item_info_review_title">{item.titleAnime}</p>

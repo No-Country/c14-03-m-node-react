@@ -11,7 +11,7 @@ const TopItem = ({ item, index }) => {
     return (
         <div className='top-item'>
             <p className='top-item_index'>{index}</p>
-            <img src={item.img}alt='poster'/>
+            <img src={item.image}alt='poster'/>
             <div className='top-item_info'>
                 <p className='top-item_info_title'>{item.title}</p>
                 <p className='top-item_info_more'>{'12 episodios'}, {'2020'}</p>

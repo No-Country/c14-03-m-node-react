@@ -1,10 +1,10 @@
-#anime-section {
+#manga-section {
     width: 95%;
     margin: 120px auto 0;
     display: flex;
     column-gap: 50px;
 
-    .anime-section__container {
+    .manga-section__container {
         width: 75%;
 
         .catalog-search {
@@ -12,7 +12,7 @@
         }
     }
 
-    .anime-section__aside {
+    .manga-section__aside {
         width: 28%;
         
         aside {
