@@ -2,13 +2,27 @@
 /* eslint-disable quotes */
 /* eslint-disable indent */
 /* eslint-disable semi */
+const apiREsponse = {
+  id: 1,
+  title: "Konosuba",
+  description: "Mejor anime de la vida",
+  trailer: "https://www.youtube.com/watch?v=Hh27lCKW4xc&ab_channel=Animeify",
+  image: "http://localhost:8080/uploads/7d482b26b89b8d81eab386603a4dbb1d.jpg",
+  status: "Finished Airing",
+  episode: "24",
+  releaseDate: "2023-10-07",
+  lastepisode: "2023-10-28",
+  createdAt: "2023-10-31T17:04:24.024Z",
+  updatedAt: "2023-10-31T17:04:24.024Z",
+  userId: 1,
+};
 export const anime = {
   title: "Bakemonogatari",
   score: 8.33,
   image: "https://cdn.myanimelist.net/images/anime/11/75274.jpg",
   trailer_img: "https://cdn.myanimelist.net/images/anime/8/34787.jpg",
   id: 1,
-  synopsis: [
+  description: [
     "Koyomi Araragi, a third-year high school student, manages to survive a vampire attack with the help of Meme Oshino, a strange man residing in an abandoned building. Though being saved from vampirism and now a human again, several side effects such as superhuman healing abilities and enhanced vision still remain. Regardless, Araragi tries to live the life of a normal student, with the help of his friend and the class president, Tsubasa Hanekawa.",
     "When fellow classmate Hitagi Senjougahara falls down the stairs and is caught by Araragi, the boy realizes that the girl is unnaturally weightless. Despite Senjougahara's protests, Araragi insists he help her, deciding to enlist the aid of Oshino, the very man who had once helped him with his own predicament.",
     "Through several tales involving demons and gods, Bakemonogatari follows Araragi as he attempts to help those who suffer from supernatural maladies.",
@@ -115,70 +129,70 @@ export const anime = {
   ],
   recommendations: [
     {
-      title: 'Kyokou Suiri',
-      image: 'https://cdn.myanimelist.net/images/anime/1310/117188.jpg',
-      score: '6.91',
-      id: 2
+      title: "Kyokou Suiri",
+      image: "https://cdn.myanimelist.net/images/anime/1310/117188.jpg",
+      score: "6.91",
+      id: 2,
     },
     {
-      title: 'Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai',
-      image: 'https://cdn.myanimelist.net/images/anime/1301/93586.jpg',
-      score: '8.24',
-      id: 12
+      title: "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
+      image: "https://cdn.myanimelist.net/images/anime/1301/93586.jpg",
+      score: "8.24",
+      id: 12,
     },
     {
-      title: 'Yofukashi no Uta',
-      image: 'https://cdn.myanimelist.net/images/anime/1045/123711.jpg',
-      score: '7.99',
-      id: 3
+      title: "Yofukashi no Uta",
+      image: "https://cdn.myanimelist.net/images/anime/1045/123711.jpg",
+      score: "7.99",
+      id: 3,
     },
     {
-      title: 'Yahari Ore no Seishun Love Comedy wa Machigatteiru.',
-      image: 'https://cdn.myanimelist.net/images/anime/1786/120117.jpg',
-      score: '8.00',
-      id: 4
+      title: "Yahari Ore no Seishun Love Comedy wa Machigatteiru.",
+      image: "https://cdn.myanimelist.net/images/anime/1786/120117.jpg",
+      score: "8.00",
+      id: 4,
     },
     {
-      title: 'Katanagatari',
-      image: 'https://cdn.myanimelist.net/images/anime/1112/119225.jpg',
-      score: '8.31',
-      id: 5
+      title: "Katanagatari",
+      image: "https://cdn.myanimelist.net/images/anime/1112/119225.jpg",
+      score: "8.31",
+      id: 5,
     },
     {
-      title: 'Noragami',
-      image: 'https://cdn.myanimelist.net/images/anime/1886/128266.jpg',
-      score: '7.95',
-      id: 6
+      title: "Noragami",
+      image: "https://cdn.myanimelist.net/images/anime/1886/128266.jpg",
+      score: "7.95",
+      id: 6,
     },
     {
-      title: 'Grisaia no Kajitsu',
-      image: 'https://cdn.myanimelist.net/images/anime/1645/112632.jpg',
-      score: '7.48',
-      id: 7
+      title: "Grisaia no Kajitsu",
+      image: "https://cdn.myanimelist.net/images/anime/1645/112632.jpg",
+      score: "7.48",
+      id: 7,
     },
     {
-      title: 'Kami nomi zo Shiru Sekai',
-      image: 'https://cdn.myanimelist.net/images/anime/2/43361.jpg',
-      score: '7.65',
-      id: 8
+      title: "Kami nomi zo Shiru Sekai",
+      image: "https://cdn.myanimelist.net/images/anime/2/43361.jpg",
+      score: "7.65",
+      id: 8,
     },
     {
-      title: 'Nisekoi',
-      image: 'https://cdn.myanimelist.net/images/anime/13/75587.jpg',
-      score: '7.57',
-      id: 9
+      title: "Nisekoi",
+      image: "https://cdn.myanimelist.net/images/anime/13/75587.jpg",
+      score: "7.57",
+      id: 9,
     },
     {
-      title: 'Kubikiri Cycle: Aoiro Savant to Zaregotozukai',
-      image: 'https://cdn.myanimelist.net/images/anime/12/81588.jpg',
-      score: '7.76',
-      id: 10
+      title: "Kubikiri Cycle: Aoiro Savant to Zaregotozukai",
+      image: "https://cdn.myanimelist.net/images/anime/12/81588.jpg",
+      score: "7.76",
+      id: 10,
     },
     {
-      title: 'Mononoke',
-      image: 'https://cdn.myanimelist.net/images/anime/3/20713.jpg',
-      score: '8.42',
-      id: 11
+      title: "Mononoke",
+      image: "https://cdn.myanimelist.net/images/anime/3/20713.jpg",
+      score: "8.42",
+      id: 11,
     },
   ],
 };

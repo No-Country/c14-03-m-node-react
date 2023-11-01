@@ -1,6 +1,8 @@
 const catchError = require('../utils/catchError');
 const Anime = require('../models/Anime');
 const Genre = require('../models/Genre');
+const Image = require('../models/Image');
+
 
 
 
@@ -19,8 +21,29 @@ const getAll = catchError(async (req, res) => {
 const create = catchError(async (req, res) => {
     const { id } = req.user
     const { title, description, trailer, image, status, episode, releaseDate, lastepisode } = req.body
-    const body = { title, description, trailer, image, status, episode, releaseDate, lastepisode, userId: id }
-    const result = await Anime.create(body);
+    console.log(`req.user: ${JSON.stringify(req.user)}`);
+    console.log(`req.body: ${JSON.stringify(req.body)}`);
+    console.log(`req.file: ${JSON.stringify(req.file)}`);
+    let imageResult = null;
+
+    if (req.file) {
+        const { filename } = req.file;
+        const url = `${req.protocol}://${req.headers.host}/uploads/${filename}`;
+        imageResult = await Image.create({ filename, url });
+    }
+
+
+    const result = await Anime.create({
+        title,
+        description,
+        trailer,
+        image: imageResult ? `${imageResult.url}` : null,
+        status,
+        episode,
+        releaseDate,
+        lastepisode,
+        userId: id
+    });
     return res.status(201).json(result);
 });
 // En el controlador de Anime
@@ -39,7 +62,6 @@ const remove = catchError(async (req, res) => {
     if (!result) return res.sendStatus(404);
     return res.sendStatus(204);
 });
-
 const update = catchError(async (req, res) => {
     const { id } = req.params;
     const result = await Anime.update(

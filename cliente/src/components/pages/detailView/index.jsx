@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MdModeComment } from 'react-icons/md'
 import { BsPlusCircle } from 'react-icons/bs'
+import { useParams } from 'react-router-dom'
 
 import ItemDetail from '../../organisms/itemDetail'
 import InfoBox from '../../molecules/infoBox'
@@ -8,9 +9,16 @@ import DetailReviewItem from '../../molecules/detailReviewItem'
 import Carousel from '../../molecules/carousel'
 import AnimeCard from '../../molecules/animeCard'
 
+import { GetOneItemApi } from '../../../apiConnection'
 import { anime } from './mockData'
 
 function DetailView () {
+    const { id } = useParams()
+    const [getItemResponseApi, getItemStatusApi, getItemFetchApi] = GetOneItemApi(id)
+    useEffect(() => {
+        getItemFetchApi()
+    }, [])
+    console.log(id)
     return (
         <div className='detail-view'>
             <ItemDetail anime={anime} ></ItemDetail>

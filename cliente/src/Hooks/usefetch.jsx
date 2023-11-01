@@ -14,7 +14,7 @@ const useFetch = (baseUrl, method) => {
         setFetchStatus({ loading: false, success: false, error })
     }
 
-    const fetchData = (path, data, config = {}) => {
+    const fetchData = (path = '', data = {}, config = {}) => {
         setFetchStatus({ loading: true, success: false, error: null })
 
         axios({
