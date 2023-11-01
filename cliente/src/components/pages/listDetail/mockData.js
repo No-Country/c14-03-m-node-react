@@ -15,30 +15,6 @@ export const listas = [
             {
                 title: 'Citrus',
                 id: 10
-            },
-            {
-                title: 'Naruto',
-                id: 1
-            },
-            {
-                title: 'Death Note',
-                id: 5
-            },
-            {
-                title: 'Citrus',
-                id: 10
-            },
-            {
-                title: 'Naruto',
-                id: 1
-            },
-            {
-                title: 'Death Note',
-                id: 5
-            },
-            {
-                title: 'Citrus',
-                id: 10
             }
         ]
     },

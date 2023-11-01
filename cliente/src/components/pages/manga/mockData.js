@@ -110,6 +110,7 @@ export const mangas = [
         type: 'Manga'
     },
     {
+        id: 4,
         title: 'Fullmetal Alchemist',
         author: 'Hiromu Arakawa',
         year: 2001,

@@ -5,7 +5,8 @@ export default function AnimeCard ({ item }) {
     return (
         <>
             <div className='anime-card card'>
-                <a className='anime-card__link' href="#">
+                {/* aca deberia agregarse el id del item */}
+                <a className='anime-card__link' href={`/${item.type === ('TV' || 'Movie') ? 'anime' : 'manga'}/1`}>
                     <MangaCover item={item}/>
                     {
                         item.score && (
