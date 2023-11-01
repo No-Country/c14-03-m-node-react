@@ -1,21 +1,27 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
+const morgan = require('morgan')
 const router = require('./routes');
 const errorHandler = require('./utils/errorHandler');
 const ListAnime = require('./models/ListAnime');// Importa el modelo ListAnime
 require('dotenv').config();
 
-const path = require('path')
+require("dotenv").config();
+
+const path = require("path");
 
 // Esta es nuestra aplicación
 const app = express();
 
-// Middlewares 
+// Middlewares
+app.use(morgan("dev"));
 app.use(express.json());
-app.use(helmet({
+app.use(
+  helmet({
     crossOriginResourcePolicy: false,
-}));
+  })
+);
 app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'public')));

@@ -1,3 +1,5 @@
+@use '../../../Sass/variables' as *;
+
 .item-detail {
   display: flex;
   align-items: center;
@@ -33,37 +35,45 @@
           gap: 2rem;
         }
 
+        select {
+          border-radius: 8px;
+        }
+
         .item-detail__buttons {
           display: flex;
           gap: 4rem;
           align-items: center;
         }
       }
+
       .item-detail__trailer {
         position: relative;
         height: 90%;
-        min-width: fit-content ;
+        min-width: fit-content;
         aspect-ratio: 2 / 1.3;
         overflow: hidden;
         border-radius: 8px;
+
         &::before {
-            position: absolute;
-            z-index: 2;
-            content: "";
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: #44103869;
-          }
+          position: absolute;
+          z-index: 2;
+          content: "";
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background-color: #44103869;
+        }
+
         .item-detail__trailer-img {
           position: relative;
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: 0 20%;
-          
+
         }
+
         .play-button {
           position: absolute;
           z-index: 5;
@@ -71,7 +81,9 @@
           left: 50%;
           transform: translateX(-50%) translateY(-50%);
           transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          &:hover, &:focus {
+
+          &:hover,
+          &:focus {
             // transform: translateX(-50%) translateY(-50%);
             transform: scale(1.2) translateX(-40%) translateY(-40%);
           }
@@ -79,11 +91,37 @@
       }
     }
   }
+
   .item-detail__synopsis {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     height: clamp(calc(1.84rem * 5), 50%, calc(1.84rem * 7));
     overflow: scroll;
+  }
+}
+
+.addToList-form {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border: 1px solid $white;
+  border-radius: 8px;
+  background-color: rgba($dark-purple, .7);
+
+  select {
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 }

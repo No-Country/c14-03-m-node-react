@@ -15,17 +15,17 @@ routerAnime.route('/')
 
 routerAnime.route('/:id')
     .get(getOne)
-    .delete(verifyJwt, remove)
-    .put(verifyJwt, update);
+    .delete(remove)
+    .put(upload.single('image'),update);
 
 routerAnime.route('/:id/listanime')
-    .post(verifyJwt, AddLista)
+    .post(AddLista)
 
 routerAnime.route('/:id/listanimePre')
     .post(AddListaPre)
 
 routerAnime.route('/:id/genres')
-    .post(verifyJwt, AddGenre)
+    .post(AddGenre)
 
 
 

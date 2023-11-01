@@ -21,6 +21,9 @@ const getAll = catchError(async (req, res) => {
 const create = catchError(async (req, res) => {
     const { id } = req.user
     const { title, description, trailer, image, status, episode, releaseDate, lastepisode } = req.body
+    console.log(`req.user: ${JSON.stringify(req.user)}`);
+    console.log(`req.body: ${JSON.stringify(req.body)}`);
+    console.log(`req.file: ${JSON.stringify(req.file)}`);
 
     let imageResult = null;
 
@@ -60,7 +63,6 @@ const remove = catchError(async (req, res) => {
     if (!result) return res.sendStatus(404);
     return res.sendStatus(204);
 });
-
 const update = catchError(async (req, res) => {
     const { id } = req.params;
     const result = await Anime.update(
