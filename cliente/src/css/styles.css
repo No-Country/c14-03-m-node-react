@@ -714,6 +714,126 @@
   place-items: center;
 }
 
+.top-item {
+  display: flex;
+  justify-content: space-between;
+}
+.top-item_index {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+.top-item img {
+  max-width: 85px;
+  border-radius: 4px;
+}
+.top-item_info {
+  width: 40%;
+}
+.top-item_info_more {
+  padding-top: 12px;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+.top-item_button-save {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 5px;
+  color: #cb33b3;
+  cursor: pointer;
+}
+
+.last-review-item {
+  position: relative;
+  display: flex;
+  max-height: 115px;
+  column-gap: 9px;
+}
+.last-review-item_rating {
+  position: absolute;
+  right: 0;
+  border: 1px solid #CB33B3;
+  border-radius: 4px;
+}
+.last-review-item_poster {
+  max-width: 85px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.last-review-item_info {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  row-gap: 6px;
+}
+.last-review-item_info_review {
+  height: 70%;
+  overflow: hidden;
+}
+.last-review-item_info_review_title {
+  font-size: 1.7rem;
+  width: 70%;
+}
+.last-review-item_info_review_opinion {
+  padding-top: 10px;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+.last-review-item_info_data {
+  justify-content: space-between;
+}
+.last-review-item_info_data_user {
+  column-gap: 9px;
+  font-size: 1.3rem;
+}
+.last-review-item_info_data_user img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.last-review-item_info_data_date {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.last-review-item_info_data, .last-review-item_info_data_user {
+  display: flex;
+  align-items: center;
+}
+
+.item-result {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.item-result_poster {
+  position: relative;
+  transition: 0.3s all ease;
+}
+.item-result_poster img {
+  width: 160px;
+  height: 260px;
+  object-fit: cover;
+}
+.item-result_poster::before {
+  content: "";
+  background: linear-gradient(0deg, #13142D 0%, rgba(0, 0, 1, 0.01) 99.99%, rgba(0, 0, 0, 0) 100%);
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  bottom: 0;
+}
+.item-result_title {
+  transition: 0.3s all ease;
+  position: absolute;
+  bottom: 0;
+  padding: 11px 12px;
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+.item-result:hover .item-result_poster, .item-result:hover .item-result_title {
+  transform: scale(103%);
+}
+
 .profileMenu {
   position: relative;
 }
@@ -1752,6 +1872,76 @@
   transform: scale(1.1);
 }
 
+.aside-card {
+  border-radius: 8px;
+  border: 1px solid #CB33B3;
+  background: linear-gradient(161deg, rgba(144, 144, 144, 0) 0%, #13142D 100%);
+  overflow: hidden;
+}
+.aside-card_title {
+  background-color: rgba(203, 51, 180, 0.7411764706);
+  font-size: 1.5rem;
+  padding: 8px 16px;
+}
+.aside-card_container {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 16px;
+  padding: 16px 16px;
+}
+
+.catalog-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.catalog-search_container_input, .catalog-search_container_select {
+  background-color: #DDDBE9;
+  border-radius: 8px;
+  color: #8683A3;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+.catalog-search_container_input input,
+.catalog-search_container_input select, .catalog-search_container_select input,
+.catalog-search_container_select select {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.catalog-search_container_input {
+  width: 310px;
+  box-shadow: 0px 0.33885px 5.1027px 0px rgba(227, 176, 234, 0.02), 0px 0.7699px 11.59373px 0px rgba(227, 176, 234, 0.02), 0px 17px 256px 0px rgba(227, 176, 234, 0.5);
+}
+.catalog-search_container_select {
+  width: 200px;
+  box-shadow: 0px 0.33885px 5.1027px 0px rgba(227, 176, 234, 0.02), 0px 0.7699px 11.59373px 0px rgba(227, 176, 234, 0.02), 0px 17px 256px 0px rgba(227, 176, 234, 0.5);
+}
+.catalog-search_button-submit {
+  width: 4rem;
+  height: 4rem;
+  color: #CB33B3;
+  background-color: #13142D;
+  border-radius: 8px;
+  border: 1px solid #CB33B3;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+.catalog-search_button-submit:hover {
+  background-color: transparent;
+}
+
+.results-item_list {
+  margin-top: 15px;
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 28px;
+  row-gap: 28px;
+}
+
 .header-Container {
   display: flex;
   align-items: center;
@@ -2165,6 +2355,28 @@
   overflow: scroll;
 }
 
+.anime-detail .carousel {
+  width: 100%;
+}
+.anime-detail .all-animes {
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 28px;
+  row-gap: 28px;
+}
+
+.manga-detail .carousel {
+  width: 100%;
+}
+.manga-detail .all-mangas {
+  width: 100%;
+  margin: 3.5rem auto;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 28px;
+  justify-content: center;
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
@@ -2365,6 +2577,44 @@
 }
 .creator__form .creator__submit-button:focus, .creator__form .creator__submit-button:hover {
   transform: scale(1.1);
+}
+
+#anime-section {
+  width: 95%;
+  margin: 120px auto 0;
+  display: flex;
+  column-gap: 50px;
+}
+#anime-section .anime-section__container {
+  width: 75%;
+}
+#anime-section .anime-section__container .catalog-search {
+  margin-bottom: 15px;
+}
+#anime-section .anime-section__aside {
+  width: 28%;
+}
+#anime-section .anime-section__aside aside {
+  margin-bottom: 60px;
+}
+
+#manga-section {
+  width: 95%;
+  margin: 120px auto 0;
+  display: flex;
+  column-gap: 50px;
+}
+#manga-section .manga-section__container {
+  width: 75%;
+}
+#manga-section .manga-section__container .catalog-search {
+  margin-bottom: 15px;
+}
+#manga-section .manga-section__aside {
+  width: 28%;
+}
+#manga-section .manga-section__aside aside {
+  margin-bottom: 60px;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

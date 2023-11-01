@@ -1,0 +1,12 @@
+.anime-detail {
+    .carousel {
+        width: 100%;
+    }
+
+    .all-animes {
+        display: flex;
+        flex-flow: row wrap;
+        column-gap: 28px;
+        row-gap: 28px;
+    }
+}
