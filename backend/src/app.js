@@ -1,6 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
+const morgan = require('morgan')
 const router = require('./routes');
 const errorHandler = require('./utils/errorHandler');
 const ListAnime = require('./models/ListAnime');// Importa el modelo ListAnime
