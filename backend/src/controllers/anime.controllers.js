@@ -24,6 +24,7 @@ const create = catchError(async (req, res) => {
     console.log(`req.user: ${JSON.stringify(req.user)}`);
     console.log(`req.body: ${JSON.stringify(req.body)}`);
     console.log(`req.file: ${JSON.stringify(req.file)}`);
+
     let imageResult = null;
 
     if (req.file) {
@@ -82,6 +83,16 @@ const AddLista = catchError(async (req, res) => {
 
     return res.json(animes)
 });
+const AddListaPre = catchError(async (req, res) => {
+
+    const { id } = req.params;
+    const anime = await Anime.findByPk(id)
+
+    await anime.setListanimes(req.body)
+    const animes = await anime.getListanimes()
+
+    return res.json(animes)
+});
 
 const AddGenre = catchError(async (req, res) => {
     const userId = req.user.id
@@ -102,6 +113,7 @@ module.exports = {
     remove,
     update,
     AddLista,
-    AddGenre
+    AddGenre,
+    AddListaPre
 
 }
