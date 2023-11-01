@@ -6,22 +6,23 @@ const upload = require('../utils/multer');
 const routerUser = express.Router();
 
 routerUser.route('/')
-    .get(getAll)
+    .get(verifyJwt, getAll)
     .post(upload.single('profilePicture'), create)
 
 routerUser.route('/login')
     .post(login)
 
 
+
 routerUser.route('/me')
-    .get(logged)
+    .get(verifyJwt, logged)
 
 
 
 routerUser.route('/:id')
-    .get(getOne)
-    .delete(remove)
-    .put(update);
+    .get(verifyJwt, getOne)
+    .delete(verifyJwt, remove)
+    .put(upload.single('profilePicture'), verifyJwt, update);
 
 
 
