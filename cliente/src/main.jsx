@@ -19,6 +19,7 @@ import {
 } from 'react-router-dom'
 import Anime from './components/pages/anime/index.jsx'
 import Manga from './components/pages/manga/index.jsx'
+import ListDetail from './components/pages/listDetail/index.jsx'
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: '/profile',
                 element: <Profile />
+            },
+            {
+                path: '/profile/list/:idList',
+                element: <ListDetail />
             },
             {
                 path: '/comunidad',
