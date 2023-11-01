@@ -17,6 +17,8 @@ import {
     createBrowserRouter,
     RouterProvider
 } from 'react-router-dom'
+import Anime from './components/pages/anime/index.jsx'
+import Manga from './components/pages/manga/index.jsx'
 
 const router = createBrowserRouter([
     {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
             {
                 path: '/creator',
                 element: <Creator />
+            },
+            {
+                path: '/anime',
+                element: <Anime />
+            },
+            {
+                path: '/manga',
+                element: <Manga />
             }
         ]
     },
