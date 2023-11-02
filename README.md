@@ -16,7 +16,7 @@ Pagina web desarrollada por el equipo c14-03-m-node-react en el marco del cohort
 
 
 
-[![MIT License](https://img.shields.io/badge/Frontend-React-blue.svg)](https://choosealicense.com/licenses/mit/)
-[![GPLv3 License](https://img.shields.io/badge/Backend-node-green.svg)](https://opensource.org/licenses/)
+[![MIT License](https://img.shields.io/badge/Frontend-React-blue.svg)](https://es.react.dev/)
+[![GPLv3 License](https://img.shields.io/badge/Backend-node-green.svg)](https://nodejs.org/en)
 
 
