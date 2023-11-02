@@ -8,36 +8,41 @@ import ItemStatusSelector from '../../molecules/itemStatusSelector'
 import Modal from '../../atoms/modal'
 import AddToListForm from './addToListForm'
 
-import { GetAllListsApi } from '../../../apiConnection'
+import { GetAllListsApi/* , GetAllStatusApi */ } from '../../../apiConnection'
 
 function ItemDetail ({ anime }) {
     const token = localStorage.getItem('token')
     const [addToListModalOpen, setAddToListModalOpen] = useState(false)
     const [userLists, setUserLists] = useState([])
+    const [statusSelected, setStatusSelected] = useState('')
 
     const [getAllListsResponse, getAllListsStatus, getAllListsFetch] = GetAllListsApi()
+    // const [GetStatusResponse, GetStatusStatus, GetStatusFetch] = GetAllStatusApi()
 
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    }
     const addToListHandler = () => {
-        const config = {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }
         getAllListsFetch('', {}, config)
         setAddToListModalOpen(true)
     }
+
+    useEffect(() => {
+        // GetStatusFetch('', {}, config)
+
+    }, [])
     useEffect(() => {
         if (getAllListsStatus.success) {
-            console.log(getAllListsResponse)
-
             setUserLists(getAllListsResponse)
         }
     }, [getAllListsResponse])
+
     return (
         <main className='item-detail'>
             {addToListModalOpen && (
-                <Modal>
+                <Modal toClose={setAddToListModalOpen}>
                     <AddToListForm
+                        itemToAddId={anime.id}
                         userLists={userLists}
                         toCloseModal={setAddToListModalOpen}
                     />
@@ -55,7 +60,9 @@ function ItemDetail ({ anime }) {
                             </p>
                         </div>
                         <div className='item-detail__buttons' >
-                            <ItemStatusSelector></ItemStatusSelector>
+                            <ItemStatusSelector
+                                selectedStatus={[statusSelected, setStatusSelected]}
+                            />
                             <Button
                                 type='filled'
                                 text='Agregar a lista'

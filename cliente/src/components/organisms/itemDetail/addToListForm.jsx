@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
+
 import Button from '../../atoms/button'
 import { BsPlusCircle } from 'react-icons/bs'
+
+import { AddItemToListApi } from '../../../apiConnection'
 
 /*
 [
@@ -24,18 +27,25 @@ import { BsPlusCircle } from 'react-icons/bs'
         "animes": []
     }
 ] */
-function AddToListForm ({ userLists, toCloseModal }) {
+function AddToListForm ({ userLists, toCloseModal, itemToAddId }) {
+    const token = localStorage.getItem('token')
     const [selectedOption, setSelectedOption] = useState('')
+    const [addListItemResponse, addListItemStatus, addListItemFetch] = AddItemToListApi(itemToAddId)
 
     const handleOptionChange = (e) => {
         setSelectedOption(e.target.value)
     }
-
     const handleSubmit = () => {
         if (selectedOption === '') {
             toast.error('Selecciona una lista')
             return
         }
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+        addListItemFetch('/', [Number(selectedOption)], config)
         toast.success('Item agregado con exito')
         console.log('anime agregado a la lista de id: ', selectedOption)
         toCloseModal(false)
