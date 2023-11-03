@@ -315,7 +315,7 @@ export const recomendationsSample = [
     title: "Yofukashi no Uta",
     image: "https://cdn.myanimelist.net/images/anime/1045/123711.jpg",
     score: "7.99",
-    id: 3,
+    id: 5,
     info: {
       type: "TV",
     },
@@ -333,7 +333,7 @@ export const recomendationsSample = [
     title: "Katanagatari",
     image: "https://cdn.myanimelist.net/images/anime/1112/119225.jpg",
     score: "8.31",
-    id: 5,
+    id: 3,
     info: {
       type: "TV",
     },

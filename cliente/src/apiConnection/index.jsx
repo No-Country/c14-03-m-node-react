@@ -1,6 +1,6 @@
 import useFetch from '../Hooks/usefetch'
-const baseUrl = 'http://localhost:8080/api/v1'
-// const baseUrl = 'https://myanime.onrender.com/api/v1'
+// const baseUrl = 'http://localhost:8080/api/v1'
+const baseUrl = 'https://myanime.onrender.com/api/v1'
 
 // -----USER
 export function SignUpAPI () {
