@@ -7,7 +7,7 @@ export default function Footer () {
             <nav className='footer__nav'>
                 <ul className='footer__list'>
                     <li className='footer__item'><NavLink to='/terminos_de_uso'>Términos de uso</NavLink></li>
-                    <li className='footer__item'><NavLink to='/politica'>Politica de privasidad</NavLink></li>
+                    <li className='footer__item'><NavLink to='/politica'>Politica de privacidad</NavLink></li>
                     <li className='footer__item'><NavLink to='/ayuda' >Ayuda</NavLink></li>
                     <li className='footer__item'><NavLink to='/nosotros' >Sobre nosotros</NavLink></li>
                 </ul>

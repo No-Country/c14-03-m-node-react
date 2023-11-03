@@ -1,4 +1,5 @@
 @use '../../../Sass/variables' as *;
+@use '../../../Sass/media-queries' as *;
 
 .detail-view {
   width: 100vw;
@@ -13,10 +14,20 @@
     width: clamp(1000px, 70%, 1400px);
     display: flex;
     justify-content: space-between;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 4rem;
+      width: 90vw;
+    }
   }
 
   &__reviews {
     width: clamp(650px, 65%, 1000px);
+
+    @include tablet {
+      width: 90vw;
+    }
   }
 
   &__reviews-header {
@@ -49,6 +60,11 @@
     flex-direction: column;
     align-items: center;
     width: clamp(1000px, 70%, 1400px);
+
+    @include tablet {
+      width: 90vw;
+    }
+
     &-title {
       align-self: flex-start;
     }

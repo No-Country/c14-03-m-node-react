@@ -1,9 +1,21 @@
+@use '../../../Sass/media-queries' as *;
+
 .community-general{
     padding: 4.69rem 0;
+
+    @include tablet {
+        width: 90%;
+        margin: 0 auto;
+    }
 
     &__presentation {
         text-align: center;
         margin-bottom: 9.19rem;
+
+        @include tablet {
+            width: 70%;
+            margin: 0 auto 9.19rem;
+        }
 
         &_title {
             font-size: 3.5rem;
@@ -20,11 +32,33 @@
     .community-general-container {
         display: flex;
         column-gap: 16px;
+
+        @include tablet {
+            flex-direction: column-reverse;
+            row-gap: 2.5rem;
+        }
     }
         
     &__main {
+        position: relative;
         width: 60%;
-        margin: 0 auto;       
+        margin: 0 auto;    
+        
+        @include tablet {
+            width: 100%;
+            padding-top: 5rem;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 6px;
+                border-radius: 0.5rem;
+                background: linear-gradient(180deg, #CB33B3, transparent);
+                z-index: 1;
+            }
+        }
         
         .noticias-list-community {
             position: relative;
@@ -40,12 +74,20 @@
                 border-radius: 0.5rem;
                 background: linear-gradient(180deg, #CB33B3, transparent);
                 z-index: 1;
+
+                @include tablet {
+                    display: none;
+                }
             }
         }
     }
     
     &__aside {
         width: 40%;
+
+        @include tablet {
+            width: 100%;
+        }
 
         &_reviews {
             width: 100%;
@@ -54,6 +96,11 @@
                 display: flex;
                 flex-direction: column;
                 row-gap: 19px;
+
+                @include tablet {
+                    flex-direction: row;
+                    overflow-x: scroll;
+                }
 
                 .review-card {
                     max-width: none;
@@ -77,6 +124,10 @@
     &__aside_animes,
     &__aside_mangas {
         margin-bottom: 1.75rem;
+
+        @include tablet {
+            margin-bottom: 2.5rem;
+        }
 
         &_title {
             margin-bottom: 1.75rem;

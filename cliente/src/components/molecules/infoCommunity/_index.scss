@@ -1,12 +1,28 @@
+@use '../../../Sass/media-queries' as *;
+
 .info-community {
     display: flex;
     justify-content: center;
     margin-bottom: 8rem;
+
+    @include mobile {
+        flex-direction: column;
+        width: 50%;
+        margin: 0 auto;
+    }
     
     &__data {
         position: relative;
         text-align: center;
         padding: 0 8rem;
+
+        @include tablet {
+            padding: 0 4rem;
+        }
+
+        @include mobile {
+            padding: 4rem 0;
+        }
 
         &_total {
             color: #CB33B3;
@@ -27,5 +43,15 @@
         background: linear-gradient(180deg, rgba(203, 51, 179, 0.00) 0%, #CB33B3 53.65%, rgba(203, 51, 179, 0.00) 100%);
         width: 2px;
         height: 100%;
+
+        @include mobile {
+            width: 100%;
+            height: 2px;
+            top: auto;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(203, 51, 179, 0.00) 0%, #CB33B3 53.65%, rgba(203, 51, 179, 0.00) 100%);
+        }
     }
 }

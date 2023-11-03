@@ -1,9 +1,15 @@
+@use '../../../Sass/media-queries' as *;
+
 .noticia-item-community {
     border: 1px solid #CB33B3;
     border-radius: 12px;
     background: #0F1023;
     overflow: hidden;
     cursor: pointer;
+
+    @include tablet {
+        max-width: 40%;
+    }
 
     .noticia-item-img {  
         height: 100%;

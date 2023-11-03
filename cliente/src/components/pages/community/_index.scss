@@ -1,6 +1,12 @@
+@use '../../../Sass/media-queries' as *;
+
 #community {
     .sections-community {
         width: 80%;
         margin: 0 auto;
+
+        @include tablet {
+            width: 90vw;
+        }
     }
 }

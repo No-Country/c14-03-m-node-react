@@ -1,3 +1,5 @@
+@use '../../../Sass/media-queries' as *;
+
 .aside-card {
     border-radius: 8px;
     border: 1px solid #CB33B3;
@@ -13,7 +15,14 @@
     &_container {
         display: flex;
         flex-flow: column nowrap;
-        row-gap: 16px;
+        gap: 16px;
         padding: 16px 16px;
+
+        @include tablet {
+            margin: 0 auto;
+            width: 90%;
+            flex-flow: row nowrap;
+            overflow-x: scroll;
+        }
     }
 }
