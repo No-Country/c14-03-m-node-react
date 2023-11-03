@@ -2705,6 +2705,10 @@
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(227, 176, 234, 0.2) 0%, rgba(227, 176, 234, 0) 100%);
 }
+.list-detail .list-detail__cards-container {
+  display: flex;
+  gap: 1rem;
+}
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document

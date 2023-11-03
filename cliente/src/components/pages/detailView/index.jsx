@@ -10,7 +10,7 @@ import Carousel from '../../molecules/carousel'
 import AnimeCard from '../../molecules/animeCard'
 
 import { GetOneItemApi } from '../../../apiConnection'
-import { anime } from './mockData'
+// import { anime } from './mockData'
 
 function DetailView () {
     const { id } = useParams()
