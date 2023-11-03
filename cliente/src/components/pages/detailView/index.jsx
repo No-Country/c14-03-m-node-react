@@ -10,7 +10,7 @@ import Carousel from '../../molecules/carousel'
 import AnimeCard from '../../molecules/animeCard'
 
 import { GetOneItemApi } from '../../../apiConnection'
-// import { anime } from './mockData'
+import { reviewsSample, recomendationsSample } from './mockData'
 
 function DetailView () {
     const { id } = useParams()
@@ -58,8 +58,8 @@ function DetailView () {
                         to: animeApi.lastepisode
                     }
                 },
-                reviews: [],
-                recomendations: []
+                reviews: reviewsSample,
+                recomendations: recomendationsSample
             }
             console.log(estructuredData)
             setAllAnimeData(estructuredData)
