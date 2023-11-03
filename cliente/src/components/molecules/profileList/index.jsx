@@ -31,7 +31,6 @@ function ProfileList ({ userData }) {
     const [createListResponse, createListStatus, createListFetch] = CreateListApi()
     const [getAllListsResponse, getAllListsStatus, getAllListsFetch] = GetAllListsApi()
 
-    console.log(lists);
     useEffect(() => {
         listsButton.current.classList.add('active')// pone por default el active a la lista lists
 
@@ -47,7 +46,21 @@ function ProfileList ({ userData }) {
     useEffect(() => {
         if (getAllListsStatus.success) {
             console.log(getAllListsResponse)
-            setLists(getAllListsResponse)
+            const withAnimesLists = getAllListsResponse.map((dbList) => {
+                const listId = dbList.id
+                console.log('id de la lista: ', listId)
+                const localList = JSON.parse(localStorage.getItem(`list${listId}`))
+                if (dbList.id === localList?.id && dbList.userId === localList?.userId) {
+                    return { ...dbList, animes: localList.animes }
+                } else {
+                    return { ...dbList }
+                }
+            })
+            // entrar a cada lista y traer su respectiva lista de local
+            // agregar el array de animes y hacer un push a la cont withAnimesList
+            // cuando se haya terminado de agregar las listas se define como estado de Lists
+            // probar como hacerlo funcion AddLocalListData para usarlo en otros lados
+            setLists(withAnimesLists)
         }
     }, [getAllListsStatus])
 
@@ -59,11 +72,16 @@ function ProfileList ({ userData }) {
                     Authorization: `Bearer ${token}`
                 }
             }
+            const localList = {
+                id: createListResponse.id,
+                userId: createListResponse.userId,
+                animes: []
+            }
+            localStorage.setItem(`list${createListResponse.id}`, JSON.stringify(localList))
+            // Crear el local storage de la lista con el id de la lista, el id del usuario y una lista de ids de anime y titulos
 
             getAllListsFetch('', '', config)
             toast.success('Lista Creada')
-
-            // Aqui debriamos actualizar el array de Listas para que se refleje en la UI
         }
     }, [createListStatus])
 

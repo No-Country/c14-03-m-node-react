@@ -3,4 +3,8 @@
     margin: 120px auto;
     border-radius: 8px;
     background: linear-gradient(180deg, rgba(227, 176, 234, 0.20) 0%, rgba(227, 176, 234, 0.00) 100%);
+    .list-detail__cards-container{
+        display: flex;
+        gap: 1rem;
+    }
 }
