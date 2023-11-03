@@ -1,3 +1,9 @@
+@use '../../../Sass/media-queries' as *;
+
 .community-hero {
     margin-bottom: 100px;
+
+    @include mobile {
+        margin-bottom: 10px;
+    }
 }

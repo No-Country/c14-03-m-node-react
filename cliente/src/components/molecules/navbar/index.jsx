@@ -1,6 +1,6 @@
 import React from 'react'
 import NavItem from '../../atoms/NavItem'
-export default function NavBar () {
+export default function NavBar ({ navbar }) {
     const navItems = [
         {
             name: 'Anime',
@@ -16,7 +16,7 @@ export default function NavBar () {
         }
     ]
     return (
-        <nav className='navbar-container'>
+        <nav className={`navbar-container ${navbar && 'isActive'}`}>
             <ul className='navbar__list'>
                 {navItems.map(navItem =>
                     (<NavItem name={navItem.name} link={navItem.link} key={navItem.name}/>)

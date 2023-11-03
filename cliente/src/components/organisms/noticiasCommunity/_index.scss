@@ -1,3 +1,5 @@
+@use '../../../Sass//media-queries' as *;
+
 .noticias-community {
     padding: 3.44rem 0;
     
@@ -23,12 +25,21 @@
         
         &_main {
             width: 50%;
+
+            @include tablet {
+                width: 30%;
+            }
             
             &_list {
                 position: relative;
                 display: flex;
+                align-items: center;
                 flex-direction: column;
                 row-gap: 19px;
+
+                .noticia-item-community {
+                    max-width: none;
+                }
             }
         }
         
@@ -38,6 +49,10 @@
             .noticias-list-community {
                 position: relative;
                 padding-left: 20px;
+
+                @include tablet {
+                    padding-left: 0;
+                }
 
                 &::before {
                         content: "";

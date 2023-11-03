@@ -1,3 +1,5 @@
+@use '../../../Sass/media-queries' as *;
+
 .item-result {
     position: relative;
     border-radius: 8px;
@@ -10,6 +12,11 @@
             width: 160px;
             height: 260px;
             object-fit: cover;
+
+            @include tablet {
+                width: 120px;
+                height: 220px;
+            }
         }
         &::before {
             content: "";

@@ -1,8 +1,14 @@
+@use '../../../Sass/media-queries' as *;
+
 .last-review-item {
     position: relative;
     display: flex;
     max-height: 115px;
     column-gap: 9px;
+
+    @include tablet {
+        gap: 20px;
+    }
 
     &_rating {
         position: absolute;
@@ -56,6 +62,10 @@
             &_date {
                 font-size: 1.2rem;
                 font-weight: 300;
+                
+                @include tablet {
+                    display: none;
+                }
             }
         }
 

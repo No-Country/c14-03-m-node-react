@@ -1,11 +1,22 @@
+@use '../../../Sass/media-queries' as *;
+
 .form {
     display: flex;
     flex-flow: column nowrap;
     width: 30vw;
     margin-bottom: clamp(2rem, 10vh, 4rem);
+
+    @include tablet {
+        width: 100%;
+        padding: 10px 56px 56px;
+    }
     
     &-login {
         margin-bottom: clamp(5rem, 20vh, 15rem);
+        
+        @include tablet {
+            margin-bottom: 0;
+        }
     }
     .form-title {
         font-size: 3rem;
@@ -34,6 +45,7 @@
 
         display: flex;
         justify-content: center;
+        align-items: flex-end;
         column-gap: 5px;
         font-weight: 500;
 

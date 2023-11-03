@@ -1,11 +1,22 @@
+@use '../../../Sass/media-queries' as *;
+
 #anime-section {
     width: 95%;
     margin: 120px auto 0;
     display: flex;
     column-gap: 50px;
 
+    @include tablet {
+        flex-direction: column-reverse;
+    }
+
     .anime-section__container {
         width: 75%;
+
+        @include tablet {
+            width: 90vw;
+            margin: 0 auto;
+        }
 
         .catalog-search {
             margin-bottom: 15px;
@@ -15,8 +26,17 @@
     .anime-section__aside {
         width: 28%;
         
+        @include tablet {
+            width: 90vw;
+            margin: 0 auto;
+        }
+
         aside {
             margin-bottom: 60px;
+
+            @include tablet {
+                margin-bottom: 20px;
+            }
         }
     }
 }

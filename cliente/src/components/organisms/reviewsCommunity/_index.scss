@@ -1,3 +1,5 @@
+@use '../../../Sass//media-queries' as *;
+
 .reviews-community {
     padding: 3.44rem 0;
     
@@ -21,6 +23,11 @@
         display: flex;
         column-gap: 16px;
 
+        @include tablet {
+            flex-direction: column-reverse;
+            row-gap: 20px;
+        }
+
         &_last-reviews {
             width: 100%;
         }
@@ -28,11 +35,21 @@
         &_more-opinions {
             width: 15%;
 
+            @include tablet {
+                width: 100%;
+            }
+
             &_list {
                 display: flex;
                 flex-flow: column nowrap;
                 align-items: center;
                 row-gap: 16px;
+
+                @include tablet {
+                    flex-flow: row nowrap;
+                    overflow-x: scroll;
+                    column-gap: 16px;
+                }
 
                 .poster-community {
                     width: 100%;

@@ -1,3 +1,5 @@
+@use '../../../Sass/media-queries' as *;
+
 .hero-info {
   position: relative;
   z-index: 5;
@@ -6,12 +8,21 @@
   gap: 17px;
   width: clamp(300px, 50%, 600px);
 
+  @include tablet {
+    width: auto;
+    align-items: center;
+  }
+
   &__title {
     width: 80%;
     text-wrap: wrap;
     font-size: 7rem;
     font-weight: 400;
     font-style: italic;
+
+    @include mobile {
+      font-size: 4rem;
+    }
   }
   &__data {
     display: flex;

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { HomeProvider } from '../../../context/homecontext'
 import HeroHomePage from '../../organisms/heroHomePage'
 import Carousel from '../../molecules/carousel'
@@ -9,7 +9,7 @@ import HomeBottomBanner from '../../molecules/homeBottomBanner'
 import ReviewCard from '../../molecules/reviewCard'
 import NoticiaCard from '../../molecules/noticiaCard'
 
-import { cards, trailers, reseñas, noticias } from './mockData'
+import { trailers, reseñas, noticias } from './mockData'
 import { GeneralContext } from '../../../context/main'
 
 function Home () {

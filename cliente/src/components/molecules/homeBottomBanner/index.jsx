@@ -9,7 +9,7 @@ function HomeBottomBanner () {
             </picture>
             <div className='banner__content-container'>
                 <header className='banner__header'>
-                    <h3 className='banner__title'>Revisa Todo nuestro catálogo</h3>
+                    <h3 className='banner__title'>Revisa todo nuestro catálogo</h3>
                 </header>
                 <div className='banner__buttons-container'>
                     <Button text='Anime' type='light' className='button-banner' ></Button>

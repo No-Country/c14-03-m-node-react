@@ -1,8 +1,6 @@
 import React from 'react'
 
 const NoticiaItemCommunity = ({ item }) => {
-    console.log(item)
-
     return (
         <div className="noticia-item-community">
             <picture className='noticia-item-img'>

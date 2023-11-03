@@ -1,3 +1,5 @@
+@use '../../../Sass/media-queries' as *;
+
 .list-container {
     position: relative;
     display: flex;
@@ -6,6 +8,10 @@
     align-items: center;
     padding: 55px 90px;
     gap: 30px;
+
+    @include tablet {
+        padding: 55px 55px;
+    }
 
     .back-to-profile {
         position: absolute;
@@ -48,6 +54,10 @@
         font-size: 4rem;
         font-weight: 700;
         margin-bottom: 10px;
+
+        @include tablet {
+            margin-top: 50px;
+        }
     }
 
     &_description {
