@@ -56,7 +56,7 @@ function ItemDetail ({ anime }) {
                         <div className='item-detail__short-info'>
                             <StarRating itemScore={anime.score}/>
                             <p className='item-detail__genres'>
-                                {anime.info.genres.map((genre) => genre.name).join(', ')}
+                                {anime.info.genres}
                             </p>
                         </div>
                         <div className='item-detail__buttons' >
@@ -73,18 +73,19 @@ function ItemDetail ({ anime }) {
                         </div>
                     </header>
                     <picture className='item-detail__trailer'>
-                        <img className='item-detail__trailer-img' src={anime.trailer_img} alt={`trailer de ${anime.title}`} />
+                        <img className='item-detail__trailer-img' src={anime.banner_img} alt={`trailer de ${anime.title}`} />
                         <Button className='play-button' text='Play'>
                             <AiOutlinePlayCircle />
                         </Button>
                     </picture>
                 </div>
                 <section className='item-detail__synopsis'>
-                    {anime.description.map((paragraph) => (
+                    {/* {anime.description.map((paragraph) => (
                         <p key={paragraph.length} className='item-detail__text'>
                             {paragraph}
                         </p>
-                    ))}
+                    ))} */}
+                    <p className='item-detail__text'>{anime.description}</p>
                 </section>
             </section>
         </main>
