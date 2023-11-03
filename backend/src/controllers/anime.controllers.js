@@ -77,7 +77,10 @@ const AddLista = catchError(async (req, res) => {
     const userId = req.user.id
     const { id } = req.params;
     const anime = await Anime.findByPk(id, { where: { userId } })
-
+    
+    console.log(`User id : ${req.user.id}`);
+    console.log(`Item id : ${req.params.id}`);
+    console.log(`Body  : ${req.body}`);
     await anime.setListanimes(req.body)
     const animes = await anime.getListanimes()
 
