@@ -5,6 +5,7 @@ const Anime = require('../models/Anime');
 
 const getAll = catchError(async (req, res) => {
     const userId = req.user.id
+    console.log(`UserId: ${userId}`);
     const results = await ListAnime.findAll({
         where: { userId },
         include: [
