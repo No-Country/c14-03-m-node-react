@@ -146,7 +146,7 @@ export const animes = [
         author: 'Daisuke Hagiwara',
         year: 2016,
         genre: 'Romance',
-        image: 'https://pics.filmaffinity.com/Your_Name-406681275-large.jpg',
+        image: 'https://cdn.myanimelist.net/images/anime/5/87048l.jpg',
         Status: 'Finished',
         Episode: 25,
         type: 'TV'
