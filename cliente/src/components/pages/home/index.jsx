@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { HomeProvider } from '../../../context/homecontext'
 import HeroHomePage from '../../organisms/heroHomePage'
 import Carousel from '../../molecules/carousel'
@@ -8,16 +8,20 @@ import Section from '../../molecules/section'
 import HomeBottomBanner from '../../molecules/homeBottomBanner'
 import ReviewCard from '../../molecules/reviewCard'
 import NoticiaCard from '../../molecules/noticiaCard'
-import { cards, trailers, reseñas, noticias } from './mockData'
+
+import { trailers, reseñas, noticias } from './mockData'
+import { GeneralContext } from '../../../context/main'
 
 function Home () {
+    const { animeApiData } = useContext(GeneralContext)
+
     return (
         <main className='home-container'>
             <HomeProvider>
                 <HeroHomePage/>
                 <Section title='Tendencias de Anime & Manga'>
                     <Carousel>
-                        {cards.map((item) => (
+                        {animeApiData.map((item) => (
                             <AnimeCard key={item.title} item={item}/>
                         ))}
                     </Carousel>

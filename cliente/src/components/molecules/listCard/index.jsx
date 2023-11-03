@@ -1,12 +1,29 @@
 import React, { useEffect, useState } from 'react'
+import GetOneItemInfo from './getOneItem'
+import IndividualListCard from './ListCard'
 import AnimeCard from '../animeCard'
+
 import { animes } from '../../organisms/animeDetail/mockData'
 import { mangas } from '../../pages/manga/mockData'
 
-const ListCard = ({ item }) => {
-    const [itemInfo, setItemInfo] = useState([])
+const ListCard = ({ list }) => {
+    console.log(list)
+    /*
+    const [animesList, setAnimesList] = useState([])
+    const [animesListDB, setAnimesListDB] = useState(null)
+    const [animesListLocal, setAnimesListLocal] = useState(null)
 
+    // animeList debe ser un array de los animes
+    const animeObj = GetOneItemInfo(1)
     useEffect(() => {
+        const animesArray = list.animes.map(anime => {
+            if (animeObj) {
+                return animeObj
+            }
+        })
+    }, []) */
+    // solicitar animes en la lista haciendo un map de list.animes
+    /* useEffect(() => {
         // deberia filtrar los animes y mangas que estan en la db
         const filterItem = async () => {
             let prueba = animes.filter(anime => anime.id === item.id)
@@ -17,13 +34,13 @@ const ListCard = ({ item }) => {
         }
         filterItem()
             .then(res => setItemInfo(res))
-    }, [setItemInfo])
+    }, [setItemInfo]) */
 
     return (
-        <div>
+        <div className='list-detail__cards-container'>
             {
-                itemInfo.map(item => {
-                    return <AnimeCard key={item.id} item={item} />
+                list.animes.map(item => {
+                    return <IndividualListCard key={item} id={item} />
                 })
             }
         </div>

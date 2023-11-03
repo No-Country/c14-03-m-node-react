@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { BsFillPlusSquareFill } from 'react-icons/bs'
-import { CreateItemApi, CreateGenreApi } from '../../../apiConnection'
-import CreateAnimeForm from './createAnimeForm'
 import toast, { Toaster } from 'react-hot-toast'
+
+import CreateAnimeForm from './createAnimeForm'
+import ComplementaryForm from './complementaryForm'
+
+import { CreateItemApi, CreateGenreApi } from '../../../apiConnection'
 
 function Creator () {
     const token = localStorage.getItem('token')
     const [formSelected, setFormSelected] = useState('anime')
 
     const [genreTitle, setGenreTitle] = useState('')
+    const [mainInfoDone, setMainInfoDone] = useState(false)
 
     const [createItemResponse, createItemStatus, createItemFetch] = CreateItemApi()
     const [createGenreResponse, createGenreStatus, createGenreFetch] = CreateGenreApi()
 
     useEffect(() => {
         if (createItemStatus.success) {
-            toast.success('Anime Creado Exitosamente')
+            toast.success('informacion Base Agregada')
+            setMainInfoDone(true)
         }
         if (createGenreStatus.success) {
             toast.success('Genero Creado Exitosamente')
@@ -45,7 +50,7 @@ function Creator () {
         return { isEmpty, data, formData }
     }
 
-    const handleSubmit = (e) => {
+    const handleMainSubmit = (e) => {
         e.preventDefault()
 
         const { isEmpty, data, formData } = getFormValues(e.currentTarget)
@@ -96,7 +101,12 @@ function Creator () {
                 <Toaster />
                 {
                     formSelected === 'anime'
-                        ? (<CreateAnimeForm handleSubmit={handleSubmit}/>)
+                        ? !mainInfoDone
+                            ? (<CreateAnimeForm handleSubmit={handleMainSubmit}/>)
+                            : (<ComplementaryForm
+                                idAnime={createItemResponse}
+                                setDone={setMainInfoDone}
+                            />)
                         : (
                             <form className='creator__form' onSubmit={handleCreateGenre}>
                                 <label className='creator__label'>

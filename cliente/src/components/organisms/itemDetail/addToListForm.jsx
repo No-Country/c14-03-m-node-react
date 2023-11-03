@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
+
 import Button from '../../atoms/button'
 import { BsPlusCircle } from 'react-icons/bs'
+
+// import { AddItemToListApi } from '../../../apiConnection'
 
 /*
 [
@@ -24,18 +27,37 @@ import { BsPlusCircle } from 'react-icons/bs'
         "animes": []
     }
 ] */
-function AddToListForm ({ userLists, toCloseModal }) {
+function AddToListForm ({ userLists, toCloseModal, itemToAddId }) {
+    // const token = localStorage.getItem('token')
     const [selectedOption, setSelectedOption] = useState('')
+    // const [addListItemResponse, addListItemStatus, addListItemFetch] = AddItemToListApi(itemToAddId)
 
     const handleOptionChange = (e) => {
         setSelectedOption(e.target.value)
     }
-
     const handleSubmit = () => {
         if (selectedOption === '') {
             toast.error('Selecciona una lista')
             return
         }
+        /* const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+        addListItemFetch('/', [Number(selectedOption)], config) */
+        // Traer lista de local usando el id de selectedOption
+        const localList = JSON.parse(localStorage.getItem(`list${selectedOption}`))
+        // Verificar que el id del anime no esta ya en la lista si ya Esta mostrar alerta y return
+        if (localList.animes.includes(itemToAddId)) {
+            toast.error('Ya tienes esta serie agregada a esa lista')
+            return
+        }
+        // Agregar a esa lista el id del anime itemToAddId
+        localList.animes.push(itemToAddId)
+        // Subir la localList actualizada con el anime
+        localStorage.setItem(`list${selectedOption}`, JSON.stringify(localList))
+
         toast.success('Item agregado con exito')
         console.log('anime agregado a la lista de id: ', selectedOption)
         toCloseModal(false)

@@ -20,7 +20,7 @@ export const anime = {
   title: "Bakemonogatari",
   score: 8.33,
   image: "https://cdn.myanimelist.net/images/anime/11/75274.jpg",
-  trailer_img: "https://cdn.myanimelist.net/images/anime/8/34787.jpg",
+  banner_img: "https://cdn.myanimelist.net/images/anime/8/34787.jpg",
   id: 1,
   description: [
     "Koyomi Araragi, a third-year high school student, manages to survive a vampire attack with the help of Meme Oshino, a strange man residing in an abandoned building. Though being saved from vampirism and now a human again, several side effects such as superhuman healing abilities and enhanced vision still remain. Regardless, Araragi tries to live the life of a normal student, with the help of his friend and the class president, Tsubasa Hanekawa.",
@@ -133,66 +133,99 @@ export const anime = {
       image: "https://cdn.myanimelist.net/images/anime/1310/117188.jpg",
       score: "6.91",
       id: 2,
+      info: {
+        type: "TV",
+      },
     },
     {
       title: "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
       image: "https://cdn.myanimelist.net/images/anime/1301/93586.jpg",
       score: "8.24",
       id: 12,
+      info: {
+        type: "TV",
+      },
     },
     {
       title: "Yofukashi no Uta",
       image: "https://cdn.myanimelist.net/images/anime/1045/123711.jpg",
       score: "7.99",
       id: 3,
+      info: {
+        type: "TV",
+      },
     },
     {
       title: "Yahari Ore no Seishun Love Comedy wa Machigatteiru.",
       image: "https://cdn.myanimelist.net/images/anime/1786/120117.jpg",
       score: "8.00",
       id: 4,
+      info: {
+        type: "TV",
+      },
     },
     {
       title: "Katanagatari",
       image: "https://cdn.myanimelist.net/images/anime/1112/119225.jpg",
       score: "8.31",
       id: 5,
+      info: {
+        type: "TV",
+      },
     },
     {
       title: "Noragami",
       image: "https://cdn.myanimelist.net/images/anime/1886/128266.jpg",
       score: "7.95",
       id: 6,
+      info: {
+        type: "TV",
+      },
     },
     {
       title: "Grisaia no Kajitsu",
       image: "https://cdn.myanimelist.net/images/anime/1645/112632.jpg",
       score: "7.48",
       id: 7,
+      info: {
+        type: "TV",
+      },
     },
     {
       title: "Kami nomi zo Shiru Sekai",
       image: "https://cdn.myanimelist.net/images/anime/2/43361.jpg",
       score: "7.65",
       id: 8,
+      info: {
+        type: "TV",
+      },
     },
     {
       title: "Nisekoi",
       image: "https://cdn.myanimelist.net/images/anime/13/75587.jpg",
       score: "7.57",
       id: 9,
+      info: {
+        type: "TV",
+      },
     },
     {
       title: "Kubikiri Cycle: Aoiro Savant to Zaregotozukai",
       image: "https://cdn.myanimelist.net/images/anime/12/81588.jpg",
       score: "7.76",
       id: 10,
+      info: {
+        type: "TV",
+      },
     },
     {
       title: "Mononoke",
       image: "https://cdn.myanimelist.net/images/anime/3/20713.jpg",
       score: "8.42",
       id: 11,
+      info: {
+        type: "TV",
+      },
     },
   ],
 };
