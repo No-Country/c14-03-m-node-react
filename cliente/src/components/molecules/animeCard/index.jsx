@@ -1,12 +1,17 @@
 import React from 'react'
 import StarRating from '../../atoms/starRating'
 import MangaCover from '../../atoms/mangaCover'
+
 export default function AnimeCard ({ item }) {
     return (
         <>
             <div className='anime-card card'>
                 {/* aca deberia agregarse el id del item */}
-                <a className='anime-card__link' href={`/${item.type === ('TV' || 'Movie') ? 'anime' : 'manga'}/1`}>
+                <a className='anime-card__link' href={`/${
+                    item.info
+                        ? item.info.type === ('TV' || 'Movie') ? 'anime' : 'manga'
+                        : item.type === ('TV' || 'Movie') ? 'anime' : 'manga'
+                }/${item.id}`}>
                     <MangaCover item={item}/>
                     {
                         item.score && (

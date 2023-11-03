@@ -19,7 +19,7 @@ function HeroCarousel () {
     return (
         <article className='carousel-hero'>
             <picture className='carousel-hero__image-container'>
-                <img className='carousel-hero__image' src={carouselItems[indexItemSelected].poster_img} alt="" />
+                <img className='carousel-hero__image' src={carouselItems[indexItemSelected].image} alt="" />
             </picture>
             <div className='carousel-hero__sliders-container'>
                 {carouselItems.map((item, index) => (

@@ -6,6 +6,7 @@ export const HomeContext = createContext({})
 export function HomeProvider ({ children }) {
     const [carouselItems, setCarouselItems] = useState([])
     const [indexItemSelected, setIndexItemSelected] = useState(0)
+
     const values = {
         carouselItems,
         setCarouselItems,

@@ -19,7 +19,7 @@ function HeroInfo () {
                         {itemSelected.genres.join(', ')}
                     </p>
                 </div>
-                <p className='hero-info__synopsis'>{itemSelected.synopsis}</p>
+                <p className='hero-info__synopsis'>{itemSelected.description}</p>
                 <div className='hero-info__buttons'>
                     <Button text={'Agregar a la lista'} type='filled'>
                         <AiOutlinePlus/>

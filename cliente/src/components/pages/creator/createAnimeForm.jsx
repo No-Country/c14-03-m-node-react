@@ -53,35 +53,6 @@ function CreateAnimeForm ({ handleSubmit }) {
           Trailer Link
                 <input type="url" name='trailer'/>
             </label>
-            {/* <fieldset>
-          <legend className='creator__legend'>Select type</legend>
-          <div className='creator__radio-container'>
-              <label className='creator__label-radio'>
-              Serie
-                  <input
-                      type="radio"
-                      name='type'
-                      value='Serie'
-                  />
-              </label>
-              <label className='creator__label-radio'>
-              Book
-                  <input
-                      type="radio"
-                      name='type'
-                      value='Book'
-                  />
-              </label>
-              <label className='creator__label-radio'>
-              Movie
-                  <input
-                      type="radio"
-                      name='type'
-                      value='Movie'
-                  />
-              </label>
-          </div>
-      </fieldset> */}
             <label className='creator__label'>
           Episodes
                 <input type="number" name='episode'/>
