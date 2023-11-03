@@ -1,6 +1,12 @@
+@use '../../../Sass/media-queries' as *;
+
 .top-item {
     display: flex;
     justify-content: space-between;
+
+    @include tablet {
+        gap: 20px;
+    }
 
     &_index {
         font-weight: 600;

@@ -1,19 +1,36 @@
 @use '../../../Sass/variables' as *;
+@use '../../../Sass/media-queries' as *;
 
 .banner {
   position: relative;
-  width: 100%;
+  width: 90vw;
+  background: linear-gradient(140deg, rgba($dark-blue, .5) 0%, rgba($contrast-pink, .9) 100%, );
+  border-radius: 5rem;
   height: 90vh;
   padding: 0 4rem;
   margin: 2rem 0;
   display: flex;
   align-items: flex-end;
 
+  @include tablet {
+    height: 30vh;
+    justify-content: center;
+  }
+
   &__image-container {
     position: absolute;
     bottom: 0;
     height: 100%;
     width: 40%;
+
+    @include tablet {
+      position: relative;
+      width: auto;
+    }
+
+    @include mobile {
+      display: none;
+    }
 
     .banner__image {
       width: 100%;
@@ -28,9 +45,23 @@
     grid-template-columns: 55% minmax(300px, 40%);
     grid-template-rows: repeat(2, 1fr);
     width: 100%;
-    height: 70%;
-    background: linear-gradient(140deg, rgba($dark-blue, .5) 0%, rgba($contrast-pink, .9) 100%, );
+    height: 100%;
     border-radius: 5rem;
+
+    @include tablet {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      gap: 20px;
+      width: 50%;
+    }
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      padding-right: 0;
+      width: auto;
+    }
 
     .banner__header {
       grid-column: 2 / 3;
@@ -41,6 +72,14 @@
         font-size: 4rem;
         font-weight: bold;
         text-align: center;
+
+        @include tablet {
+          font-size: 3rem;
+        }
+
+        @include mobile {
+          font-size: 2rem;
+        }
       }
     }
 
@@ -51,14 +90,22 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
+
+      @include tablet {
+        gap: 10px;
+      }
+
       .button-banner {
         font-size: 2.8rem;
         width: 50%;
         display: grid;
         place-items: center;
+
+        @include mobile {
+          font-size: 1.5rem;
+        }
         .button__text {
           letter-spacing: 5px;
-
         }
       }
     }

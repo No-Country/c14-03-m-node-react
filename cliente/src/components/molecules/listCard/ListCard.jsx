@@ -5,7 +5,7 @@ import MangaCover from '../../atoms/mangaCover'
 import { GetOneItemApi } from '../../../apiConnection'
 
 export default function IndividualListCard ({ id }) {
-  console.log(id);
+    console.log(id)
     const [getItemResponseApi, getItemStatusApi, getItemFetchApi] = GetOneItemApi(id)
     const [animeApi, setAnimeApi] = useState(null)
     const [animeLocal, setAnimeLocal] = useState(null)

@@ -1,4 +1,5 @@
 @use '../../../Sass/variables' as *;
+@use '../../../Sass/media-queries' as *;
 
 .hero {
   position: relative;
@@ -19,6 +20,13 @@
     height: 70%;
     padding: 0 4rem 4rem 4rem ;
     z-index: 3;
+
+    @include tablet {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: space-around;
+      text-align: center;
+    }
 
     &::before {
       content: "";

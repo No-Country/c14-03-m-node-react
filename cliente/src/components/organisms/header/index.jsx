@@ -4,8 +4,10 @@ import SearchInput from '../../atoms/searchInput'
 import ProfileMenu from '../../molecules/profileMenu'
 import { NavLink } from 'react-router-dom'
 import { GeneralContext } from '../../../context/main'
+import { BsList } from 'react-icons/bs'
 
 function Header () {
+    const [navbar, setNavbar] = useState(false)
     const { setIsUserLogged } = useContext(GeneralContext)
     const [userOnLocal, setUserOnLocal] = useState(JSON.parse(localStorage.getItem('user')))
     useEffect(() => {
@@ -26,12 +28,15 @@ function Header () {
     return (
         <header className='header-Container'>
             <p className='header__title'>
-                <NavLink to='/'>MyListsManager</NavLink>
+                <NavLink to='/'>Radar Anime</NavLink>
             </p>
-            <NavBar/>
-            <div className='header__rigth'>
-                <SearchInput/>
-                <ProfileMenu/>
+            <div className='navbar-options'>
+                <button className='button_navbar-options' onClick={() => setNavbar(!navbar)}><BsList/></button>
+                <NavBar navbar={navbar}/>
+                <div className='header__rigth'>
+                    <SearchInput/>
+                    <ProfileMenu/>
+                </div>
             </div>
         </header>
     )

@@ -1,8 +1,13 @@
+@use '../../../Sass/media-queries' as *;
+
 .slider-community {
     position: relative;
     margin-top: 27px;
     width: 98.75vw;
 
+    @include tablet {
+        display: none;
+    }
 
     .slider-community-infinite {
         position: relative;

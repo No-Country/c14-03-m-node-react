@@ -7,6 +7,12 @@
     background-color: $white;
     border-radius: 5px;
     height:60px;
+    transition: .3s all ease-in;
+
+    &:hover {
+        background-color: #C3B3BF;
+    }
+
     &__flex{
         display: flex;
         gap:10px;
