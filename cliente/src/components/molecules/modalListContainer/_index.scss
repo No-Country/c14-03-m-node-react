@@ -1,0 +1,32 @@
+@use '../../../Sass/variables' as *;
+
+.modal-content__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: rgba($white, .5);
+  height: fit-content;
+  min-height: 300px;
+  max-height: 600px;
+  border-radius: 8px;
+  width: clamp(300px, 60%, 1000px);
+
+  .modal-content__list-container {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .modal-content__item {
+    height: 200px;
+  }
+
+  .modal-content__title {
+    color: $dark-purple;
+  }
+}

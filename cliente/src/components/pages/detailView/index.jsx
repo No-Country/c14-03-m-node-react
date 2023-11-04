@@ -8,9 +8,12 @@ import InfoBox from '../../molecules/infoBox'
 import DetailReviewItem from '../../molecules/detailReviewItem'
 import Carousel from '../../molecules/carousel'
 import AnimeCard from '../../molecules/animeCard'
+import ReviewForm from './reviewForm'
 
 import { GetOneItemApi } from '../../../apiConnection'
 import { reviewsSample, recomendationsSample } from './mockData'
+
+import Modal from '../../atoms/modal'
 
 function DetailView () {
     const { id } = useParams()
@@ -22,6 +25,13 @@ function DetailView () {
     const [animeApi, setAnimeApi] = useState(null)
     const [animeLocal, setAnimeLocal] = useState(null)
     const [allAnimeData, setAllAnimeData] = useState(null)
+
+    const [reviewFormModalOpen, setReviewFormModalOpen] = useState(false)
+
+    const handleCreateReviewButton = (e) => {
+        e.preventDefault()
+        setReviewFormModalOpen(true)
+    }
 
     useEffect(() => {
         getItemFetchApi()
@@ -68,6 +78,11 @@ function DetailView () {
 
     return (
         <div className='detail-view'>
+            {reviewFormModalOpen && (
+                <Modal toClose={setReviewFormModalOpen}>
+                    <ReviewForm />
+                </Modal>
+            )}
             {!allAnimeData
                 ? (<p>Cargando...</p>)
                 : (
@@ -81,7 +96,10 @@ function DetailView () {
                                         <MdModeComment />
                                 Reseñas
                                     </h3>
-                                    <button className='detail-view__add-review-button'>
+                                    <button
+                                        onClick={handleCreateReviewButton}
+                                        className='detail-view__add-review-button'
+                                    >
                                         <BsPlusCircle />
                             Escribir reseña
                                     </button>

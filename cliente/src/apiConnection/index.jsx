@@ -61,3 +61,10 @@ export function GetAllGenresApi () {
     const getAllGenresApi = useFetch(`${baseUrl}/genres`, 'GET')
     return (getAllGenresApi)
 }
+
+// ----- Reseñas
+
+export function CreateReviewApi () {
+    const createReviewApi = useFetch(`${baseUrl}/reviews`, 'POST')
+    return (createReviewApi)
+}

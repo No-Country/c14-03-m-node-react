@@ -4,11 +4,6 @@ import { GetAllItemApi, GetAllGenresApi } from '../apiConnection'
 export const GeneralContext = createContext({})
 
 // eslint-disable-next-line react/prop-types
-function randomScore () {
-    const numeroAleatorio = Math.random()
-    const numeroEnRango = (numeroAleatorio * 9 + 1).toFixed(1)
-    return numeroEnRango
-}
 export function GeneralProvider ({ children }) {
     const token = localStorage.getItem('token')
     const [getAllItemsResponse, getAllItemsStatus, getAllItemsFetch] = GetAllItemApi()
@@ -46,7 +41,6 @@ export function GeneralProvider ({ children }) {
             const animeData = animeApiInfo.map((anime) => {
                 return {
                     ...anime,
-                    score: randomScore(),
                     type: 'TV',
                     studios: [
                         {
