@@ -70,3 +70,20 @@
     }
   }
 }
+.review-form {
+  position: relative;
+  z-index: 10;
+  margin-top: 9rem;
+  display: flex;
+  flex-direction: column;
+
+  button {
+    color: $white;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

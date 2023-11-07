@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import StarRating from '../../atoms/starRating'
 import MangaCover from '../../atoms/mangaCover'
+import { NavLink } from 'react-router-dom'
 
 import { GetOneItemApi } from '../../../apiConnection'
 
@@ -61,7 +62,7 @@ export default function IndividualListCard ({ id }) {
             <div className='anime-card card'>
                 {allAnimeData
                     ? (
-                        <a className='anime-card__link' href={`/${
+                        <NavLink className='anime-card__link' to={`/${
                             allAnimeData.info
                                 ? allAnimeData.info.type === ('TV' || 'Movie') ? 'anime' : 'manga'
                                 : allAnimeData.type === ('TV' || 'Movie') ? 'anime' : 'manga'
@@ -75,7 +76,7 @@ export default function IndividualListCard ({ id }) {
                                 )
                             }
                             <p className='anime-card__title'>{allAnimeData.title}</p>
-                        </a>
+                        </NavLink>
                     )
                     : (
                         <p>...Cargando</p>
