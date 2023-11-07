@@ -20,3 +20,7 @@ Pagina web desarrollada por el equipo c14-03-m-node-react en el marco del cohort
 [![GPLv3 License](https://img.shields.io/badge/Backend-node-green.svg)](https://nodejs.org/en)
 
 
+## Figma
+
+[![Figma](https://img.shields.io/badge/Figma%20-8A2BE2)](https://www.figma.com/file/S6gdnlmJvlAXCwktMtVLTc/MyAnimeList?type=design&node-id=0-1&mode=design&t=XsxkKwOCx3hjl8M9-0)
+
